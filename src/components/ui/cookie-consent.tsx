@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { getCookie, setCookie } from "@/lib/cookies";
 
 type ConsentPrefs = {
@@ -87,7 +88,7 @@ export default function CookieConsent() {
                 </button>
               </div>
               <p className="mt-3 text-xs text-gray-600 text-center">
-                Read our <a href="/privacy" className="underline">Privacy Policy</a>
+                Read our <Link href="/privacy" className="underline">Privacy Policy</Link>
               </p>
             </div>
           </div>
@@ -96,4 +97,3 @@ export default function CookieConsent() {
     </div>
   );
 }
-

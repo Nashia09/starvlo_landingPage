@@ -9,10 +9,8 @@ import FaqAccordion from "@/components/ui/faq-accordion";
 import Footer from "@/components/ui/footer";
 import FeaturesSection from "@/components/features/features-section";
 import VideoCTASection from "@/components/ui/video-cta-section";
-import StickyScroll from "@/components/ui/sticky-scroll";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 import { MacbookScroll } from "@/components/ui/macbook-scroll";
-import WebsiteGenerator from "@/components/ui/website-generator";
 import AnimatedPinDemo from "@/components/ui/3d-pin-demo";
 
 
