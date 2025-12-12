@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  
+  /* Font variables */
+  --font-primary: var(--font-outfit), system-ui, sans-serif;
+  --font-secondary: var(--font-montserrat), system-ui, sans-serif;
+  --font-accent: var(--font-poppins), system-ui, sans-serif;
+  --color-primary: #7CBECE;
+  --color-primary-light: #A1D1D8;
+  --color-primary-dark: #5A9BA5;
+}
+
+.light {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* Dark theme removed */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-primary);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Remove this media query to prevent automatic dark mode based on system preference */
+/* We want to use our ThemeProvider instead */
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-secondary);
+  overflow-x: hidden;
+}
+
+/* Custom font classes */
+.font-primary {
+  font-family: var(--font-primary);
+}
+
+.font-secondary {
+  font-family: var(--font-secondary);
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+}
+
+/* Hero heading styling */
+.hero-heading {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+/* Button text */
+.button-text {
+  font-family: var(--font-accent);
+  font-weight: 600;
+}
+
+/* Additional scrollbar hiding for all browsers */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none !important;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Hide scrollbars globally for feature cards */
+.animate-scroll-seamless::-webkit-scrollbar,
+.animate-scroll::-webkit-scrollbar {
+  display: none !important;
+}
+
+.animate-scroll-seamless,
+.animate-scroll {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+  overflow: visible !important;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 2));
+  }
+}
+
+@keyframes scrollSeamless {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 3));
+  }
+}
+
+.animate-scroll {
+  animation: scroll 40s linear infinite;
+  will-change: transform;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+.animate-scroll-seamless {
+  animation: scrollSeamless 60s linear infinite;
+  will-change: transform;
+}
+
+.animate-scroll-seamless:hover {
+  animation-play-state: paused;
+}
+
+/* Line clamp utilities */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Background grid pattern */
+.bg-grid-black {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(0 0 0 / 0.05)'%3e%3cpath d='m0 .5h32m-32 32v-32'/%3e%3c/svg%3e");
+}
+
+.bg-grid-white {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(255 255 255 / 0.05)'%3e%3cpath d='m0 .5h32m-32 32v-32'/%3e%3c/svg%3e");
+}
+
+/* Performance optimizations for sticky scroll animations */
+.sticky-scroll-optimized {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+.will-change-transform-opacity {
+  will-change: transform, opacity;
+}
+
+/* GPU acceleration for smooth animations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .motion-reduce {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

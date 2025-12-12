@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(20, 20)">
+    <!-- Box base -->
+    <path d="M20 80L60 100L100 80L60 60L20 80Z" fill="#FFB74D"/>
+    <path d="M60 60L100 80V40L60 20V60Z" fill="#FFA726"/>
+    <path d="M20 80V40L60 20V60L20 80Z" fill="#FF9800"/>
+    
+    <!-- PDF icon -->
+    <g transform="translate(65, 15) scale(0.8)">
+      <rect x="0" y="0" width="30" height="40" rx="2" fill="#F44336"/>
+      <text x="15" y="25" font-family="Arial" font-size="12" fill="white" text-anchor="middle">PDF</text>
+    </g>
+    
+    <!-- Excel icon -->
+    <g transform="translate(45, 25) scale(0.8)">
+      <rect x="0" y="0" width="30" height="40" rx="2" fill="#4CAF50"/>
+      <text x="15" y="25" font-family="Arial" font-size="12" fill="white" text-anchor="middle">XLS</text>
+    </g>
+  </g>
+</svg> 
