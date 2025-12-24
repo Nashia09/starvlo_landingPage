@@ -75,20 +75,9 @@ export default function HomePage() {
       <div className="">
         <HeroSection />
       </div>
-      <MacbookScroll
-        screens={[
-          { src: "/assets/dashshots/Screenshot 2025-12-01 at 11.22.30 PM.png", label: "Leads" },
-          { src: "/assets/dashshots/Screenshot 2025-12-01 at 11.24.53 PM.png", label: "Funnels" },
-          { src: "/assets/dashshots/Screenshot 2025-12-01 at 11.26.38 PM.png", label: "Settings" },
-          { src: "/assets/dashshots/Screenshot 2025-12-01 at 11.32.35 PM.png", label: "Automations" },
-          { src: "/assets/dashshots/sc1.png", label: "Overview" },
-          { src: "/assets/dashshots/sc2.png", label: "Dashboard" },
-          { src: "/assets/dashshots/Screenshot 2025-12-01 at 11.01.44 PM.png", label: "Insights" },
-          { src: "/assets/dashshots/Screenshot 2025-12-01 at 11.10.48 PM.png", label: "Reports" },
-          { src: "/assets/dashshots/Screenshot 2025-12-01 at 11.20.52 PM.png", label: "Visitors" },
-        ]}
-        showGradient={false}
-      />
+      
+      <MacbookScroll src="/assets/onboarding.mp4" showGradient={false} />
+        
       {/* <StickyScroll />  */}
       <div className="space-y-24 py-12">
         <section id="features">
