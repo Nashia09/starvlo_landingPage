@@ -63,10 +63,10 @@ export default function Footer() {
           <div className="xl:col-span-1">
             <div className="flex items-center gap-2">
               <div className="size-7 rounded-full bg-gradient-to-br from-[#7CBECE] to-[#5A9BA5]" />
-              <h1 className="text-xl font-bold">LeadCapture</h1>
+              <h1 className="text-xl font-bold">Starvlo</h1>
             </div>
             <p className="mt-4 text-base text-gray-500 dark:text-gray-400">
-              Turn your website visitors into high-quality leads. Identify the companies behind the clicks.
+              Capture leads. Automate follow-up. Close more sales.
             </p>
             <div className="mt-6 flex space-x-4">
               {socialLinks.map((item, index) => (
@@ -92,7 +92,7 @@ export default function Footer() {
                     {group.links.map((link, linkIdx) => (
                       <li key={linkIdx}>
                         <a
-                          href={link.href}
+                          href={link.name === 'Pricing' ? '/pricing' : link.name === 'Features' ? '/#features' : link.href}
                           className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300"
                         >
                           {link.name}
@@ -113,7 +113,7 @@ export default function Footer() {
                     {group.links.map((link, linkIdx) => (
                       <li key={linkIdx}>
                         <a
-                          href={link.href}
+                          href={link.name === 'Contact' ? '/contact' : link.name === 'About' ? '/about' : link.href}
                           className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300"
                         >
                           {link.name}
@@ -125,11 +125,11 @@ export default function Footer() {
               ))}
             </div>
           </div>
-        </div>
-        <div className="mt-12 border-t border-gray-200 pt-8 dark:border-gray-800">
+          <div className="mt-12 border-t border-gray-200 pt-8 dark:border-gray-800">
           <p className="text-center text-sm text-gray-500 dark:text-gray-400">
-            &copy; {currentYear} LeadCapture, Inc. All rights reserved.
+            &copy; {currentYear} Starvlo, Inc. All rights reserved.
           </p>
+          </div>
         </div>
       </div>
     </footer>

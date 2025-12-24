@@ -27,7 +27,7 @@ export default function OurMissionPage() {
                 transition={{ duration: 0.6, delay: 0.05 }}
                 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white"
               >
-                Turn anonymous traffic into meaningful connections
+                Capture Leads. Automate Follow-Up. Close More Sales.
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
@@ -35,7 +35,7 @@ export default function OurMissionPage() {
                 transition={{ duration: 0.6, delay: 0.15 }}
                 className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300"
               >
-                We help teams reveal the companies behind every visit and act on real intent. Marketing focuses on engaged accounts, sales starts conversations sooner, and revenue teams move with confidence.
+                We help teams reveal the companies behind every visit, capture qualified leads, and automate timely follow-up. Marketing focuses on engaged accounts, sales starts conversations sooner, and revenue grows with consistency.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 16 }}

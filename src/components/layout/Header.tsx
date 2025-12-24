@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Header() {
   return (
@@ -7,8 +8,16 @@ export default function Header() {
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <Link href="/" className="text-primary text-2xl font-bold">
-                AI Lead Capture
+              <Link href="/" className="flex items-center gap-2">
+                <Image
+                  src="/assets/logo.png"
+                  alt="Starvlo logo"
+                  width={32}
+                  height={32}
+                  className="rounded-md"
+                  priority={false}
+                />
+                <span className="text-2xl font-bold text-black">Starvlo</span>
               </Link>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">

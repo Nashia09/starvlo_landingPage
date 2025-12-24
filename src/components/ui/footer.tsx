@@ -3,48 +3,31 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 const currentYear = new Date().getFullYear();
 
 const footerLinks = [
   {
-    title: "Product",
+    title: "Legal",
     links: [
-      { name: "Features", href: "#" },
-      { name: "Integrations", href: "#" },
-      { name: "Pricing", href: "#" },
-      { name: "Changelog", href: "#" },
-      { name: "API", href: "#" },
+      { name: "Privacy", href: "/privacy" },
+      { name: "Terms", href: "/terms" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { name: "Blog", href: "#" },
-      { name: "Guides", href: "#" },
-      { name: "Help Center", href: "#" },
-      { name: "Webinars", href: "#" },
-      { name: "Academy", href: "#" },
+      { name: "Blog", href: "/blog" },
+      { name: "Help Center", href: "/help" },
     ],
   },
   {
     title: "Company",
     links: [
-      { name: "About", href: "#" },
-      { name: "Customers", href: "#" },
+      { name: "About", href: "/about" },
       { name: "Careers", href: "#" },
-      { name: "Contact", href: "#" },
-      { name: "Partners", href: "#" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { name: "Privacy", href: "#" },
-      { name: "Terms", href: "#" },
-      { name: "Security", href: "#" },
-      { name: "GDPR", href: "#" },
-      { name: "Sitemap", href: "#" },
+      { name: "Contact", href: "/contact" },
     ],
   },
 ];
@@ -102,12 +85,11 @@ export default function Footer() {
           {/* Company info */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <Image src="/assets/logo.png" alt="Starvlo logo" width={40} height={40} className="rounded" />
-              <span className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#7CBECE] to-[#5A9BA5] bg-clip-text text-transparent">Starvlo</span>
+              <Image src="/assets/logo.png" alt="Logo" width={80} height={80} className="rounded-md" />
             </div>
             
             <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md">
-              Starvlo helps businesses build AI-powered websites and generate high-quality leads. Start converting your website visitors into customers today.
+              Capture leads. Automate follow-up. Close more sales.
             </p>
             
             <div className="flex space-x-4 mb-8">
@@ -123,20 +105,7 @@ export default function Footer() {
               ))}
             </div>
             
-            <div className="flex flex-col space-y-3">
-              <a href="#" className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline font-medium">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
-                </svg>
-                Visit our demo site
-              </a>
-              <a href="#" className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline font-medium">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2">
-                  <path strokeLinecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                </svg>
-                Watch product video
-              </a>
-            </div>
+            
           </div>
           
           {/* Mobile accordions */}
@@ -177,12 +146,12 @@ export default function Footer() {
                   <ul className="mt-2 space-y-2 pl-2">
                     {group.links.map((link, linkIndex) => (
                       <li key={linkIndex}>
-                        <a
-                          href={link.href}
+                        <Link
+                          href={link.name === 'Pricing' ? '/pricing' : link.name === 'Features' ? '/#features' : link.name === 'Contact' ? '/contact' : link.name === 'About' ? '/about' : link.href}
                           className="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 text-sm"
                         >
                           {link.name}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -200,12 +169,12 @@ export default function Footer() {
               <ul className="space-y-3">
                 {group.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <a
-                      href={link.href}
+                    <Link
+                      href={link.name === 'Pricing' ? '/pricing' : link.name === 'Features' ? '/#features' : link.name === 'Contact' ? '/contact' : link.name === 'About' ? '/about' : link.href}
                       className="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 text-sm"
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -216,21 +185,15 @@ export default function Footer() {
         <div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 dark:text-gray-400 text-sm">
-              &copy; {currentYear} Starvlo. All rights reserved.
+              &copy; {currentYear} Starvlo LLC. All rights reserved.
             </p>
             <div className="mt-4 md:mt-0 flex flex-wrap gap-4 text-sm">
-              <a href="#" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">
+              <Link href="/privacy" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">
+              </Link>
+              <Link href="/terms" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">
                 Terms of Service
-              </a>
-              <a href="#" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">
-                Cookies Policy
-              </a>
-              <span className="text-gray-500 dark:text-gray-400">
-                Made with ❤️ in New York
-              </span>
+              </Link>
             </div>
           </div>
         </div>

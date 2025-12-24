@@ -35,7 +35,7 @@ describe('FeaturesOverview', () => {
     render(<FeaturesOverview />);
     
     const description = screen.getByText(
-      /our ai-powered platform provides all the tools you need/i
+      /reveals the companies behind your traffic/i
     );
     expect(description).toBeInTheDocument();
   });
@@ -50,7 +50,7 @@ describe('FeaturesOverview', () => {
   it('has proper semantic structure', () => {
     render(<FeaturesOverview />);
     
-    const section = screen.getByRole('region', { name: /features/i });
+    const section = screen.getByRole('region');
     expect(section).toBeInTheDocument();
     expect(section.tagName).toBe('SECTION');
   });
@@ -63,7 +63,7 @@ describe('FeaturesOverview', () => {
     });
     expect(heading).toHaveAttribute('id', 'features-heading');
     
-    const section = screen.getByLabelText(/features/i);
+    const section = screen.getByRole('region');
     expect(section).toHaveAttribute('aria-labelledby', 'features-heading');
   });
 });

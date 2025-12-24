@@ -8,9 +8,10 @@ interface SlugPageClientProps {
   title: string;
   subtitle: string;
   content: string[];
+  html?: string;
 }
 
-export default function SlugPageClient({ title, subtitle, content }: SlugPageClientProps) {
+export default function SlugPageClient({ title, subtitle, content, html }: SlugPageClientProps) {
   return (
     <div className="min-h-screen bg-white">
       <div className="relative overflow-hidden py-16 sm:py-24">
@@ -33,19 +34,26 @@ export default function SlugPageClient({ title, subtitle, content }: SlugPageCli
               {subtitle}
             </motion.p>
           </div>
-          <div className="mx-auto mt-6 max-w-prose text-gray-500">
-            {content.map((paragraph, index) => (
-              <motion.p
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 + (index * 0.1) }}
-                className="mt-8 font-secondary"
-              >
-                {paragraph}
-              </motion.p>
-            ))}
-          </div>
+          {html ? (
+            <div
+              className="mx-auto mt-6 max-w-3xl text-gray-900 prose"
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
+          ) : (
+            <div className="mx-auto mt-6 max-w-prose text-gray-500">
+              {content.map((paragraph, index) => (
+                <motion.p
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 + (index * 0.1) }}
+                  className="mt-8 font-secondary"
+                >
+                  {paragraph}
+                </motion.p>
+              ))}
+            </div>
+          )}
         </div>
       </div>
       

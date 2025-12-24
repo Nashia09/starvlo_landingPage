@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import LoginForm from '@/components/auth/LoginForm';
 import SignupForm from '@/components/auth/SignupForm';
@@ -8,6 +8,15 @@ import AuthIllustration from '@/components/auth/AuthIllustration';
 
 export default function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
+
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '').toLowerCase();
+    if (hash === 'signup' || hash === 'register') {
+      setIsLogin(false);
+    } else if (hash === 'login' || hash === 'signin') {
+      setIsLogin(true);
+    }
+  }, []);
 
   return (
     <div className="flex min-h-screen">

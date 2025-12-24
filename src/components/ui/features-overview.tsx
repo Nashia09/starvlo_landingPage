@@ -87,7 +87,7 @@ export default function FeaturesOverview() {
             className="text-gray-600 dark:text-gray-300 mx-auto max-w-[700px] md:text-lg lg:text-xl leading-relaxed"
             variants={itemVariants}
           >
-            Our AI-powered platform provides all the tools you need to build websites and capture qualified leads.
+            Starvlo reveals the companies behind your traffic, captures qualified leads, and automates follow‑up to drive conversions.
           </motion.p>
         </motion.div>
 
@@ -99,4 +99,3 @@ export default function FeaturesOverview() {
     </section>
   );
 }
-

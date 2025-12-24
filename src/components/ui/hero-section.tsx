@@ -2,7 +2,12 @@
 
 
 import React, { useRef } from "react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import Lottie from "lottie-react";
+import sceneAnimation from "../../../public/assets/Scene.json";
 
 interface HeroTextProps {
   text: string;
@@ -53,7 +58,7 @@ const HeroText = ({
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const sceneAnimationData: Record<string, unknown> = sceneAnimation as Record<string, unknown>;
 
   return (
     <section className="w-full mb-16 bg-gradient-to-br from-[#2E91A5] to-[#237C8E]" ref={containerRef}>
@@ -70,40 +75,33 @@ export default function HeroSection() {
                   className="flex flex-col items-start space-y-4 sm:space-y-8"
                 >
                   <HeroText
-                    text="Launch your website in hours, not days"
+                    text="Your Leads Are Wasting Away. Starvlo Turns Them Into Sales."
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter hero-heading text-left mb-2 sm:mb-4"
                   />
 
                   <p
                     className="text-lg sm:text-xl md:text-2xl text-white/90 font-secondary mb-4 sm:mb-6"
                   >
-                    Don’t have a website? Generate one from our platform and start capturing leads immediately.
+                    Capture leads, automate follow-up, and convert more visitors — all with Starvlo.
                   </p>
 
-                  <form
-                    action="/website-builder"
-                    method="get"
-                    className="flex w-full sm:w-auto flex-col sm:flex-row gap-3 sm:gap-4 mt-4 sm:mt-8"
-                  >
-                    <div className="flex w-full sm:w-[18rem] items-center rounded-lg border border-[#7CBECE] bg-white shadow-sm">
-                      <span className="px-3 py-2.5 text-sm sm:text-base text-gray-700 whitespace-nowrap">starvlo/</span>
-                      <input
-                        type="text"
-                        name="handle"
-                        aria-label="Your Starvlo handle"
-                        placeholder="yourname"
-                        pattern="[a-zA-Z0-9-]+"
-                        className="flex-1 px-3 py-2.5 text-sm sm:text-base outline-none placeholder:text-gray-400"
-                        required
-                      />
-                    </div>
-                    <button
-                      type="submit"
-                      className="w-full sm:w-auto bg-[#7CBECE] text-white hover:bg-[#5A9BA5] px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg button-text text-sm sm:text-base"
+                  <div className="flex w-full sm:w-auto flex-col sm:flex-row gap-3 sm:gap-4 mt-4 sm:mt-8">
+                    <Link
+                      href="/#pricing"
+                      className="w-full sm:w-auto relative overflow-hidden bg-white/15 text-white backdrop-blur-md border border-white/30 hover:bg-white/25 px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl button-text text-base sm:text-lg shadow-lg ring-1 ring-white/40 transition-all duration-300 hover:-translate-y-0.5"
                     >
-                      Get started for free
-                    </button>
-                  </form>
+                      <span className="inline-flex items-center gap-2">
+                        Get Started
+                        <motion.span
+                          animate={{ x: [0, 8, 0] }}
+                          transition={{ repeat: Infinity, repeatType: "loop", duration: 1.5, ease: "easeInOut" }}
+                          className="inline-flex"
+                        >
+                          <ArrowRight className="w-5 h-5" />
+                        </motion.span>
+                      </span>
+                    </Link>
+                  </div>
                 </div>
 
                 <div
@@ -112,14 +110,10 @@ export default function HeroSection() {
                   <div
                     className="relative w-full max-w-[650px] aspect-[4/5]"
                   >
-                    <video
-                      ref={videoRef}
-                      src="/assets/Scene.webm"
-                      autoPlay
+                    <Lottie
+                      animationData={sceneAnimationData}
                       loop
-                      muted
-                      playsInline
-                      preload="metadata"
+                      autoplay
                       className="w-full h-full object-cover"
                     />
                   </div>

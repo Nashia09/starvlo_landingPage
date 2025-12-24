@@ -19,17 +19,17 @@ const LeadCaptureLogo = () => {
   return (
     <Link
       href="/"
-      className="relative z-20 mr-12 flex items-center space-x-3 px-2 py-1 text-base md:text-lg font-semibold text-black flex-shrink-0"
+      className="relative z-20 mr-12 flex items-center text-black flex-shrink-0"
     >
       <Image
         src="/assets/logo.png"
         alt="Starvlo logo"
         width={40}
         height={40}
-        priority={false}
-        className="rounded-md"
+        sizes="40px"
+        priority
+        className="rounded-md origin-left scale-[2] sm:scale-[2.25] md:scale-[2.5] lg:scale-[2.75]"
       />
-      <span className="font-bold text-base md:text-xl bg-gradient-to-r from-[#7CBECE] to-[#5A9BA5] bg-clip-text text-transparent">Starvlo</span>
     </Link>
   );
 };
@@ -93,6 +93,28 @@ export default function NavbarDemo() {
 
                 </MenuItem>
               </Link>
+              <Link href="/pricing">
+                <MenuItem
+                  setActive={setActive}
+                  active={active}
+                  item="Pricing"
+                  isActive={isNavItemActive('/pricing')}
+                  href="/pricing"
+                >
+
+                </MenuItem>
+              </Link>
+              <Link href="/contact">
+                <MenuItem
+                  setActive={setActive}
+                  active={active}
+                  item="Contact"
+                  isActive={isNavItemActive('/contact')}
+                  href="/contact"
+                >
+
+                </MenuItem>
+              </Link>
               <Link href="/our-mission">
                 <MenuItem
                   setActive={setActive}
@@ -104,22 +126,12 @@ export default function NavbarDemo() {
 
                 </MenuItem>
               </Link>
-              <Link href="/news">
-                <MenuItem
-                  setActive={setActive}
-                  active={active}
-                  item="News"
-                  isActive={isNavItemActive('/news')}
-                  href="/news"
-                >
-
-                </MenuItem>
-              </Link>
             </Menu>
           </div>
 
           <div className="flex items-center gap-4 flex-shrink-0">
             <NavbarButton href="/auth" variant="secondary">Login</NavbarButton>
+            <NavbarButton href="/auth#signup" variant="gradient">Sign Up</NavbarButton>
           </div>
         </NavBody>
 
@@ -149,6 +161,28 @@ export default function NavbarDemo() {
               <span className="block">Home</span>
             </Link>
             <Link
+              href="/pricing"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`relative block py-2 px-4 rounded-lg transition-colors ${
+                isNavItemActive('/pricing')
+                  ? 'text-[#7CBECE] bg-[#7CBECE]/10 font-medium'
+                  : 'text-neutral-600 dark:text-neutral-300 hover:bg-gray-100'
+              }`}
+            >
+              <span className="block">Pricing</span>
+            </Link>
+            <Link
+              href="/contact"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`relative block py-2 px-4 rounded-lg transition-colors ${
+                isNavItemActive('/contact')
+                  ? 'text-[#7CBECE] bg-[#7CBECE]/10 font-medium'
+                  : 'text-neutral-600 dark:text-neutral-300 hover:bg-gray-100'
+              }`}
+            >
+              <span className="block">Contact</span>
+            </Link>
+            <Link
               href="/our-mission"
               onClick={() => setIsMobileMenuOpen(false)}
               className={`relative block py-2 px-4 rounded-lg transition-colors ${
@@ -158,17 +192,6 @@ export default function NavbarDemo() {
               }`}
             >
               <span className="block">Our Mission</span>
-            </Link>
-            <Link
-              href="/news"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className={`relative block py-2 px-4 rounded-lg transition-colors ${
-                isNavItemActive('/news')
-                  ? 'text-[#7CBECE] bg-[#7CBECE]/10 font-medium'
-                  : 'text-neutral-600 dark:text-neutral-300 hover:bg-gray-100'
-              }`}
-            >
-              <span className="block">News</span>
             </Link>
             {navItems.map((item, idx) => (
               <Link
@@ -188,6 +211,14 @@ export default function NavbarDemo() {
                 className="w-full"
               >
                 Login
+              </NavbarButton>
+              <NavbarButton
+                href="/auth#signup"
+                onClick={() => setIsMobileMenuOpen(false)}
+                variant="gradient"
+                className="w-full"
+              >
+                Sign Up
               </NavbarButton>
               <NavbarButton
                 href="/contact"

@@ -7,7 +7,12 @@ import CookieConsent from "@/components/ui/cookie-consent";
 
 export const metadata: Metadata = {
   title: "Starvlo - Identify Your Website Visitors",
-  description: "Turn website visitors into high-quality leads. Identify the companies behind the clicks.",
+  description: "Capture Leads. Automate Follow-Up. Close More Sales.",
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && {
+    verification: {
+      google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    },
+  }),
 };
 
 export default function RootLayout({

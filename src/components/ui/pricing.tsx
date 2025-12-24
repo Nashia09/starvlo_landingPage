@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { IconCheck } from "@tabler/icons-react";
+import Link from "next/link";
 
 export default function Pricing() {
   const [annual, setAnnual] = useState(true);
@@ -145,7 +146,8 @@ export default function Pricing() {
               </ul>
             </div>
             <div className="mt-8">
-              <button
+              <Link
+                href={tier.name === "Enterprise" ? "/contact#enterprise" : "/auth#signup"}
                 className={`${
                   tier.mostPopular
                     ? "bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
@@ -153,7 +155,7 @@ export default function Pricing() {
                 } w-full rounded-md px-4 py-2.5 text-center text-sm font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
               >
                 {tier.cta}
-              </button>
+              </Link>
             </div>
           </motion.div>
         ))}

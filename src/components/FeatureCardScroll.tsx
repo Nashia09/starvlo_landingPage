@@ -3,18 +3,18 @@ import FeatureCard from './FeatureCard';
 
 const features = [
   {
-    title: "Digital Products",
-    description: "Create and sell eBooks, templates, guides, and more.",
+    title: "Lead Capture Forms",
+    description: "Capture qualified leads with high‑conversion forms and enriched company data.",
     image: "/features/digital-box.png"
   },
   {
-    title: "Calendar Bookings",
-    description: "Host personalized 1:1 sessions through easy coaching calls.",
+    title: "Automated Follow‑Up",
+    description: "Trigger timely emails and CRM tasks based on real visitor intent.",
     image: "/features/calendar-app.png"
   },
   {
-    title: "Live Chat",
-    description: "Connect with your audience in real-time through integrated messaging.",
+    title: "Real‑Time Chat",
+    description: "Engage high‑intent visitors instantly and route conversations to sales.",
     image: "/features/chat-bubble.png"
   },
   {
@@ -28,13 +28,13 @@ const features = [
     image: "/features/analytics-chart.png"
   },
   {
-    title: "Website Builder",
-    description: "Create beautiful, responsive websites with our drag-and-drop builder.",
+    title: "Visitor Identification",
+    description: "Reveal the companies behind your website traffic and prioritize outreach.",
     image: "/features/website-builder.png"
   },
   {
-    title: "Email Marketing",
-    description: "Automate your email campaigns and nurture your leads effectively.",
+    title: "Email Automation",
+    description: "Automate sequences that nurture leads and escalate high intent.",
     image: "/features/email-campaign.png"
   },
   {

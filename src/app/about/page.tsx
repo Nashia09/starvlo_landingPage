@@ -17,7 +17,7 @@ export default function AboutPage() {
               transition={{ duration: 0.5 }}
               className="mt-2 text-center text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl dark:text-white"
             >
-              About LeadCapture
+              About Starvlo
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -25,7 +25,7 @@ export default function AboutPage() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="mt-8 text-xl leading-8 text-gray-500 dark:text-gray-400"
             >
-              LeadCapture is revolutionizing how businesses identify and convert website visitors into qualified leads.
+              Starvlo helps businesses capture more leads, automate follow-up, and convert anonymous visitors into customers.
             </motion.p>
           </div>
           <div className="mx-auto mt-6 max-w-prose text-gray-500 dark:text-gray-400">

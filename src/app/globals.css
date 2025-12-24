@@ -43,6 +43,14 @@ body {
   overflow-x: hidden;
 }
 
+/* Pointer cursor for clickable elements */
+a,
+button,
+[role="button"],
+.cursor-pointer {
+  cursor: pointer;
+}
+
 /* Custom font classes */
 .font-primary {
   font-family: var(--font-primary);
@@ -59,8 +67,16 @@ body {
 /* Hero heading styling */
 .hero-heading {
   font-family: var(--font-primary);
-  font-weight: 700;
-  letter-spacing: -0.025em;
+}
+
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 6s ease infinite;
 }
 
 /* Button text */

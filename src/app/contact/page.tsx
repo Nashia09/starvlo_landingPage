@@ -23,7 +23,7 @@ export default function ContactPage() {
               Get in <span className="text-[#7CBECE]">Touch</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Have questions about LeadCapture? Our team is here to help you transform your business with our AI-powered platform.
+              Have questions about Starvlo? Our team can help you capture more leads, automate follow-up, and close more sales.
             </p>
           </motion.div>
         </div>
@@ -63,7 +63,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Email</h4>
-                      <p className="text-gray-600">info@leadcapture.com</p>
+                      <p className="text-gray-600">info@starvlo.com</p>
                     </div>
                   </div>
 
@@ -105,7 +105,7 @@ export default function ContactPage() {
                   <h3 className="text-xl font-bold text-white">Book a Demo</h3>
                 </div>
                 <p className="text-white/90 mb-6">
-                  Want to see LeadCapture in action? Schedule a personalized demo with our product specialists.
+                  Want to see Starvlo in action? Schedule a personalized demo with our product specialists.
                 </p>
                 <button className="w-full bg-white font-semibold py-3 px-6 rounded-lg hover:bg-gray-50 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl border border-gray-200">
                   <span className="text-[#7CBECE] font-semibold">Schedule Demo</span>

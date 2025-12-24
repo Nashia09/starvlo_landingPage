@@ -1,41 +1,34 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const faqs = [
   {
-    question: "What is LeadCapture?",
-    answer: "LeadCapture is an AI-powered platform that helps businesses build optimized websites and capture qualified leads. Our tools include an AI website builder, lead generation forms, visitor identification, and more.",
+    question: "What is Starvlo?",
+    answer: "Starvlo is a lead capture platform that identifies the companies behind your website traffic, automates timely follow-up, and helps convert more visitors into customers.",
   },
   {
-    question: "How does the AI website builder work?",
-    answer: "Our AI website builder creates professional websites tailored to your business in minutes. Simply enter your business details, select your industry, and our AI will generate a complete website optimized for lead generation.",
+    question: "How does Starvlo identify website visitors?",
+    answer: "We use IP intelligence, first‑party data, and our continuously updated company database to reveal which businesses are visiting your site—without identifying individuals.",
   },
   {
-    question: "Can I identify companies visiting my website?",
-    answer: "Yes, our visitor identification feature reveals the companies behind the clicks on your website. You'll get company names, visit details, and insights about potential leads, allowing you to prioritize your sales efforts.",
+    question: "Can Starvlo automate follow‑up?",
+    answer: "Yes. Trigger email sequences, CRM tasks, and sales alerts based on real visitor intent so your team follows up at the right moment.",
   },
   {
-    question: "How does the lead capture system work?",
-    answer: "Our lead capture system uses smart forms that adapt to user behavior. When a visitor fills out a form, their information is automatically qualified, scored, and can be synced to your CRM for immediate follow-up.",
+    question: "Does Starvlo integrate with my CRM?",
+    answer: "Starvlo integrates with popular CRMs like Salesforce, HubSpot, and Pipedrive. Our API supports custom workflows as well.",
   },
   {
-    question: "Do you integrate with my existing CRM?",
-    answer: "Yes, we offer integrations with popular CRM platforms including Salesforce, HubSpot, Pipedrive, and more. Our API also allows for custom integrations if needed.",
+    question: "Is there a free trial?",
+    answer: "Yes, we offer a 14‑day free trial on all plans so you can validate fit before committing.",
   },
   {
-    question: "Is there a free trial available?",
-    answer: "Yes, all our plans include a 14-day free trial with full access to all features. No credit card is required to start your trial.",
-  },
-  {
-    question: "How much does LeadCapture cost?",
-    answer: "We offer flexible pricing plans starting at $29/month for our Starter plan. Our most popular Pro plan is $79/month and includes visitor identification and lead scoring. Enterprise plans with custom features start at $199/month.",
-  },
-  {
-    question: "Can I use LeadCapture on my existing website?",
-    answer: "Absolutely! You can add our lead capture tools to your existing website with a simple code snippet. Alternatively, you can create a new website with our AI builder.",
+    question: "Is Starvlo privacy‑friendly?",
+    answer: "Yes. Starvlo focuses on company‑level insights and is designed to be GDPR‑friendly by avoiding personal identification.",
   },
 ];
 
@@ -75,9 +68,9 @@ export default function FaqAccordion() {
           <div className="text-center mt-8">
             <p className="text-gray-500 dark:text-gray-400">
               Still have questions?{" "}
-              <a href="#" className="text-blue-600 dark:text-blue-400 font-medium hover:underline">
+              <Link href="/contact" className="text-blue-600 dark:text-blue-400 font-medium hover:underline">
                 Contact our support team
-              </a>
+              </Link>
             </p>
           </div>
         </div>
