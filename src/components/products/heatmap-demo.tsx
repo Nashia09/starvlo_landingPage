@@ -65,13 +65,11 @@ const HeatmapDemo = () => {
         <div className="flex items-center gap-3">
           <motion.button
             onClick={() => setIsPlaying(!isPlaying)}
-            className={`px-4 py-2 rounded-lg font-semibold transition-all duration-300 flex items-center gap-2 ${
+            className={`px-4 py-2 rounded-lg font-semibold flex items-center gap-2 ${
               isPlaying 
                 ? "bg-red-500 text-white hover:bg-red-600" 
-                : "bg-gradient-to-r from-[#7CBECE] to-[#5A9BA5] text-white hover:shadow-lg"
+                : "bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] text-white"
             }`}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
           >
             {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
             {isPlaying ? "Pause" : "Play"}
@@ -79,9 +77,7 @@ const HeatmapDemo = () => {
           
           <motion.button
             onClick={resetDemo}
-            className="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 transition-all duration-300 flex items-center gap-2"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="px-4 py-2 rounded-lg border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary-light)] hover:text-white flex items-center gap-2"
           >
             <RotateCcw className="w-4 h-4" />
             Reset
@@ -100,13 +96,11 @@ const HeatmapDemo = () => {
           <motion.button
             key={key}
             onClick={() => setCurrentView(key as 'clicks' | 'scroll' | 'attention')}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
+            className={`px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 ${
               currentView === key
-                ? "bg-[#7CBECE] text-white"
+                ? "bg-[var(--color-primary)] text-white"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
             }`}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
           >
             <Icon className="w-4 h-4" />
             {label}
@@ -119,7 +113,7 @@ const HeatmapDemo = () => {
         {/* Header */}
         <div className="bg-white rounded-lg p-4 mb-4 shadow-sm">
           <div className="flex items-center justify-between">
-            <div className="w-24 h-6 bg-[#7CBECE] rounded"></div>
+            <div className="w-24 h-6 bg-[var(--color-primary)] rounded"></div>
             <div className="flex gap-4">
               <div className="w-16 h-4 bg-gray-300 rounded"></div>
               <div className="w-16 h-4 bg-gray-300 rounded"></div>
@@ -132,7 +126,7 @@ const HeatmapDemo = () => {
         <div className="bg-white rounded-lg p-6 mb-4 shadow-sm">
           <div className="w-3/4 h-8 bg-gray-300 rounded mb-4"></div>
           <div className="w-1/2 h-4 bg-gray-200 rounded mb-6"></div>
-          <div className="w-32 h-10 bg-[#7CBECE] rounded"></div>
+          <div className="w-32 h-10 bg-[var(--color-primary)] rounded"></div>
         </div>
 
         {/* Content Sections */}
@@ -150,7 +144,7 @@ const HeatmapDemo = () => {
         {/* CTA Section */}
         <div className="bg-white rounded-lg p-6 shadow-sm text-center">
           <div className="w-1/2 h-6 bg-gray-300 rounded mx-auto mb-4"></div>
-          <div className="w-40 h-10 bg-[#A1D1D8] rounded mx-auto"></div>
+          <div className="w-40 h-10 bg-[var(--color-primary-light)] rounded mx-auto"></div>
         </div>
 
         {/* Heatmap Overlay */}
@@ -181,7 +175,7 @@ const HeatmapDemo = () => {
             {isPlaying && animatedPoints.map((pointIndex) => (
               <motion.div
                 key={`click-${pointIndex}`}
-                className="absolute w-4 h-4 border-2 border-white rounded-full bg-[#7CBECE]"
+                className="absolute w-4 h-4 border-2 border-white rounded-full bg-[var(--color-primary)]"
                 style={{
                   left: `${heatmapData[pointIndex].x}%`,
                   top: `${heatmapData[pointIndex].y}%`,
@@ -198,20 +192,20 @@ const HeatmapDemo = () => {
 
       {/* Analytics Summary */}
       <div className="mt-6 grid grid-cols-4 gap-4">
-        <div className="text-center p-4 bg-gradient-to-r from-[#7CBECE]/10 to-[#A1D1D8]/10 rounded-xl">
-          <div className="text-2xl font-bold text-[#7CBECE]">1,247</div>
+        <div className="text-center p-4 bg-gradient-to-r from-[var(--color-primary-light)]/10 to-[var(--color-primary)]/10 rounded-xl">
+          <div className="text-2xl font-bold text-[var(--color-primary)]">1,247</div>
           <div className="text-sm text-gray-600">Total Clicks</div>
         </div>
-        <div className="text-center p-4 bg-gradient-to-r from-[#A1D1D8]/10 to-[#5A9BA5]/10 rounded-xl">
-          <div className="text-2xl font-bold text-[#7CBECE]">68%</div>
+        <div className="text-center p-4 bg-gradient-to-r from-[var(--color-primary)]/10 to-[var(--color-primary-dark)]/10 rounded-xl">
+          <div className="text-2xl font-bold text-[var(--color-primary)]">68%</div>
           <div className="text-sm text-gray-600">Scroll Depth</div>
         </div>
-        <div className="text-center p-4 bg-gradient-to-r from-[#5A9BA5]/10 to-[#7CBECE]/10 rounded-xl">
-          <div className="text-2xl font-bold text-[#7CBECE]">3.2s</div>
+        <div className="text-center p-4 bg-gradient-to-r from-[var(--color-primary-dark)]/10 to-[var(--color-primary-light)]/10 rounded-xl">
+          <div className="text-2xl font-bold text-[var(--color-primary)]">3.2s</div>
           <div className="text-sm text-gray-600">Avg. Attention</div>
         </div>
-        <div className="text-center p-4 bg-gradient-to-r from-[#7CBECE]/10 to-[#A1D1D8]/10 rounded-xl">
-          <div className="text-2xl font-bold text-[#7CBECE]">12.4%</div>
+        <div className="text-center p-4 bg-gradient-to-r from-[var(--color-primary-light)]/10 to-[var(--color-primary)]/10 rounded-xl">
+          <div className="text-2xl font-bold text-[var(--color-primary)]">12.4%</div>
           <div className="text-sm text-gray-600">Conversion Rate</div>
         </div>
       </div>

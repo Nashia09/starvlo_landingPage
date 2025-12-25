@@ -35,7 +35,7 @@ export const EnhancedHeroSection = ({
     <WavyBackground 
       containerClassName="relative w-full h-auto min-h-screen"
       className="w-full max-w-7xl mx-auto"
-      colors={["#7CBECE", "#A1D1D8", "#5A9BA5", "#7CBECE", "#A1D1D8"]}
+      colors={["#237C8E", "#2E91A5", "#1E6D7E", "#237C8E", "#2E91A5"]}
       waveWidth={100}
       backgroundFill="#0A0F18"
       blur={10}
@@ -45,13 +45,13 @@ export const EnhancedHeroSection = ({
       <div className="relative mx-auto my-10 flex max-w-7xl flex-col items-center justify-center">
         {/* Decorative borders */}
         <div className="absolute inset-y-0 left-0 h-full w-px bg-neutral-200/20 dark:bg-neutral-800/20">
-          <div className="absolute top-0 h-40 w-px bg-gradient-to-b from-transparent via-blue-500 to-transparent" />
+          <div className="absolute top-0 h-40 w-px bg-gradient-to-b from-transparent via-[var(--color-primary)] to-transparent" />
         </div>
         <div className="absolute inset-y-0 right-0 h-full w-px bg-neutral-200/20 dark:bg-neutral-800/20">
-          <div className="absolute h-40 w-px bg-gradient-to-b from-transparent via-blue-500 to-transparent" />
+          <div className="absolute h-40 w-px bg-gradient-to-b from-transparent via-[var(--color-primary)] to-transparent" />
         </div>
         <div className="absolute inset-x-0 bottom-0 h-px w-full bg-neutral-200/20 dark:bg-neutral-800/20">
-          <div className="absolute mx-auto h-px w-40 bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
+          <div className="absolute mx-auto h-px w-40 bg-gradient-to-r from-transparent via-[var(--color-primary)] to-transparent" />
         </div>
         
         <div className="px-4 py-10 md:py-20 w-full">
@@ -63,7 +63,7 @@ export const EnhancedHeroSection = ({
               transition={{ duration: 0.3 }}
               className="mb-8"
             >
-              <Link href={backLink} className="text-blue-400 inline-block hover:underline">
+              <Link href={backLink} className="text-[var(--color-primary)] inline-block hover:underline">
                 ← {backLinkText}
               </Link>
             </motion.div>
@@ -108,12 +108,12 @@ export const EnhancedHeroSection = ({
             className="relative z-10 mt-8 flex flex-wrap items-center justify-center gap-4"
           >
             <Link href={primaryButtonLink}>
-              <button className="w-60 transform rounded-lg bg-white px-6 py-2 font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-200">
+              <button className="w-60 rounded-lg bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] px-6 py-2 font-medium text-white">
                 {primaryButtonText}
               </button>
             </Link>
             <Link href={secondaryButtonLink}>
-              <button className="w-60 transform rounded-lg border border-white/30 bg-transparent px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10">
+              <button className="w-60 rounded-lg border border-[var(--color-primary)] bg-transparent px-6 py-2 font-medium text-[var(--color-primary)] hover:bg-[var(--color-primary-light)] hover:text-white">
                 {secondaryButtonText}
               </button>
             </Link>

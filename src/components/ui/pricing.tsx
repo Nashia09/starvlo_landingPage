@@ -108,12 +108,12 @@ export default function Pricing() {
             viewport={{ once: true }}
             className={`flex flex-col rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-200 hover:shadow-lg dark:border-gray-800 dark:bg-gray-900 ${
               tier.mostPopular
-                ? "relative border-blue-500 dark:border-blue-400"
+                ? "relative border-[var(--color-primary)]"
                 : ""
             }`}
           >
-            {tier.mostPopular && (
-              <div className="absolute -top-5 left-0 right-0 mx-auto w-32 rounded-full bg-blue-500 px-3 py-1 text-center text-xs font-medium text-white shadow-md">
+              {tier.mostPopular && (
+              <div className="absolute -top-5 left-0 right-0 mx-auto w-32 rounded-full bg-[var(--color-primary)] px-3 py-1 text-center text-xs font-medium text-white shadow-md">
                 Most Popular
               </div>
             )}
@@ -148,11 +148,11 @@ export default function Pricing() {
             <div className="mt-8">
               <Link
                 href={tier.name === "Enterprise" ? "/contact#enterprise" : "/auth#signup"}
-                className={`${
+                className={`$
                   tier.mostPopular
-                    ? "bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
-                    : "bg-gray-800 text-white hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-600"
-                } w-full rounded-md px-4 py-2.5 text-center text-sm font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
+                    ? "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-light)]"
+                    : "bg-gray-800 text-white hover:bg-gray-900"
+                } w-full rounded-md px-4 py-2.5 text-center text-sm font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2`}
               >
                 {tier.cta}
               </Link>

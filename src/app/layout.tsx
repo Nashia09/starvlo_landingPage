@@ -4,6 +4,7 @@ import NavbarDemo from "@/components/ui/resizable-navbar-demo";
 import { LightThemeEnforcer } from "@/components/ui/light-theme-enforcer";
 import { outfit, montserrat, poppins } from "@/lib/fonts";
 import CookieConsent from "@/components/ui/cookie-consent";
+import { ThemeProvider } from "@/lib/theme-context";
 
 export const metadata: Metadata = {
   title: "Starvlo - Identify Your Website Visitors",
@@ -25,13 +26,15 @@ export default function RootLayout({
       lang="en" 
       className={`light ${outfit.variable} ${montserrat.variable} ${poppins.variable}`}
     >
-      <body className="min-h-screen flex flex-col bg-gradient-to-br from-primary via-primary-light to-white">
-          <LightThemeEnforcer />
-          <NavbarDemo />
-          <div className="pt-20">
-            {children}
-          </div>
-          <CookieConsent />
+      <body className="min-h-screen flex flex-col bg-gradient-to-br from-[var(--color-primary)] via-[var(--color-primary-light)] to-white">
+          <ThemeProvider>
+            <LightThemeEnforcer />
+            <NavbarDemo />
+            <div className="pt-20">
+              {children}
+            </div>
+            <CookieConsent />
+          </ThemeProvider>
       </body>
     </html>
   );

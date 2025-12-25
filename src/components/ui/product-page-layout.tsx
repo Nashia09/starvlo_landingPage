@@ -85,7 +85,7 @@ export default function ProductPageLayout({
             transition={{ duration: 0.3 }}
             className="mb-8 self-start"
           >
-            <Link href="/products" className="text-[#7CBECE] inline-block hover:underline">
+            <Link href="/products" className="text-[var(--color-primary)] inline-block hover:underline">
               ← Back to Products
             </Link>
           </motion.div>
@@ -127,15 +127,15 @@ export default function ProductPageLayout({
             className="relative z-10 mt-8 flex flex-wrap items-center justify-center gap-4"
           >
             <Link href="/demo">
-              <button className="w-60 transform rounded-lg bg-blue-600 px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-700">
+              <button className="w-60 rounded-lg bg-[var(--color-primary)] px-6 py-2 font-medium text-white hover:bg-[var(--color-primary-light)]">
                 Watch Demo
               </button>
             </Link>
-            <Link href="/contact">
-              <button className="w-60 transform rounded-lg border border-gray-300 bg-transparent px-6 py-2 font-medium text-gray-700 transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-50">
+            <a href="https://starvlo-app.vercel.app/">
+              <button className="w-60 rounded-lg border border-[var(--color-primary)] bg-transparent px-6 py-2 font-medium text-[var(--color-primary)] hover:bg-[var(--color-primary-light)] hover:text-white">
                 Get Started
               </button>
-            </Link>
+            </a>
           </motion.div>
           
           {/* Feature image */}
@@ -182,7 +182,7 @@ export default function ProductPageLayout({
             <p className="text-lg text-gray-600 mb-8">
               {productName} is designed with the highest commitment to trust, security, and compliance. Your data is never used to train models, and we use industry-standard best practices to ensure its security.
             </p>
-            <Link href="/security" className="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-2">
+            <Link href="/security" className="text-[var(--color-primary)] hover:text-[var(--color-primary-light)] font-medium flex items-center gap-2">
               Discover more
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14"></path>
@@ -208,7 +208,7 @@ export default function ProductPageLayout({
                 <div className="p-6">
                   <div className="flex justify-between items-center mb-4">
                     <span className="font-bold text-gray-900">{customer.name}</span>
-                    <span className="text-blue-600">{customer.metric}: {customer.value}</span>
+                    <span className="text-[var(--color-primary)]">{customer.metric}: {customer.value}</span>
                   </div>
                   <p className="text-gray-600">{customer.description}</p>
                 </div>
@@ -219,7 +219,7 @@ export default function ProductPageLayout({
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 md:px-8 lg:px-16 bg-blue-50">
+      <section className="py-20 px-4 md:px-8 lg:px-16 bg-[var(--color-primary-light)]/10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             See what {productName} can do for you
@@ -227,7 +227,7 @@ export default function ProductPageLayout({
           <p className="text-lg text-gray-600 mb-10">
             Find out how {productName} can help your company transform anonymous visitors into qualified leads with our AI-powered platform.
           </p>
-          <Link href="/contact" className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors inline-block">
+          <Link href="/contact" className="px-8 py-3 bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] text-white font-medium rounded-md inline-block">
             Get started
           </Link>
         </div>

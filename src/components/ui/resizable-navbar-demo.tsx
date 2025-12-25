@@ -115,23 +115,12 @@ export default function NavbarDemo() {
 
                 </MenuItem>
               </Link>
-              <Link href="/our-mission">
-                <MenuItem
-                  setActive={setActive}
-                  active={active}
-                  item="Our Mission"
-                  isActive={isNavItemActive('/our-mission')}
-                  href="/our-mission"
-                >
-
-                </MenuItem>
-              </Link>
+              
             </Menu>
           </div>
 
           <div className="flex items-center gap-4 flex-shrink-0">
-            <NavbarButton href="/auth" variant="secondary">Login</NavbarButton>
-            <NavbarButton href="/auth#signup" variant="gradient">Sign Up</NavbarButton>
+            <NavbarButton href="https://starvlo-app.vercel.app/" variant="gradient">Get Started</NavbarButton>
           </div>
         </NavBody>
 
@@ -152,10 +141,10 @@ export default function NavbarDemo() {
             <Link
               href="/"
               onClick={() => setIsMobileMenuOpen(false)}
-              className={`relative block py-2 px-4 rounded-lg transition-colors ${
+              className={`relative block py-2 px-4 rounded-lg ${
                 isNavItemActive('/')
-                  ? 'text-[#7CBECE] bg-[#7CBECE]/10 font-medium'
-                  : 'text-neutral-600 dark:text-neutral-300 hover:bg-gray-100'
+                  ? 'text-[var(--color-primary)] bg-[var(--color-primary)]/10 font-medium'
+                  : 'text-neutral-600 dark:text-neutral-300'
               }`}
             >
               <span className="block">Home</span>
@@ -163,10 +152,10 @@ export default function NavbarDemo() {
             <Link
               href="/pricing"
               onClick={() => setIsMobileMenuOpen(false)}
-              className={`relative block py-2 px-4 rounded-lg transition-colors ${
+              className={`relative block py-2 px-4 rounded-lg ${
                 isNavItemActive('/pricing')
-                  ? 'text-[#7CBECE] bg-[#7CBECE]/10 font-medium'
-                  : 'text-neutral-600 dark:text-neutral-300 hover:bg-gray-100'
+                  ? 'text-[var(--color-primary)] bg-[var(--color-primary)]/10 font-medium'
+                  : 'text-neutral-600 dark:text-neutral-300'
               }`}
             >
               <span className="block">Pricing</span>
@@ -174,25 +163,15 @@ export default function NavbarDemo() {
             <Link
               href="/contact"
               onClick={() => setIsMobileMenuOpen(false)}
-              className={`relative block py-2 px-4 rounded-lg transition-colors ${
+              className={`relative block py-2 px-4 rounded-lg ${
                 isNavItemActive('/contact')
-                  ? 'text-[#7CBECE] bg-[#7CBECE]/10 font-medium'
-                  : 'text-neutral-600 dark:text-neutral-300 hover:bg-gray-100'
+                  ? 'text-[var(--color-primary)] bg-[var(--color-primary)]/10 font-medium'
+                  : 'text-neutral-600 dark:text-neutral-300'
               }`}
             >
               <span className="block">Contact</span>
             </Link>
-            <Link
-              href="/our-mission"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className={`relative block py-2 px-4 rounded-lg transition-colors ${
-                isNavItemActive('/our-mission')
-                  ? 'text-[#7CBECE] bg-[#7CBECE]/10 font-medium'
-                  : 'text-neutral-600 dark:text-neutral-300 hover:bg-gray-100'
-              }`}
-            >
-              <span className="block">Our Mission</span>
-            </Link>
+            
             {navItems.map((item, idx) => (
               <Link
                 key={`mobile-link-${idx}`}
@@ -205,20 +184,12 @@ export default function NavbarDemo() {
             ))}
             <div className="flex w-full flex-col gap-4">
               <NavbarButton
-                href="/auth"
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
-              >
-                Login
-              </NavbarButton>
-              <NavbarButton
-                href="/auth#signup"
+                href="https://starvlo-app.vercel.app/"
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="gradient"
                 className="w-full"
               >
-                Sign Up
+                Get Started
               </NavbarButton>
               <NavbarButton
                 href="/contact"

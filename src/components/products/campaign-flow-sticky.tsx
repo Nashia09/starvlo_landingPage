@@ -40,8 +40,8 @@ const campaignSteps: CampaignStep[] = [
     timing: "Immediate",
     channel: "Email",
     icon: <Mail className="w-8 h-8" />,
-    color: "#7CBECE",
-    lightColor: "#7CBECE20",
+    color: "var(--color-primary)",
+    lightColor: "var(--color-primary-light)",
     image: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=400&h=300&fit=crop&crop=center",
     metrics: [
       { label: "Open Rate", value: "85%" },
@@ -62,8 +62,8 @@ const campaignSteps: CampaignStep[] = [
     timing: "2 days later",
     channel: "LinkedIn",
     icon: <MessageSquare className="w-8 h-8" />,
-    color: "#A1D1D8",
-    lightColor: "#A1D1D820",
+    color: "var(--color-primary-light)",
+    lightColor: "var(--color-primary-light)",
     image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=center",
     metrics: [
       { label: "Accept Rate", value: "72%" },
@@ -84,8 +84,8 @@ const campaignSteps: CampaignStep[] = [
     timing: "5 days later",
     channel: "SMS",
     icon: <Smartphone className="w-8 h-8" />,
-    color: "#5A9BA5",
-    lightColor: "#5A9BA520",
+    color: "var(--color-primary-dark)",
+    lightColor: "var(--color-primary-dark)",
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop&crop=center",
     metrics: [
       { label: "Delivery Rate", value: "98%" },
@@ -106,8 +106,8 @@ const campaignSteps: CampaignStep[] = [
     timing: "7 days later",
     channel: "Phone",
     icon: <Calendar className="w-8 h-8" />,
-    color: "#4A8A96",
-    lightColor: "#4A8A9620",
+    color: "var(--color-primary-dark)",
+    lightColor: "var(--color-primary-dark)",
     image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop&crop=center",
     metrics: [
       { label: "Booking Rate", value: "23%" },
@@ -128,8 +128,8 @@ const campaignSteps: CampaignStep[] = [
     timing: "Campaign complete",
     channel: "Results",
     icon: <TrendingUp className="w-8 h-8" />,
-    color: "#7CBECE",
-    lightColor: "#7CBECE20",
+    color: "var(--color-primary)",
+    lightColor: "var(--color-primary-light)",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop&crop=center",
     metrics: [
       { label: "Conversion Rate", value: "12%" },
@@ -162,7 +162,7 @@ const CampaignStep = ({ step, index, isLast }: { step: CampaignStep; index: numb
     >
       {/* Timeline Line */}
       {!isLast && (
-        <div className="absolute left-8 top-20 w-0.5 h-full bg-gradient-to-b from-[#7CBECE] to-gray-200" />
+        <div className="absolute left-8 top-20 w-0.5 h-full bg-gradient-to-b from-[var(--color-primary)] to-[var(--color-primary-light)]" />
       )}
 
       {/* Step Icon */}
@@ -266,8 +266,7 @@ const CampaignStep = ({ step, index, isLast }: { step: CampaignStep; index: numb
             {step.metrics.map((metric, metricIndex) => (
               <motion.div
                 key={metricIndex}
-                className="text-center p-4 rounded-xl"
-                style={{ backgroundColor: `${step.color}10` }}
+                className="text-center p-4 rounded-xl bg-[var(--color-primary)]/10"
                 initial={{ scale: 0, opacity: 0 }}
                 animate={isInView ? {
                   scale: 1,
@@ -331,7 +330,7 @@ const CampaignStep = ({ step, index, isLast }: { step: CampaignStep; index: numb
                     }
                   }}
                 >
-                  <CheckCircle className="w-4 h-4 text-[#7CBECE] flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-[var(--color-primary)] flex-shrink-0" />
                 </motion.div>
                 <span>{detail}</span>
               </motion.div>
@@ -346,7 +345,7 @@ const CampaignStep = ({ step, index, isLast }: { step: CampaignStep; index: numb
 const CampaignFlowSticky = () => {
 
   return (
-    <div className="py-24 bg-gradient-to-br from-[#7CBECE]/5 via-[#A1D1D8]/5 to-white">
+    <div className="py-24 bg-gradient-to-br from-[var(--color-primary)]/5 via-[var(--color-primary-light)]/5 to-white">
       <div className="max-w-5xl mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -394,22 +393,18 @@ const CampaignFlowSticky = () => {
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
             Set up your multi-channel campaign in minutes and start converting more leads with intelligent automation.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.button
-              className="bg-gradient-to-r from-[#7CBECE] to-[#5A9BA5] text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transition-all duration-300"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transition-all duration-300"
             >
               Start Free Trial
-            </motion.button>
-            <motion.button
-              className="border-2 border-[#7CBECE] text-[#7CBECE] hover:bg-[#7CBECE] hover:text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-3 transition-all duration-300"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+            </button>
+            <button
+              className="border-2 border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-3 transition-all duration-300"
             >
               <Calendar className="w-5 h-5" />
               Schedule Demo
-            </motion.button>
+            </button>
           </div>
         </motion.div>
       </div>

@@ -8,27 +8,31 @@ import { cn } from "@/lib/utils";
 const faqs = [
   {
     question: "What is Starvlo?",
-    answer: "Starvlo is a lead capture platform that identifies the companies behind your website traffic, automates timely follow-up, and helps convert more visitors into customers.",
+    answer: "Starvlo is an AI‑powered sales assistant that captures leads, qualifies them through smart conversations, and automates follow‑ups to help you convert faster.",
   },
   {
-    question: "How does Starvlo identify website visitors?",
-    answer: "We use IP intelligence, first‑party data, and our continuously updated company database to reveal which businesses are visiting your site—without identifying individuals.",
+    question: "How does Starvlo capture leads?",
+    answer: "Starvlo uses conversational forms and chat to engage visitors and collect qualified leads directly on your site. It relies on conversation context and user input, not IP intelligence.",
   },
   {
     question: "Can Starvlo automate follow‑up?",
-    answer: "Yes. Trigger email sequences, CRM tasks, and sales alerts based on real visitor intent so your team follows up at the right moment.",
+    answer: "Yes. Starvlo sends timely, personalized follow‑ups and can trigger emails, tasks, or handoffs based on lead intent—so you respond instantly without manual work.",
+  },
+  {
+    question: "How does Starvlo help convert more visitors?",
+    answer: "Starvlo prioritizes high‑intent leads from conversations, keeps prospects engaged with immediate follow‑ups, and routes ready buyers to demos and bookings—reducing drop‑off.",
   },
   {
     question: "Does Starvlo integrate with my CRM?",
-    answer: "Starvlo integrates with popular CRMs like Salesforce, HubSpot, and Pipedrive. Our API supports custom workflows as well.",
+    answer: "Starvlo integrates with popular CRMs like HubSpot, Salesforce, and Pipedrive, and supports custom workflows via API.",
   },
   {
     question: "Is there a free trial?",
-    answer: "Yes, we offer a 14‑day free trial on all plans so you can validate fit before committing.",
+    answer: "Yes. You can try Starvlo free for 14 days to validate fit before committing.",
   },
   {
     question: "Is Starvlo privacy‑friendly?",
-    answer: "Yes. Starvlo focuses on company‑level insights and is designed to be GDPR‑friendly by avoiding personal identification.",
+    answer: "Yes. Starvlo captures leads through user‑initiated conversations and forms. We don’t use IP intelligence. You control consent and data retention, and we focus on minimal data collection.",
   },
 ];
 
@@ -46,6 +50,7 @@ export default function FaqAccordion() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             Frequently Asked Questions
           </h2>
+         
           <p className="text-gray-500 dark:text-gray-400 mx-auto max-w-[700px] md:text-lg">
             Got questions? We&apos;ve got answers. If you don&apos;t see what you&apos;re looking for, reach out to our support team.
           </p>
@@ -65,14 +70,14 @@ export default function FaqAccordion() {
             ))}
           </div>
           
-          <div className="text-center mt-8">
+        <div className="text-center mt-8">
             <p className="text-gray-500 dark:text-gray-400">
               Still have questions?{" "}
-              <Link href="/contact" className="text-blue-600 dark:text-blue-400 font-medium hover:underline">
-                Contact our support team
+              <Link href="/contact" className="text-[var(--color-primary)] font-medium hover:text-[var(--color-primary-light)] hover:underline">
+                Contact us — we reply within 24 hours
               </Link>
             </p>
-          </div>
+        </div>
         </div>
       </div>
     </section>

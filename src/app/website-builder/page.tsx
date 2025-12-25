@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "motion/react";
-import Footer from "@/components/shared/Footer";
+import Footer from "@/components/ui/footer";
 import { IconCheck, IconPalette, IconTemplate, IconDeviceLaptop, IconBrandGithub, IconCode, IconLayoutDashboard } from "@tabler/icons-react";
 
 

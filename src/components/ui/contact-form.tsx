@@ -83,7 +83,7 @@ export default function ContactForm() {
                     id="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="block w-full rounded-md border-gray-300 bg-white px-4 py-3 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                    className="block w-full rounded-md border-gray-300 bg-white px-4 py-3 shadow-sm focus:border-[var(--color-primary)] focus:ring-[var(--color-primary)]"
                     placeholder="John Doe"
                     required
                   />
@@ -100,7 +100,7 @@ export default function ContactForm() {
                     id="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="block w-full rounded-md border-gray-300 bg-white px-4 py-3 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                    className="block w-full rounded-md border-gray-300 bg-white px-4 py-3 shadow-sm focus:border-[var(--color-primary)] focus:ring-[var(--color-primary)]"
                     placeholder="john@example.com"
                     required
                   />
@@ -118,7 +118,7 @@ export default function ContactForm() {
                   id="company"
                   value={formData.company}
                   onChange={handleChange}
-                  className="block w-full rounded-md border-gray-300 bg-white px-4 py-3 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                  className="block w-full rounded-md border-gray-300 bg-white px-4 py-3 shadow-sm focus:border-[var(--color-primary)] focus:ring-[var(--color-primary)]"
                   placeholder="Your Company"
                 />
               </div>
@@ -134,7 +134,7 @@ export default function ContactForm() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="block w-full rounded-md border-gray-300 bg-white px-4 py-3 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                  className="block w-full rounded-md border-gray-300 bg-white px-4 py-3 shadow-sm focus:border-[var(--color-primary)] focus:ring-[var(--color-primary)]"
                   placeholder="How can we help you?"
                   required
                 />
@@ -143,7 +143,7 @@ export default function ContactForm() {
             <div className="flex justify-center">
               <button
                 type="submit"
-                className="flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-500 dark:hover:bg-blue-600"
+                className="flex items-center justify-center rounded-md bg-[var(--color-primary)] px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-[var(--color-primary-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2"
               >
                 {isSubmitted ? (
                   <>

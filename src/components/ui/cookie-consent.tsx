@@ -33,7 +33,7 @@ export default function CookieConsent() {
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 px-4 pb-4">
-      <div className="mx-auto max-w-4xl rounded-2xl shadow-2xl border border-white/40 backdrop-blur-md bg-gradient-to-br from-[#7CBECE]/95 via-[#A1D1D8]/95 to-white/95">
+      <div className="mx-auto max-w-4xl rounded-2xl shadow-2xl border border-white/40 backdrop-blur-md bg-gradient-to-br from-[var(--color-primary-light)]/95 via-[var(--color-primary)]/95 to-white/95">
         <div className="p-6 sm:p-8">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
             <div className="flex-1">
@@ -50,7 +50,7 @@ export default function CookieConsent() {
                   <span className="text-gray-900 font-medium">Analytics</span>
                   <input
                     type="checkbox"
-                    className="h-5 w-5 accent-[#5A9BA5]"
+                    className="h-5 w-5 accent-[var(--color-primary)]"
                     checked={prefs.analytics}
                     onChange={(e) => setPrefs((prev) => ({ ...prev, analytics: e.target.checked }))}
                   />
@@ -59,7 +59,7 @@ export default function CookieConsent() {
                   <span className="text-gray-900 font-medium">Marketing</span>
                   <input
                     type="checkbox"
-                    className="h-5 w-5 accent-[#5A9BA5]"
+                    className="h-5 w-5 accent-[var(--color-primary)]"
                     checked={prefs.marketing}
                     onChange={(e) => setPrefs((prev) => ({ ...prev, marketing: e.target.checked }))}
                   />
@@ -70,7 +70,7 @@ export default function CookieConsent() {
               <div className="flex flex-col sm:flex-col gap-3">
                 <button
                   onClick={() => save({ analytics: true, marketing: true })}
-                  className="w-full rounded-xl bg-gradient-to-r from-[#5A9BA5] to-[#7CBECE] text-white px-6 py-3 text-sm font-semibold shadow-lg hover:brightness-105"
+                  className="w-full rounded-xl bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] text-white px-6 py-3 text-sm font-semibold shadow-lg"
                 >
                   Accept all
                 </button>

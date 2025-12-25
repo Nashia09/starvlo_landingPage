@@ -129,15 +129,15 @@ const workflowPhases: WorkflowPhase[] = [
       { label: "Integrations", value: "15+", icon: "🔗" }
     ],
     colorScheme: {
-      primary: "from-[#7CBECE] to-[#A1D1D8]",
-      secondary: "from-[#7CBECE]/10 to-[#A1D1D8]/10",
-      accent: "[#7CBECE]",
-      background: "bg-gradient-to-br from-[#7CBECE]/10 via-[#A1D1D8]/5 to-white",
-      border: "border-[#7CBECE]/30"
+      primary: "from-[var(--color-primary-light)] to-[var(--color-primary)]",
+      secondary: "from-[var(--color-primary-light)]/10 to-[var(--color-primary)]/10",
+      accent: "[var(--color-primary-light)]",
+      background: "bg-gradient-to-br from-[var(--color-primary-light)]/10 via-[var(--color-primary)]/5 to-white",
+      border: "border-[var(--color-primary-light)]/30"
     },
     visualElements: {
-      pattern: "radial-gradient(circle at 30% 70%, rgba(124, 190, 206, 0.15) 0%, transparent 50%)",
-      glow: "shadow-[#7CBECE]/20"
+      pattern: "radial-gradient(circle at 30% 70%, rgba(46, 145, 165, 0.15) 0%, transparent 50%)",
+      glow: "shadow-[var(--color-primary-light)]/20"
     }
   },
   {
@@ -181,15 +181,15 @@ const workflowPhases: WorkflowPhase[] = [
       { label: "Automation Rate", value: "95%", icon: "🤖" }
     ],
     colorScheme: {
-      primary: "from-[#5A9BA5] to-[#7CBECE]",
-      secondary: "from-[#5A9BA5]/10 to-[#7CBECE]/10",
-      accent: "[#5A9BA5]",
-      background: "bg-gradient-to-br from-[#5A9BA5]/10 via-[#7CBECE]/5 to-white",
-      border: "border-[#5A9BA5]/30"
+      primary: "from-[var(--color-primary-dark)] to-[var(--color-primary)]",
+      secondary: "from-[var(--color-primary-dark)]/10 to-[var(--color-primary)]/10",
+      accent: "[var(--color-primary-dark)]",
+      background: "bg-gradient-to-br from-[var(--color-primary-dark)]/10 via-[var(--color-primary)]/5 to-white",
+      border: "border-[var(--color-primary-dark)]/30"
     },
     visualElements: {
-      pattern: "radial-gradient(circle at 70% 30%, rgba(90, 155, 165, 0.15) 0%, transparent 50%)",
-      glow: "shadow-[#5A9BA5]/20"
+      pattern: "radial-gradient(circle at 70% 30%, rgba(35, 124, 142, 0.15) 0%, transparent 50%)",
+      glow: "shadow-[var(--color-primary-dark)]/20"
     }
   },
   {
@@ -233,15 +233,15 @@ const workflowPhases: WorkflowPhase[] = [
       { label: "AI Accuracy", value: "94%", icon: "🎯" }
     ],
     colorScheme: {
-      primary: "from-[#A1D1D8] to-[#7CBECE]",
-      secondary: "from-[#A1D1D8]/10 to-[#7CBECE]/10",
-      accent: "[#A1D1D8]",
-      background: "bg-gradient-to-br from-[#A1D1D8]/10 via-[#7CBECE]/5 to-white",
-      border: "border-[#A1D1D8]/30"
+      primary: "from-[var(--color-primary-light)] to-[var(--color-primary)]",
+      secondary: "from-[var(--color-primary-light)]/10 to-[var(--color-primary)]/10",
+      accent: "[var(--color-primary-light)]",
+      background: "bg-gradient-to-br from-[var(--color-primary-light)]/10 via-[var(--color-primary)]/5 to-white",
+      border: "border-[var(--color-primary-light)]/30"
     },
     visualElements: {
-      pattern: "radial-gradient(circle at 50% 80%, rgba(161, 209, 216, 0.15) 0%, transparent 50%)",
-      glow: "shadow-[#A1D1D8]/20"
+      pattern: "radial-gradient(circle at 50% 80%, rgba(46, 145, 165, 0.15) 0%, transparent 50%)",
+      glow: "shadow-[var(--color-primary-light)]/20"
     }
   },
   {
@@ -285,15 +285,15 @@ const workflowPhases: WorkflowPhase[] = [
       { label: "Payout Speed", value: "24h", icon: "💰" }
     ],
     colorScheme: {
-      primary: "from-[#4A8A96] to-[#5A9BA5]",
-      secondary: "from-[#4A8A96]/10 to-[#5A9BA5]/10",
-      accent: "[#4A8A96]",
-      background: "bg-gradient-to-br from-[#4A8A96]/10 via-[#5A9BA5]/5 to-white",
-      border: "border-[#4A8A96]/30"
+      primary: "from-[var(--color-primary-dark)] to-[var(--color-primary)]",
+      secondary: "from-[var(--color-primary-dark)]/10 to-[var(--color-primary)]/10",
+      accent: "[var(--color-primary-dark)]",
+      background: "bg-gradient-to-br from-[var(--color-primary-dark)]/10 via-[var(--color-primary)]/5 to-white",
+      border: "border-[var(--color-primary-dark)]/30"
     },
     visualElements: {
-      pattern: "radial-gradient(circle at 20% 20%, rgba(74, 138, 150, 0.15) 0%, transparent 50%)",
-      glow: "shadow-[#4A8A96]/20"
+      pattern: "radial-gradient(circle at 20% 20%, rgba(30, 109, 126, 0.15) 0%, transparent 50%)",
+      glow: "shadow-[var(--color-primary-dark)]/20"
     }
   }
 ];
@@ -313,7 +313,7 @@ const AnimatedIcon = ({ children, isActive }: { children: React.ReactNode; isAct
       {/* Simplified active state */}
       <div
         className={cn(
-          "absolute inset-0 rounded-2xl bg-gradient-to-r from-[#7CBECE]/20 to-[#A1D1D8]/20 transition-opacity duration-300",
+          "absolute inset-0 rounded-2xl bg-gradient-to-r from-[var(--color-primary-light)]/20 to-[var(--color-primary)]/20 transition-opacity duration-300",
           isActive ? "opacity-100" : "opacity-0"
         )}
       />
@@ -477,17 +477,18 @@ const ModernWorkflowCard = ({
           ))}
         </div>
 
-        {/* Modern CTA Button */}
+        {/* CTA Button - No animation, brand colors */}
         <button
           className={cn(
-            "group flex items-center justify-center gap-3 w-full py-4 px-6 rounded-xl font-semibold transition-all duration-300",
-            "bg-white border-2 text-gray-700 hover:text-white shadow-sm hover:scale-102 hover:-translate-y-1",
-            `hover:bg-gradient-to-r hover:${step.colorScheme.primary} hover:border-transparent hover:shadow-lg`,
-            isActive && `bg-gradient-to-r ${step.colorScheme.primary} text-white border-transparent shadow-lg`
+            "flex items-center justify-center gap-3 w-full py-4 px-6 rounded-xl font-semibold",
+            "text-white",
+            isActive ? "bg-[var(--color-primary)]" : "bg-[var(--color-primary)]",
+            "hover:bg-[var(--color-primary-light)]",
+            "border-2 border-transparent shadow-sm"
           )}
         >
           <span>Explore {step.phase}</span>
-          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          <ArrowRight className="w-5 h-5" />
         </button>
       </div>
 
@@ -580,13 +581,13 @@ export default function StickyScroll() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#7CBECE] to-[#5A9BA5] text-white px-6 py-3 rounded-full text-sm font-bold mb-6 shadow-lg">
+            <div className="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white px-6 py-3 rounded-full text-sm font-bold mb-6 shadow-lg">
               <Zap className="w-5 h-5" />
               COMPLETE LEAD CAPTURE SYSTEM
             </div>
             <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
               Turn Followers Into
-              <span className="bg-gradient-to-r from-[#7CBECE] via-[#A1D1D8] to-[#5A9BA5] bg-clip-text text-transparent"> Revenue</span>
+              <span className="bg-gradient-to-r from-[var(--color-primary-light)] via-[var(--color-primary)] to-[var(--color-primary-dark)] bg-clip-text text-transparent"> Revenue</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               The complete automated workflow from lead capture to sales. Build a system that works 24/7 to convert your audience into paying customers.
@@ -671,7 +672,7 @@ export default function StickyScroll() {
 
                       {/* Simplified Progress Ring */}
                       {isActive && (
-                        <div className="absolute inset-0 rounded-full border-4 border-[#7CBECE]/30 animate-pulse" />
+                        <div className="absolute inset-0 rounded-full border-4 border-[var(--color-primary)]/30 animate-pulse" />
                       )}
                     </div>
 
@@ -731,8 +732,8 @@ export default function StickyScroll() {
       </div>
 
       {/* Final CTA Section */}
-      <div className="relative py-32 bg-gradient-to-br from-[#7CBECE]/5 via-[#A1D1D8]/5 to-[#5A9BA5]/5">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#7CBECE]/10 via-[#A1D1D8]/10 to-[#5A9BA5]/10" />
+      <div className="relative py-32 bg-gradient-to-br from-[var(--color-primary-light)]/5 via-[var(--color-primary)]/5 to-[var(--color-primary-dark)]/5">
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-light)]/10 via-[var(--color-primary)]/10 to-[var(--color-primary-dark)]/10" />
         <div className="relative max-w-5xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -740,14 +741,14 @@ export default function StickyScroll() {
             transition={{ duration: 1 }}
             viewport={{ once: true }}
           >
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#7CBECE] to-[#5A9BA5] text-white px-6 py-3 rounded-full text-sm font-bold mb-8 shadow-lg">
+            <div className="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white px-6 py-3 rounded-full text-sm font-bold mb-8 shadow-lg">
               <Star className="w-5 h-5" />
               START YOUR AUTOMATION
             </div>
 
             <h3 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight">
               Ready to Automate Your
-              <span className="block bg-gradient-to-r from-[#7CBECE] via-[#A1D1D8] to-[#5A9BA5] bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-[var(--color-primary-light)] via-[var(--color-primary)] to-[var(--color-primary-dark)] bg-clip-text text-transparent">
                 Lead Generation?
               </span>
             </h3>
@@ -756,23 +757,19 @@ export default function StickyScroll() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-              <motion.button
-                className="bg-gradient-to-r from-[#7CBECE] to-[#5A9BA5] text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center gap-3"
-                whileHover={{ scale: 1.05, y: -3 }}
-                whileTap={{ scale: 0.95 }}
+              <button
+                className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-2xl flex items-center gap-3"
               >
                 <MousePointer2 className="w-6 h-6" />
                 Start Lead Automation
-              </motion.button>
+              </button>
 
-              <motion.button
-                className="border-3 border-[#7CBECE] text-[#5A9BA5] bg-white px-10 py-5 rounded-2xl font-bold text-xl hover:bg-[#5A9BA5] hover:text-white transition-all duration-300 flex items-center gap-3 shadow-lg"
-                whileHover={{ scale: 1.05, y: -3 }}
-                whileTap={{ scale: 0.95 }}
+              <button
+                className="border-3 border-[var(--color-primary)] text-[var(--color-primary)] bg-white px-10 py-5 rounded-2xl font-bold text-xl hover:bg-[var(--color-primary-light)] hover:text-white flex items-center gap-3 shadow-lg"
               >
                 <BarChart3 className="w-6 h-6" />
                 View Live Demo
-              </motion.button>
+              </button>
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-8 text-gray-600 text-lg">
@@ -781,7 +778,7 @@ export default function StickyScroll() {
                 <span>99.9% Uptime</span>
               </div>
               <div className="flex items-center gap-3">
-                <Users className="w-6 h-6 text-blue-600" />
+                <Users className="w-6 h-6 text-[var(--color-primary)]" />
                 <span>10,000+ Active Users</span>
               </div>
               <div className="flex items-center gap-3">

@@ -27,11 +27,7 @@ const features = [
     description: "Track your performance with detailed insights and metrics.",
     image: "/features/analytics-chart.png"
   },
-  {
-    title: "Visitor Identification",
-    description: "Reveal the companies behind your website traffic and prioritize outreach.",
-    image: "/features/website-builder.png"
-  },
+
   {
     title: "Email Automation",
     description: "Automate sequences that nurture leads and escalate high intent.",
@@ -55,16 +51,16 @@ const features = [
 ];
 
 const gradients = [
-  'from-[#7CBECE]/10 to-[#A1D1D8]/5 bg-gradient-to-br',
-  'from-[#A1D1D8]/10 to-[#7CBECE]/5 bg-gradient-to-br',
-  'from-[#5A9BA5]/10 to-[#7CBECE]/5 bg-gradient-to-br',
-  'from-[#7CBECE]/8 to-[#A1D1D8]/8 bg-gradient-to-br',
-  'from-[#A1D1D8]/8 to-[#5A9BA5]/8 bg-gradient-to-br',
-  'from-[#7CBECE]/12 to-[#5A9BA5]/6 bg-gradient-to-br',
-  'from-[#5A9BA5]/10 to-[#A1D1D8]/5 bg-gradient-to-br',
-  'from-[#A1D1D8]/12 to-[#7CBECE]/6 bg-gradient-to-br',
-  'from-[#7CBECE]/6 to-[#A1D1D8]/10 bg-gradient-to-br',
-  'from-[#5A9BA5]/8 to-[#7CBECE]/8 bg-gradient-to-br'
+  'from-[var(--color-primary-light)]/10 to-[var(--color-primary)]/5 bg-gradient-to-br',
+  'from-[var(--color-primary)]/10 to-[var(--color-primary-light)]/5 bg-gradient-to-br',
+  'from-[var(--color-primary-dark)]/10 to-[var(--color-primary)]/5 bg-gradient-to-br',
+  'from-[var(--color-primary-light)]/8 to-[var(--color-primary)]/8 bg-gradient-to-br',
+  'from-[var(--color-primary)]/8 to-[var(--color-primary-dark)]/8 bg-gradient-to-br',
+  'from-[var(--color-primary-light)]/12 to-[var(--color-primary-dark)]/6 bg-gradient-to-br',
+  'from-[var(--color-primary-dark)]/10 to-[var(--color-primary)]/5 bg-gradient-to-br',
+  'from-[var(--color-primary)]/12 to-[var(--color-primary-light)]/6 bg-gradient-to-br',
+  'from-[var(--color-primary-light)]/6 to-[var(--color-primary)]/10 bg-gradient-to-br',
+  'from-[var(--color-primary-dark)]/8 to-[var(--color-primary-light)]/8 bg-gradient-to-br'
 ];
 
 const FeatureCardScroll: React.FC = () => {

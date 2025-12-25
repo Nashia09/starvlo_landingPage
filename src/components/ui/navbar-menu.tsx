@@ -31,7 +31,7 @@ const DoodleUnderline = ({ isActive }: { isActive: boolean }) => {
         viewBox="0 0 45 10"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="text-[#7CBECE]"
+        className="text-[var(--color-primary)]"
       >
         <path
           d="M3 7C9 3 13 5 20 4C27 3 31 6 36 5C39 4 41 3 42 4"
@@ -68,7 +68,7 @@ export const  MenuItem = ({
         className={cn(
           "cursor-pointer hover:opacity-[0.9] px-3 py-3 pb-4 relative",
           isActive
-            ? "text-[#7CBECE] font-medium"
+            ? "text-[var(--color-primary)] font-medium"
             : "text-neutral-600 dark:text-neutral-300"
         )}
       >

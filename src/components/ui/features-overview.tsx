@@ -61,8 +61,8 @@ export default function FeaturesOverview() {
     >
       {/* Background decorative elements */}
       <div className="absolute inset-0 bg-grid-black/[0.02] dark:bg-grid-white/[0.02]" />
-      <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+      <div className="absolute top-20 left-10 w-32 h-32 bg-[var(--color-primary)]/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-20 right-10 w-40 h-40 bg-[var(--color-primary-light)]/10 rounded-full blur-3xl animate-pulse delay-1000" />
 
       <motion.div
         className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
@@ -81,13 +81,13 @@ export default function FeaturesOverview() {
             className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter mb-6 bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 dark:from-white dark:via-gray-200 dark:to-white bg-clip-text text-transparent"
             variants={itemVariants}
           >
-            Everything You Need To Generate Leads
+            Stop Losing Leads to Slow Follow‑ups
           </motion.h2>
           <motion.p
             className="text-gray-600 dark:text-gray-300 mx-auto max-w-[700px] md:text-lg lg:text-xl leading-relaxed"
             variants={itemVariants}
           >
-            Starvlo reveals the companies behind your traffic, captures qualified leads, and automates follow‑up to drive conversions.
+            Starvlo runs your first touch, qualification, and nurturing — automatically — across chat, forms, and email.
           </motion.p>
         </motion.div>
 

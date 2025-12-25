@@ -90,7 +90,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
       ref={ref}
       className={cn("fixed inset-x-0 top-0 z-40 w-full transform", className)}
       animate={{
-        y: isHidden ? "-120%" : "0%"
+        y: isHidden ? "-150%" : "0%"
       }}
       transition={{
         duration: 0.2
@@ -100,7 +100,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
         React.isValidElement(child)
           ? React.cloneElement(
               child as React.ReactElement<{ visible?: boolean }>,
-              { visible },
+              { visible: visible && !isHidden },
             )
           : child,
       )}
@@ -128,8 +128,8 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
       }}
 
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-5xl flex-row items-center justify-between self-start rounded-full bg-transparent px-6 py-3 lg:flex dark:bg-transparent",
-        visible && "bg-white/80 dark:bg-neutral-950/80",
+        "relative z-[60] mx-auto hidden w-full flex-row items-center justify-between self-start rounded-full bg-transparent px-6 py-3 lg:flex dark:bg-transparent",
+        visible ? "max-w-5xl bg-white/80 dark:bg-neutral-950/80" : "max-w-full",
         className,
       )}
     >
@@ -273,7 +273,7 @@ export const NavbarLogo = () => {
         width={40}
         height={40}
       />
-      <span className="font-bold bg-gradient-to-r from-[#7CBECE] to-[#5A9BA5] bg-clip-text text-transparent">Starvlo</span>
+      <span className="font-bold bg-gradient-to-r from-[var(--color-primary-light)] to-[var(--color-primary)] bg-clip-text text-transparent">Starvlo</span>
     </a>
   );
 };
@@ -296,7 +296,7 @@ export const NavbarButton = ({
   | React.ComponentPropsWithoutRef<"button">
 )) => {
   const baseStyles =
-    "px-4 py-2 rounded-md bg-white button bg-white text-black text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center";
+    "px-4 py-2 rounded-md bg-white button bg-white text-black text-sm font-bold relative cursor-pointer inline-block text-center";
 
   const variantStyles = {
     primary:
@@ -304,7 +304,7 @@ export const NavbarButton = ({
     secondary: "bg-transparent shadow-none dark:text-white",
     dark: "bg-black text-white shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]",
     gradient:
-      "bg-gradient-to-b from-[#7CBECE] to-[#5A9BA5] text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset]",
+      "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-light)] shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset]",
   };
 
   return (

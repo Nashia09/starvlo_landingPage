@@ -118,19 +118,19 @@ export default function PricingPage() {
   }, [allPlans, billingCycle]);
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-[#F1FAFC] to-white">
+    <main className="min-h-screen bg-gradient-to-b from-[var(--color-primary)]/10 to-white">
       <div className="container mx-auto px-4 py-20">
-        <h1 className="text-4xl font-bold text-[#0A0F18] mb-4 text-center">Pricing</h1>
-        <p className="text-base text-[#3b4a5a] mb-8 text-center max-w-2xl mx-auto">
+        <h1 className="text-4xl font-bold text-gray-900 mb-4 text-center">Pricing</h1>
+        <p className="text-base text-gray-600 mb-8 text-center max-w-2xl mx-auto">
           Try all the features with free credits. No credit card required.
         </p>
 
         <div className="flex items-center justify-center mb-10">
-          <div className="flex rounded-full bg-[#E9F7FA] p-1 border border-[#D5EEF3]">
+          <div className="flex rounded-full bg-[var(--color-primary-light)]/15 p-1 border border-[var(--color-primary)]/20">
             <button
               onClick={() => setBillingCycle("monthly")}
               className={`px-4 py-2 text-sm font-medium rounded-full transition-all ${
-                billingCycle === "monthly" ? "bg-[#7CBECE] text-black" : "text-[#5A6B7A]"
+                billingCycle === "monthly" ? "bg-[var(--color-primary)] text-white" : "text-[#5A6B7A]"
               }`}
             >
               Monthly
@@ -138,11 +138,11 @@ export default function PricingPage() {
             <button
               onClick={() => setBillingCycle("yearly")}
               className={`px-4 py-2 text-sm font-medium rounded-full transition-all flex items-center ${
-                billingCycle === "yearly" ? "bg-[#7CBECE] text-black" : "text-[#5A6B7A]"
+                billingCycle === "yearly" ? "bg-[var(--color-primary)] text-white" : "text-[#5A6B7A]"
               }`}
             >
               Yearly
-              <span className="ml-2 bg-[#5A9BA5] text-white text-xs px-2 py-0.5 rounded-full">Save 20%</span>
+              <span className="ml-2 bg-[var(--color-primary-dark)] text-white text-xs px-2 py-0.5 rounded-full">Save 20%</span>
             </button>
           </div>
         </div>
@@ -166,7 +166,7 @@ export default function PricingPage() {
         </div>
         
         <div className="mt-20 text-center">
-          <h2 className="text-2xl font-bold text-[#0A0F18] mb-6">FAQs</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">FAQs</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             <FAQItem 
               question="How does the visitor identification work?"
@@ -195,7 +195,7 @@ export default function PricingPage() {
           </div>
           <div className="mt-10">
             <Link href="/contact">
-              <button className="rounded-lg border border-[#7CBECE] bg-[#7CBECE] px-8 py-3 font-medium text-[#0A0F18] shadow-sm hover:brightness-95">
+              <button className="rounded-lg border border-[var(--color-primary)] bg-[var(--color-primary)] px-8 py-3 font-medium text-white shadow-sm hover:bg-[var(--color-primary-light)]">
                 Contact us
               </button>
             </Link>
@@ -219,29 +219,29 @@ function PricingCard({ title, price, description, details, link, popular }: {
     <div className={`relative ${popular ? 'scale-105 z-10' : ''}`}>
       {popular && (
         <div className="absolute -top-3 left-0 right-0 flex justify-center">
-          <span className="bg-[#5A9BA5] text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
+          <span className="bg-[var(--color-primary-dark)] text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
             Most Popular
           </span>
         </div>
       )}
-      <div className={`h-full bg-white border rounded-xl p-6 transition-all duration-300 hover:shadow-md flex flex-col ${popular ? 'border-[#5A9BA5]/50' : 'border-[#E1F1F5]'}`}>
+      <div className={`h-full bg-white border rounded-xl p-6 transition-all duration-300 hover:shadow-md flex flex-col ${popular ? 'border-[var(--color-primary)]/50' : 'border-gray-200'}`}>
         <h3 className="text-xl font-bold text-[#0A0F18] mb-2">{title}</h3>
         <div className="text-3xl font-bold text-[#0A0F18] mb-1">{price}</div>
-        <p className="text-[#5A6B7A] mb-6">{description}</p>
+        <p className="text-gray-600 mb-6">{description}</p>
         
         <ul className="space-y-3 mb-8 flex-grow">
           {details.map((feature, index) => (
             <li key={index} className="flex items-start">
-              <svg className="h-5 w-5 text-[#5A9BA5] mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-5 w-5 text-[var(--color-primary)] mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
-              <span className="text-[#334454]">{feature}</span>
+              <span className="text-gray-700">{feature}</span>
             </li>
           ))}
         </ul>
         
         <Link href={link} className="mt-auto">
-          <button className={`w-full transform rounded-lg px-6 py-3 font-medium transition-all duration-300 hover:-translate-y-0.5 ${popular ? 'bg-[#0A0F18] text-white hover:brightness-125' : 'bg-[#7CBECE] text-black hover:brightness-95'}`}>
+          <button className={`w-full transform rounded-lg px-6 py-3 font-medium transition-all duration-300 hover:-translate-y-0.5 ${popular ? 'bg-[var(--color-primary-dark)] text-white hover:bg-[var(--color-primary)]' : 'bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-light)]'}`}>
             {popular ? 'Buy Now' : 'Try for Free'}
           </button>
         </Link>
@@ -252,9 +252,9 @@ function PricingCard({ title, price, description, details, link, popular }: {
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   return (
-    <div className="bg-[#F5FBFC] border border-[#E1F1F5] rounded-xl p-6 text-left">
-      <h3 className="text-lg font-bold text-[#0A0F18] mb-2">{question}</h3>
-      <p className="text-[#334454]">{answer}</p>
+    <div className="bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/20 rounded-xl p-6 text-left">
+      <h3 className="text-lg font-bold text-gray-900 mb-2">{question}</h3>
+      <p className="text-gray-700">{answer}</p>
     </div>
   );
 }

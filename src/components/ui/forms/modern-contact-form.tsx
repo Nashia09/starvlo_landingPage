@@ -89,7 +89,7 @@ export default function ModernContactForm() {
 
   const inputClasses = (hasError: boolean) => cn(
     "w-full px-4 py-3 pl-12 rounded-lg border transition-all duration-300",
-    "focus:outline-none focus:ring-2 focus:ring-[#7CBECE]/20 focus:border-[#7CBECE]",
+    "focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20 focus:border-[var(--color-primary)]",
     "placeholder:text-gray-400",
     hasError
       ? "border-red-300 bg-red-50/50"
@@ -234,7 +234,7 @@ export default function ModernContactForm() {
             rows={5}
             className={cn(
               "w-full px-4 py-3 pl-12 rounded-lg border transition-all duration-300",
-              "focus:outline-none focus:ring-2 focus:ring-[#7CBECE]/20 focus:border-[#7CBECE]",
+              "focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20 focus:border-[var(--color-primary)]",
               "placeholder:text-gray-400 resize-none",
               errors.message
                 ? "border-red-300 bg-red-50/50"
@@ -266,13 +266,12 @@ export default function ModernContactForm() {
           type="submit"
           disabled={status === 'submitting'}
           className={cn(
-            "w-full bg-[#7CBECE] hover:bg-[#5A9BA5] text-white font-semibold py-4 px-6 rounded-lg",
-            "transition-all duration-300 transform hover:-translate-y-0.5",
-            "focus:outline-none focus:ring-2 focus:ring-[#7CBECE]/20 focus:ring-offset-2",
-            "shadow-lg hover:shadow-xl",
-            "disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none",
+            "w-full bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] text-white font-semibold py-4 px-6 rounded-lg",
+            "focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20 focus:ring-offset-2",
+            "shadow-lg",
+            "disabled:opacity-50 disabled:cursor-not-allowed",
             "flex items-center justify-center space-x-2",
-            "border border-[#5A9BA5]"
+            "border border-[var(--color-primary-dark)]"
           )}
         >
           {status === 'submitting' ? (

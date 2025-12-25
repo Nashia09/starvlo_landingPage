@@ -8,9 +8,9 @@
   --font-primary: var(--font-outfit), system-ui, sans-serif;
   --font-secondary: var(--font-montserrat), system-ui, sans-serif;
   --font-accent: var(--font-poppins), system-ui, sans-serif;
-  --color-primary: #7CBECE;
-  --color-primary-light: #A1D1D8;
-  --color-primary-dark: #5A9BA5;
+  --color-primary: #237C8E;
+  --color-primary-light: #2E91A5;
+  --color-primary-dark: #1E6D7E;
 }
 
 .light {

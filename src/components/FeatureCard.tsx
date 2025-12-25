@@ -62,18 +62,21 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         aria-hidden="true"
       >
         {!imageError ? (
-          <Image
-            src={image}
-            alt=""
-            width={160}
-            height={160}
-            className="object-contain w-full h-full"
-            onError={handleImageError}
-            loading="lazy"
-            sizes="(max-width: 768px) 128px, 160px"
-          />
+          <div className="relative w-full h-full">
+            <Image
+              src={image}
+              alt=""
+              width={160}
+              height={160}
+              className="object-contain w-full h-full"
+              onError={handleImageError}
+              loading="lazy"
+              sizes="(max-width: 768px) 128px, 160px"
+            />
+            <div className="absolute inset-0 bg-[var(--color-primary)]/35 mix-blend-multiply" />
+          </div>
         ) : (
-          <Icon className="w-full h-full text-blue-500 opacity-80" />
+          <Icon className="w-full h-full text-[var(--color-primary)] opacity-80" />
         )}
       </div>
     </article>

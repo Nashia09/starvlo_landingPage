@@ -8,7 +8,7 @@ export default function LeadCaptureHeroParallax() {
   const CustomHeader = () => {
     return (
       <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
-        <h1 className="text-2xl md:text-7xl font-bold bg-gradient-to-r from-[#7CBECE] to-[#5A9BA5] bg-clip-text text-transparent">
+        <h1 className="text-2xl md:text-7xl font-bold bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-light)] bg-clip-text text-transparent">
           Starvlo
         </h1>
         <p className="max-w-2xl text-base md:text-xl mt-8 text-gray-600">
@@ -16,14 +16,14 @@ export default function LeadCaptureHeroParallax() {
         </p>
         <div className="flex flex-wrap gap-4 mt-8">
           <Link href="/demo">
-            <button className="transform rounded-lg bg-blue-600 px-6 py-3 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-700">
+            <button className="transform rounded-lg bg-[var(--color-primary)] px-6 py-3 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary-light)]">
               Watch Demo
             </button>
           </Link>
           <Link href="/contact">
-            <button className="transform rounded-lg border border-gray-300 bg-transparent px-6 py-3 font-medium text-gray-700 transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-50">
+            <a href="https://starvlo-app.vercel.app/" className="transform rounded-lg border border-[var(--color-primary)] bg-transparent px-6 py-3 font-medium text-[var(--color-primary)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary)] hover:text-white">
               Get Started
-            </button>
+            </a>
           </Link>
         </div>
       </div>

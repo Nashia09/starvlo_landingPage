@@ -94,20 +94,20 @@ export default function TestimonialsCarousel() {
     <div className="relative py-16 bg-gradient-to-b from-gray-50/50 to-white">
       {/* Header Section */}
       <div className="text-center mb-16 px-4">
-        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#7CBECE] to-[#5A9BA5] rounded-2xl mb-6 shadow-lg">
+        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[var(--color-primary-light)] to-[var(--color-primary)] rounded-2xl mb-6 shadow-lg">
           <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
           </svg>
         </div>
         <div className="space-y-4">
           <h2 className="text-5xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent leading-tight">
-            What Our Creators &
+            Teams Close Faster
           </h2>
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-[#7CBECE] to-[#5A9BA5] bg-clip-text text-transparent leading-tight">
-            Entrepreneurs Say
+          <h2 className="text-5xl font-bold bg-gradient-to-r from-[var(--color-primary-light)] to-[var(--color-primary)] bg-clip-text text-transparent leading-tight">
+            with Starvlo
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Discover how thousands of creators and business owners are transforming their digital presence with our platform
+            Real results from founders, sales, and marketing teams using AI follow‑ups.
           </p>
         </div>
       </div>
@@ -155,13 +155,13 @@ export default function TestimonialsCarousel() {
                       }}
                     >
                       {/* Subtle gradient border on hover */}
-                      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-blue-500/20 via-transparent to-purple-500/20 p-[1px]">
+                      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-[var(--color-primary-light)]/20 via-transparent to-[var(--color-primary)]/20 p-[1px]">
                         <div className="w-full h-full bg-white rounded-2xl" />
                       </div>
 
                       {/* Quote icon */}
                       <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-                        <svg className="w-8 h-8 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-8 h-8 text-[var(--color-primary)]" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
                         </svg>
                       </div>
@@ -177,11 +177,11 @@ export default function TestimonialsCarousel() {
                               alt={t.name}
                               className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-lg"
                             />
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[var(--color-primary-light)]/20 to-[var(--color-primary)]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                           </div>
                           <div>
                             <div className="font-bold text-gray-900 text-base">{t.name}</div>
-                            <div className="text-sm text-blue-600 font-medium">{t.company}</div>
+                            <div className="text-sm text-[var(--color-primary)] font-medium">{t.company}</div>
                           </div>
                         </div>
                       </div>

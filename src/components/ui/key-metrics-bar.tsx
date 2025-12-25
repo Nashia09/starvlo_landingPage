@@ -108,7 +108,7 @@ const styles = `
 }
 
 .gradient-pulse {
-  background: linear-gradient(-45deg, #7CBECE, #A1D1D8, #5A9BA5, #7CBECE);
+  background: linear-gradient(-45deg, var(--color-primary), var(--color-primary-light), var(--color-primary-dark), var(--color-primary));
   background-size: 400% 400%;
   animation: gradient-pulse 15s ease infinite;
 }

@@ -101,35 +101,36 @@ export default function PricingTeaser() {
   }, [allPlans, billingCycle]);
   
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-[#7CBECE]/10 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
+    <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-[var(--color-primary)]/10 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
       <div className="container px-4 md:px-6 mx-auto max-w-7xl">
         <div className="text-center mb-6 md:mb-10">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Simple, Transparent Pricing
+            Start Free, Scale as You Grow
           </h2>
           <p className="text-gray-500 dark:text-gray-400 mx-auto max-w-[700px] md:text-lg">
-            Choose the plan that&apos;s right for your business.
+            Transparent plans that pay for themselves as conversions increase.
           </p>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">Free 14‑day trial.</p>
         </div>
 
         <div className="flex items-center justify-center mb-8">
-          <div className="flex rounded-full bg-[#E9F7FA] p-1 border border-[#D5EEF3]">
+          <div className="flex rounded-full bg-[var(--color-primary-light)]/15 p-1 border border-[var(--color-primary)]/20">
             <button
               onClick={() => setBillingCycle("monthly")}
-              className={`px-4 py-2 text-sm font-medium rounded-full transition-all ${
-                billingCycle === "monthly" ? "bg-[#7CBECE] text-black" : "text-[#5A6B7A]"
+              className={`px-4 py-2 text-sm font-medium rounded-full ${
+                billingCycle === "monthly" ? "bg-[var(--color-primary)] text-white" : "text-[#5A6B7A]"
               }`}
             >
               Monthly
             </button>
             <button
               onClick={() => setBillingCycle("yearly")}
-              className={`px-4 py-2 text-sm font-medium rounded-full transition-all flex items-center ${
-                billingCycle === "yearly" ? "bg-[#7CBECE] text-black" : "text-[#5A6B7A]"
+              className={`px-4 py-2 text-sm font-medium rounded-full flex items-center ${
+                billingCycle === "yearly" ? "bg-[var(--color-primary)] text-white" : "text-[#5A6B7A]"
               }`}
             >
               Yearly
-              <span className="ml-2 bg-[#5A9BA5] text-white text-xs px-2 py-0.5 rounded-full">Save 20%</span>
+              <span className="ml-2 bg-[var(--color-primary-dark)] text-white text-xs px-2 py-0.5 rounded-full">Save 20%</span>
             </button>
           </div>
         </div>
@@ -141,13 +142,13 @@ export default function PricingTeaser() {
               className={cn(
                 "relative rounded-xl border bg-white dark:bg-gray-900 p-8",
                 plan.popular
-                  ? "border-[#7CBECE] dark:border-[#7CBECE] shadow-lg"
+                  ? "border-[var(--color-primary)] dark:border-[var(--color-primary)] shadow-lg"
                   : "border-gray-200 dark:border-gray-800"
               )}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="inline-block rounded-full bg-[#7CBECE]/10 dark:bg-[#7CBECE]/30 px-3 py-1 text-sm text-[#7CBECE] dark:text-[#7CBECE]">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
+                  <div className="inline-block rounded-full bg-white px-3 py-1 text-sm text-[var(--color-primary)] shadow-sm ring-1 ring-[var(--color-primary)]/10">
                     Most Popular
                   </div>
                 </div>
@@ -161,12 +162,12 @@ export default function PricingTeaser() {
                 </p>
                 
                 <Link
-                  href="/auth#signup"
+                  href="https://starvlo-app.vercel.app/"
                   className={cn(
-                    "w-full py-3 px-6 font-medium rounded-lg transition-colors inline-block text-center",
+                    "w-full py-3 px-6 font-medium rounded-lg inline-block text-center",
                     plan.popular
-                      ? "bg-[#7CBECE] hover:bg-[#7CBECE]/90 text-white"
-                      : "bg-gray-100 hover:bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+                      ? "bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] text-white"
+                      : "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-white"
                   )}
                 >
                   Get Started
@@ -182,7 +183,7 @@ export default function PricingTeaser() {
                         className={cn(
                           "h-5 w-5 mr-2",
                           plan.popular
-                            ? "text-[#7CBECE]"
+                            ? "text-[var(--color-primary)]"
                             : "text-gray-400 dark:text-gray-500"
                         )}
                         xmlns="http://www.w3.org/2000/svg"
@@ -207,7 +208,7 @@ export default function PricingTeaser() {
         <div className="text-center mt-12">
           <Link 
             href="/pricing" 
-            className="text-[#7CBECE] dark:text-[#7CBECE] font-medium hover:underline"
+            className="text-[var(--color-primary)] dark:text-[var(--color-primary)] font-medium hover:underline"
           >
             View all pricing details
           </Link>

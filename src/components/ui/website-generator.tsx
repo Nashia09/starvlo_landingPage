@@ -26,13 +26,13 @@ export default function WebsiteGenerator() {
 
   const features = [
     {
-      icon: <IconBrain className="h-8 w-8 text-blue-500" />,
+      icon: <IconBrain className="h-8 w-8 text-[var(--color-primary)]" />,
       title: "AI-Powered Design",
       description: "Our AI analyzes your business needs and generates a custom website design tailored to your industry.",
       image: "https://images.unsplash.com/photo-1558655146-d09347e92766?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d2Vic2l0ZSUyMGRlc2lnbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
     },
     {
-      icon: <IconPalette className="h-8 w-8 text-[#7CBECE]" />,
+      icon: <IconPalette className="h-8 w-8 text-[var(--color-primary)]" />,
       title: "Custom Branding",
       description: "Choose your colors, fonts, and upload your logo to create a website that represents your brand.",
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YnJhbmRpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60"
@@ -65,7 +65,7 @@ export default function WebsiteGenerator() {
             viewport={{ once: true }}
             className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl dark:text-white"
           >
-            Don&apos;t have a website? <span className="text-blue-600 dark:text-blue-400">No problem.</span>
+            Don&apos;t have a website? <span className="text-[var(--color-primary)]">No problem.</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -126,7 +126,7 @@ export default function WebsiteGenerator() {
                 height: heightTransform,
                 opacity: opacityTransform,
               }}
-              className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-[#7CBECE] via-[#A1D1D8] to-transparent from-[0%] via-[10%] rounded-full"
+              className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-[var(--color-primary-light)] via-[var(--color-primary)] to-transparent from-[0%] via-[10%] rounded-full"
             />
           </div>
         </div>
@@ -138,7 +138,7 @@ export default function WebsiteGenerator() {
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <button className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-500 dark:hover:bg-blue-600">
+          <button className="inline-flex items-center justify-center rounded-md bg-[var(--color-primary)] px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-[var(--color-primary-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2">
             Launch your site now
           </button>
         </motion.div>

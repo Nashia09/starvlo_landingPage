@@ -65,11 +65,11 @@ export const WavyBackground = ({
   };
 
   const waveColors = colors ?? [
-    "#7CBECE", // primary
-    "#A1D1D8", // primary-light
-    "#5A9BA5", // primary-dark
-    "#7CBECE", // primary repeated
-    "#A1D1D8", // primary-light repeated
+    "#237C8E",
+    "#2E91A5",
+    "#1E6D7E",
+    "#237C8E",
+    "#2E91A5",
   ];
   const drawWave = (n: number) => {
     if (!ctx) return;

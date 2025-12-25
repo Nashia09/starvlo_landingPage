@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "motion/react";
-import Footer from "@/components/shared/Footer";
+import Footer from "@/components/ui/footer";
 
 export default function NewsPage() {
   return (
@@ -77,4 +77,3 @@ export default function NewsPage() {
     </div>
   );
 }
-

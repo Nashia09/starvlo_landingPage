@@ -50,7 +50,7 @@ export const Cover = ({
                 duration: 0.15,
               },
             }}
-            className="h-full w-full overflow-hidden absolute inset-0 bg-gradient-to-r from-[#7CBECE]/20 to-[#7CBECE]/40"
+            className="h-full w-full overflow-hidden absolute inset-0 bg-gradient-to-r from-[var(--color-primary-light)]/20 to-[var(--color-primary)]/40"
           >
             {/* Simplified shimmer effect instead of heavy particles */}
             <motion.div
@@ -170,9 +170,9 @@ export const Beam = ({
             repeatDelay: hovered ? Math.random() * (2 - 1) + 1 : delay ?? 1,
           }}
         >
-          <stop stopColor="#7CBECE" stopOpacity="0" />
-          <stop stopColor="#7CBECE" />
-          <stop offset="1" stopColor="#7CBECE" stopOpacity="0" />
+          <stop stopColor="var(--color-primary-light)" stopOpacity="0" />
+          <stop stopColor="var(--color-primary)" />
+          <stop offset="1" stopColor="var(--color-primary-light)" stopOpacity="0" />
         </motion.linearGradient>
       </defs>
     </motion.svg>

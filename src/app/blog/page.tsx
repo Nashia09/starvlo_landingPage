@@ -164,7 +164,7 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <main className="flex-1">
-        <section className="pt-24 pb-10 px-4 md:px-8 lg:px-16">
+        <section className="pt-24 pb-10 px-4 md:px-8 lg:px-16 bg-gradient-to-b from-[var(--color-primary)]/10 to-white">
           <div className="max-w-6xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">All Articles</h1>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -177,7 +177,7 @@ export default function BlogPage() {
                   {categories.map((c) => (
                     <button
                       key={c.slug}
-                      className={selectedCategory === c.slug ? "px-3 py-2 rounded-full bg-blue-600 text-white" : "px-3 py-2 rounded-full border border-gray-300 bg-white text-gray-900"}
+                      className={selectedCategory === c.slug ? "px-3 py-2 rounded-full bg-[var(--color-primary)] text-white" : "px-3 py-2 rounded-full border border-gray-300 bg-white text-gray-900"}
                       onClick={() => setSelectedCategory(c.slug)}
                     >
                       {c.name}
@@ -198,12 +198,12 @@ export default function BlogPage() {
                 {!sidebarsLoading && spotlight && (
                   <div className="space-y-3">
                     <div className="flex items-center gap-2 text-sm text-gray-700">
-                      <Sparkles className="h-4 w-4 text-blue-600" />
+                      <Sparkles className="h-4 w-4 text-[var(--color-primary)]" />
                       <span className="font-semibold">Spotlight</span>
                     </div>
                     <Link href={`/blog/${spotlight.slug}`} className="block">
                       <div className="relative rounded-2xl overflow-hidden border">
-                        <div className="absolute inset-0 bg-amber-300" />
+                        <div className="absolute inset-0 bg-[var(--color-primary)]/60" />
                         {spotlight.coverImageUrl ? (
                           <img src={spotlight.coverImageUrl} alt="" className="relative w-full h-64 md:h-80 object-cover mix-blend-multiply" />
                         ) : (
@@ -260,7 +260,7 @@ export default function BlogPage() {
                     <button
                       onClick={() => !loadingMore && hasMore && setPage((p) => p + 1)}
                       disabled={!hasMore || loadingMore}
-                      className="px-4 py-2 rounded-full border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white disabled:opacity-50"
+                      className="px-4 py-2 rounded-full border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white disabled:opacity-50"
                     >
                       {hasMore ? (loadingMore ? "Loading..." : "Read more") : "End of articles"}
                     </button>
@@ -270,7 +270,7 @@ export default function BlogPage() {
               </div>
               <aside className="lg:col-span-3 space-y-6">
                 <div>
-                  <div className="flex items-center gap-2 mb-2"><Flame className="h-4 w-4 text-blue-600" /><span className="font-semibold">Trending</span></div>
+                  <div className="flex items-center gap-2 mb-2"><Flame className="h-4 w-4 text-[var(--color-primary)]" /><span className="font-semibold">Trending</span></div>
                   <div className="space-y-3">
                     {sidebarsLoading ? (
                       [0, 1, 2, 3].map((i) => (

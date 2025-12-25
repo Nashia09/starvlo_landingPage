@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "motion/react";
-import Footer from "@/components/shared/Footer";
+import Footer from "@/components/ui/footer";
 import AnimatedTestimonialsDemo from "@/components/ui/animated-testimonials-demo";
 
 export default function AboutPage() {
