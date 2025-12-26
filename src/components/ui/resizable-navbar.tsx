@@ -268,7 +268,7 @@ export const NavbarLogo = () => {
       className="relative z-20 mr-4 flex items-center space-x-3 px-2 py-1 text-base md:text-lg font-semibold text-black"
     >
       <img
-        src="/assets/logo.png"
+        src="/assets/logo.svg"
         alt="Starvlo logo"
         width={40}
         height={40}

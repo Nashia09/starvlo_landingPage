@@ -22,7 +22,7 @@ const LeadCaptureLogo = () => {
       className="relative z-20 mr-12 flex items-center text-black flex-shrink-0"
     >
       <Image
-        src="/assets/logo.png"
+        src="/assets/logo.svg"
         alt="Starvlo logo"
         width={40}
         height={40}

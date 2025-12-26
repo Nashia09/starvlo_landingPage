@@ -8,23 +8,23 @@ import { cn } from "@/lib/utils";
 const faqs = [
   {
     question: "What is Starvlo?",
-    answer: "Starvlo is an AI‑powered sales assistant that captures leads, qualifies them through smart conversations, and automates follow‑ups to help you convert faster.",
+    answer: "Starvlo is your creator store. Build and sell digital products, services, and memberships with 1‑Tap Checkout—no coding required. Integrates with Instagram and your favorite apps.",
   },
   {
     question: "How does Starvlo capture leads?",
-    answer: "Starvlo uses conversational forms and chat to engage visitors and collect qualified leads directly on your site. It relies on conversation context and user input, not IP intelligence.",
+    answer: "Create offers and share your store or link‑in‑bio. Buyers purchase via 1‑Tap Checkout or submit simple opt‑in forms. Connect Instagram to enable Auto DM and comment automations that move followers to your store—no IP tracking.",
   },
   {
     question: "Can Starvlo automate follow‑up?",
-    answer: "Yes. Starvlo sends timely, personalized follow‑ups and can trigger emails, tasks, or handoffs based on lead intent—so you respond instantly without manual work.",
+    answer: "Yes. Automate Instagram DMs and emails for confirmations, delivery, and nurturing. Set simple flows that follow up and keep buyers engaged—no complex setup.",
   },
   {
     question: "How does Starvlo help convert more visitors?",
-    answer: "Starvlo prioritizes high‑intent leads from conversations, keeps prospects engaged with immediate follow‑ups, and routes ready buyers to demos and bookings—reducing drop‑off.",
+    answer: "Frictionless 1‑Tap Checkout, mobile‑optimized link‑in‑bio pages, and automated DMs that turn engagement into sales. Clear offers and bundles reduce drop‑off and boost conversions.",
   },
   {
-    question: "Does Starvlo integrate with my CRM?",
-    answer: "Starvlo integrates with popular CRMs like HubSpot, Salesforce, and Pipedrive, and supports custom workflows via API.",
+    question: "Does Starvlo integrate with Instagram and apps?",
+    answer: "Yes. Connect Instagram to enable Auto DM and comment automation. Starvlo also integrates with popular tools and supports custom workflows via API.",
   },
   {
     question: "Is there a free trial?",
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     question: "Is Starvlo privacy‑friendly?",
-    answer: "Yes. Starvlo captures leads through user‑initiated conversations and forms. We don’t use IP intelligence. You control consent and data retention, and we focus on minimal data collection.",
+    answer: "Yes. Starvlo captures leads via consent‑based purchases and opt‑in forms. We don’t use IP tracking. Instagram connections use official APIs, and you control data access and retention.",
   },
 ];
 
