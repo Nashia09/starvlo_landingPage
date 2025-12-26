@@ -2,7 +2,6 @@
 
 
 import React, { useRef } from "react";
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Lottie from "lottie-react";
@@ -85,16 +84,18 @@ export default function HeroSection() {
                   </p>
 
                   <div className="flex w-full sm:w-auto flex-col sm:flex-row gap-3 sm:gap-4 mt-4 sm:mt-8">
-                    <Link
-                      href="/#pricing"
+                    <a
+                      href="https://app.starvlo.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full sm:w-auto bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] text-white px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl button-text text-base sm:text-lg shadow-lg"
                     >
                       <span className="inline-flex items-center gap-2">
-                        Start Free Trial
+                        Get Started
                         <ArrowRight className="w-5 h-5" />
                       </span>
-                    </Link>
-                    <div className="text-sm text-white/80 mt-2">No credit card required</div>
+                    </a>
+      
                   </div>
                 </div>
 

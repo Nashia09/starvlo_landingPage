@@ -21,7 +21,7 @@ export default function Pricing() {
         "Email notifications",
         "Standard support",
       ],
-      cta: "Start free trial",
+      cta: "Get started",
       mostPopular: false,
     },
     {
@@ -38,7 +38,7 @@ export default function Pricing() {
         "Lead scoring",
         "Priority support",
       ],
-      cta: "Start free trial",
+      cta: "Get started",
       mostPopular: true,
     },
     {
@@ -146,16 +146,31 @@ export default function Pricing() {
               </ul>
             </div>
             <div className="mt-8">
-              <Link
-                href={tier.name === "Enterprise" ? "/contact#enterprise" : "/auth#signup"}
-                className={`$
-                  tier.mostPopular
-                    ? "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-light)]"
-                    : "bg-gray-800 text-white hover:bg-gray-900"
-                } w-full rounded-md px-4 py-2.5 text-center text-sm font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2`}
-              >
-                {tier.cta}
-              </Link>
+              {tier.name === "Enterprise" ? (
+                <Link
+                  href="/contact#enterprise"
+                  className={`$
+                    tier.mostPopular
+                      ? "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-light)]"
+                      : "bg-gray-800 text-white hover:bg-gray-900"
+                  } w-full rounded-md px-4 py-2.5 text-center text-sm font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2`}
+                >
+                  {tier.cta}
+                </Link>
+              ) : (
+                <a
+                  href="https://app.starvlo.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`$
+                    tier.mostPopular
+                      ? "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-light)]"
+                      : "bg-gray-800 text-white hover:bg-gray-900"
+                  } w-full rounded-md px-4 py-2.5 text-center text-sm font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2`}
+                >
+                  {tier.cta}
+                </a>
+              )}
             </div>
           </motion.div>
         ))}

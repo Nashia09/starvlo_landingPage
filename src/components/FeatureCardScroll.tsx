@@ -3,49 +3,43 @@ import FeatureCard from './FeatureCard';
 
 const features = [
   {
-    title: "Lead Capture Forms",
-    description: "Capture qualified leads with high‑conversion forms and enriched company data.",
+    title: "Creator Store",
+    description: "Create and sell digital products, services, and memberships—no coding required.",
     image: "/features/digital-box.png"
   },
   {
-    title: "Automated Follow‑Up",
-    description: "Trigger timely emails and CRM tasks based on real visitor intent.",
+    title: "Social & Store Automation",
+    description: "1‑Tap checkout with automated DMs and emails from your connected socials.",
     image: "/features/calendar-app.png"
   },
   {
-    title: "Real‑Time Chat",
-    description: "Engage high‑intent visitors instantly and route conversations to sales.",
-    image: "/features/chat-bubble.png"
-  },
-  {
     title: "Quick Setup",
-    description: "Get started in minutes with our intuitive onboarding process.",
+    description: "Build your store in minutes with an intuitive onboarding flow.",
     image: "/features/quick-setup.png"
   },
   {
-    title: "Analytics",
-    description: "Track your performance with detailed insights and metrics.",
+    title: "Store Analytics",
+    description: "Track sales, revenue, and checkout conversion with clear insights.",
     image: "/features/analytics-chart.png"
   },
-
   {
-    title: "Email Automation",
-    description: "Automate sequences that nurture leads and escalate high intent.",
+    title: "Marketing Automations",
+    description: "Automate DMs, email sequences, and link‑in‑bio funnels to grow.",
     image: "/features/email-campaign.png"
   },
   {
     title: "Team Collaboration",
-    description: "Work seamlessly with your team members and share resources.",
+    description: "Collaborate with your team and share offers, assets, and insights.",
     image: "/features/team-work.png"
   },
   {
-    title: "Automation Tools",
-    description: "Streamline your workflow with powerful automation features.",
+    title: "Social Integrations",
+    description: "Connect Instagram and favorite apps to streamline audience growth.",
     image: "/features/automation-gear.png"
   },
   {
     title: "Security Features",
-    description: "Keep your data safe with enterprise-grade security measures.",
+    description: "Secure payments and data protection with industry‑standard practices.",
     image: "/features/security-shield.png"
   }
 ];

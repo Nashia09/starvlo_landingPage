@@ -394,11 +394,14 @@ const CampaignFlowSticky = () => {
             Set up your multi-channel campaign in minutes and start converting more leads with intelligent automation.
           </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
+            <a
+              href="https://app.starvlo.com/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              Start Free Trial
-            </button>
+              Get Started
+            </a>
             <button
               className="border-2 border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-3 transition-all duration-300"
             >

@@ -108,10 +108,10 @@ export default function StarterPricingPage() {
           </div>
           
           <div className="mt-8 text-center">
-            <p className="text-neutral-300 mb-4">Need a free trial to get started?</p>
+            <p className="text-neutral-300 mb-4">Need help getting started?</p>
             <Link href="/contact">
               <button className="transform rounded-lg bg-white px-8 py-3 font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-200">
-                Request a Trial
+                Request a Demo
               </button>
             </Link>
           </div>

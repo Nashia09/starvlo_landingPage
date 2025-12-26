@@ -10,7 +10,7 @@ export default function Header() {
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" className="flex items-center gap-2">
                 <Image
-                  src="/assets/logo.png"
+                  src="/assets/logo.svg"
                   alt="Starvlo logo"
                   width={32}
                   height={32}

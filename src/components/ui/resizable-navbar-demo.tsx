@@ -120,7 +120,7 @@ export default function NavbarDemo() {
           </div>
 
           <div className="flex items-center gap-4 flex-shrink-0">
-            <NavbarButton href="https://starvlo-app.vercel.app/" variant="gradient">Get Started</NavbarButton>
+            <NavbarButton href="https://app.starvlo.com/" target="_blank" rel="noopener noreferrer" variant="gradient">Get Started</NavbarButton>
           </div>
         </NavBody>
 
@@ -184,7 +184,9 @@ export default function NavbarDemo() {
             ))}
             <div className="flex w-full flex-col gap-4">
               <NavbarButton
-                href="https://starvlo-app.vercel.app/"
+                href="https://app.starvlo.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="gradient"
                 className="w-full"

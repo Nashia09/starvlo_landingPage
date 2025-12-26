@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     question: "Is there a free trial?",
-    answer: "Yes. You can try Starvlo free for 14 days to validate fit before committing.",
+    answer: "No. We don’t offer free trials for billable plans. Book a demo instead.",
   },
   {
     question: "Is Starvlo privacy‑friendly?",

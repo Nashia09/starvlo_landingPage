@@ -11,32 +11,32 @@ import { IconBrandYoutubeFilled } from "@tabler/icons-react";
 export default function FeaturesSectionDemo() {
   const features = [
     {
-      title: "Track website visitors",
+      title: "Build your store",
       description:
-        "Track and identify the companies visiting your website with our advanced tracking technology.",
+        "Create offers for digital products, services, and memberships in minutes—no coding.",
       skeleton: <SkeletonOne />,
       className:
         "col-span-1 lg:col-span-4 border-b lg:border-r dark:border-neutral-800",
     },
     {
-      title: "Generate quality leads",
+      title: "Sell and grow",
       description:
-        "Convert anonymous website traffic into high-quality leads for your sales team.",
+        "Bundle offers, set flexible pricing, and share your link‑in‑bio to start selling fast.",
       skeleton: <SkeletonTwo />,
       className: "border-b col-span-1 lg:col-span-2 dark:border-neutral-800",
     },
     {
-      title: "Watch our AI in action",
+      title: "1‑Tap Checkout",
       description:
-        "See how our platform identifies and qualifies leads from your website traffic.",
+        "Delight buyers with frictionless checkout and instant delivery to maximize conversions.",
       skeleton: <SkeletonThree />,
       className:
         "col-span-1 lg:col-span-3 lg:border-r dark:border-neutral-800",
     },
     {
-      title: "Integrate in seconds",
+      title: "Connect Instagram",
       description:
-        "With our simple installation, you can start identifying companies visiting your website in seconds.",
+        "Enable Auto DM and comment automation to turn engagement into sales—set up in seconds.",
       skeleton: <SkeletonFour />,
       className: "col-span-1 lg:col-span-3 border-b lg:border-none",
     },
@@ -45,11 +45,11 @@ export default function FeaturesSectionDemo() {
     <div className="relative z-20 py-10 lg:py-40 max-w-7xl mx-auto">
       <div className="px-8">
         <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
-          Capture Leads. Automate Follow‑Up. Close More Sales.
+          Build Your Creator Store. Sell With 1‑Tap Checkout.
         </h4>
 
         <p className="text-sm lg:text-base max-w-2xl my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
-          Reveal the companies behind your traffic, capture qualified leads, and trigger timely follow‑up to drive conversions.
+          Set up your store in minutes, connect Instagram to automate DMs, and start selling—no coding required.
         </p>
       </div>
 

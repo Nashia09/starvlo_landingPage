@@ -110,7 +110,7 @@ export default function PricingTeaser() {
           <p className="text-gray-500 dark:text-gray-400 mx-auto max-w-[700px] md:text-lg">
             Transparent plans that pay for themselves as conversions increase.
           </p>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">Free 14‑day trial.</p>
+          
         </div>
 
         <div className="flex items-center justify-center mb-8">
@@ -161,8 +161,10 @@ export default function PricingTeaser() {
                   {plan.description}
                 </p>
                 
-                <Link
-                  href="https://starvlo-app.vercel.app/"
+                <a
+                  href="https://app.starvlo.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={cn(
                     "w-full py-3 px-6 font-medium rounded-lg inline-block text-center",
                     plan.popular
@@ -171,7 +173,7 @@ export default function PricingTeaser() {
                   )}
                 >
                   Get Started
-                </Link>
+                </a>
               </div>
               
               <div className="mt-8">

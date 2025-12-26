@@ -51,9 +51,9 @@ export default function LeadCaptureProPage() {
           <p className="text-lg text-gray-600 mb-10">
             Find out how LeadCapture Pro can help your company transform anonymous visitors into qualified leads with our AI-powered platform.
           </p>
-          <Link href="/contact" className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors inline-block">
+          <a href="https://app.starvlo.com/" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors inline-block">
             Get started
-          </Link>
+          </a>
         </div>
       </section>
     </div>

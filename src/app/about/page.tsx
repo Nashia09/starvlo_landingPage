@@ -25,7 +25,7 @@ export default function AboutPage() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="mt-8 text-xl leading-8 text-gray-500 dark:text-gray-400"
             >
-              Starvlo helps businesses capture more leads, automate follow-up, and convert anonymous visitors into customers.
+              Starvlo is your creator store. Build and sell digital products, services, and memberships—without code.
             </motion.p>
           </div>
           <div className="mx-auto mt-6 max-w-prose text-gray-500 dark:text-gray-400">
@@ -35,7 +35,7 @@ export default function AboutPage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mt-8"
             >
-              Founded in 2023, LeadCapture has quickly become a leader in website visitor identification technology. Our mission is to empower sales and marketing teams with the insights they need to connect with potential customers at the right time, with the right message.
+              Founded in 2023, Starvlo simplifies selling online for creators and small businesses. Our mission is to give you an all‑in‑one store—fast setup, beautiful offers, and frictionless checkout.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -43,7 +43,7 @@ export default function AboutPage() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="mt-8"
             >
-              Unlike traditional analytics tools that only show you traffic numbers, LeadCapture reveals the actual companies visiting your website. This empowers your team to focus on high-quality leads that are already showing interest in your products or services.
+              Unlike complex stacks, Starvlo brings storefront, checkout, delivery, and automations together—no more juggling multiple tools.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -51,7 +51,7 @@ export default function AboutPage() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="mt-8"
             >
-              Our platform is built on cutting-edge technology that combines IP tracking, machine learning, and our proprietary database of company information to provide the most accurate identification possible. We update our database daily to ensure you always have the freshest data.
+              From 1‑Tap Checkout to Instagram integrations, Starvlo helps you turn attention into sales with automated DMs, comment replies, and simple forms.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -59,7 +59,7 @@ export default function AboutPage() {
               transition={{ duration: 0.5, delay: 0.5 }}
               className="mt-8"
             >
-              We believe in privacy-first lead generation. That&apos;s why LeadCapture is fully GDPR compliant, identifying companies rather than individuals, while still providing the actionable insights your business needs to grow.
+              We believe selling should be simple. Starvlo is an all‑in‑one platform to run your business and deliver value to your audience.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -67,7 +67,7 @@ export default function AboutPage() {
               transition={{ duration: 0.5, delay: 0.6 }}
               className="mt-8"
             >
-              Join thousands of businesses that are using LeadCapture to transform their website traffic into a powerful source of qualified leads.
+              Join creators and teams using Starvlo to launch offers, grow audiences, and sell—without the complexity.
             </motion.p>
           </div>
         </div>

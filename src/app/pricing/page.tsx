@@ -169,8 +169,8 @@ export default function PricingPage() {
           <h2 className="text-2xl font-bold text-gray-900 mb-6">FAQs</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             <FAQItem 
-              question="How does the visitor identification work?"
-              answer="We use IP signals and a proprietary dataset to identify companies visiting your site."
+              question="How does Starvlo capture leads?"
+              answer="You build your store and share your link‑in‑bio. Buyers purchase via 1‑Tap Checkout or submit simple forms. Connect Instagram to enable Auto DM and comment automations that turn engagement into sales—no IP tracking."
             />
             <FAQItem 
               question="Can I upgrade or downgrade later?"
@@ -178,7 +178,7 @@ export default function PricingPage() {
             />
             <FAQItem 
               question="Do you offer a free trial?"
-              answer="Yes. Test all features before you decide."
+              answer="No. We don’t offer free trials for billable plans."
             />
             <FAQItem 
               question="What if I exceed my limits?"
@@ -242,7 +242,7 @@ function PricingCard({ title, price, description, details, link, popular }: {
         
         <Link href={link} className="mt-auto">
           <button className={`w-full transform rounded-lg px-6 py-3 font-medium transition-all duration-300 hover:-translate-y-0.5 ${popular ? 'bg-[var(--color-primary-dark)] text-white hover:bg-[var(--color-primary)]' : 'bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-light)]'}`}>
-            {popular ? 'Buy Now' : 'Try for Free'}
+            {popular ? 'Buy Now' : 'Choose Plan'}
           </button>
         </Link>
       </div>

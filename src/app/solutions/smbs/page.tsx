@@ -64,14 +64,17 @@ export default function SMBsPage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <motion.button
+                <motion.a
+                  href="https://app.starvlo.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-gradient-to-r from-[#7CBECE] to-[#5A9BA5] text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center gap-3"
                   whileHover={{ scale: 1.05, y: -3 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <Zap className="w-6 h-6" />
-                  Start Free Trial
-                </motion.button>
+                  Get Started
+                </motion.a>
 
                 <motion.button
                   className="border-2 border-[#7CBECE] text-[#7CBECE] hover:bg-[#7CBECE] hover:text-white px-10 py-5 rounded-2xl font-bold text-xl transition-all duration-300 flex items-center gap-3"
@@ -324,14 +327,17 @@ export default function SMBsPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <motion.button
+            <motion.a
+              href="https://app.starvlo.com/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-white text-[#7CBECE] px-10 py-5 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center justify-center gap-3"
               whileHover={{ scale: 1.05, y: -3 }}
               whileTap={{ scale: 0.95 }}
             >
               <Zap className="w-6 h-6" />
-              Start Free Trial
-            </motion.button>
+              Get Started
+            </motion.a>
 
             <motion.button
               className="border-2 border-white text-white hover:bg-white hover:text-[#7CBECE] px-10 py-5 rounded-2xl font-bold text-xl transition-all duration-300 flex items-center justify-center gap-3"

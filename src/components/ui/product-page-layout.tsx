@@ -131,7 +131,7 @@ export default function ProductPageLayout({
                 Watch Demo
               </button>
             </Link>
-            <a href="https://starvlo-app.vercel.app/">
+            <a href="https://app.starvlo.com/" target="_blank" rel="noopener noreferrer">
               <button className="w-60 rounded-lg border border-[var(--color-primary)] bg-transparent px-6 py-2 font-medium text-[var(--color-primary)] hover:bg-[var(--color-primary-light)] hover:text-white">
                 Get Started
               </button>
@@ -227,9 +227,9 @@ export default function ProductPageLayout({
           <p className="text-lg text-gray-600 mb-10">
             Find out how {productName} can help your company transform anonymous visitors into qualified leads with our AI-powered platform.
           </p>
-          <Link href="/contact" className="px-8 py-3 bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] text-white font-medium rounded-md inline-block">
+          <a href="https://app.starvlo.com/" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] text-white font-medium rounded-md inline-block">
             Get started
-          </Link>
+          </a>
         </div>
       </section>
     </div>

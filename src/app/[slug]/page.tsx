@@ -5,14 +5,14 @@ import SlugPageClient from "./slug-page-client";
 // Define page data for different slugs
 const pageData = {
   "about": {
-    title: "About LeadCapture",
-    subtitle: "LeadCapture is revolutionizing how businesses identify and convert website visitors into qualified leads.",
+    title: "About Starvlo",
+    subtitle: "Starvlo is your creator store—build and sell digital products, services, and memberships without code.",
     content: [
-      "Founded in 2023, LeadCapture has quickly become a leader in website visitor identification technology. Our mission is to empower sales and marketing teams with the insights they need to connect with potential customers at the right time, with the right message.",
-      "Unlike traditional analytics tools that only show you traffic numbers, LeadCapture reveals the actual companies visiting your website. This empowers your team to focus on high-quality leads that are already showing interest in your products or services.",
-      "Our platform is built on cutting-edge technology that combines IP tracking, machine learning, and our proprietary database of company information to provide the most accurate identification possible. We update our database daily to ensure you always have the freshest data.",
-      "We believe in privacy-first lead generation. That's why LeadCapture is fully GDPR compliant, identifying companies rather than individuals, while still providing the actionable insights your business needs to grow.",
-      "Join thousands of businesses that are using LeadCapture to transform their website traffic into a powerful source of qualified leads."
+      "Founded in 2023, Starvlo simplifies selling online for creators and small businesses. We bring storefront, checkout, delivery, and automations into one place.",
+      "Set up your store in minutes, create beautiful offers, and share your link‑in‑bio to start selling fast.",
+      "Delight buyers with 1‑Tap Checkout and instant delivery. Connect Instagram to enable Auto DM and comment automations that move followers into your store.",
+      "Stop juggling tools—Starvlo is an all‑in‑one solution to run your business and grow your audience.",
+      "Join creators and teams using Starvlo to launch offers, grow audiences, and sell—without the complexity."
     ]
   },
   "privacy": {

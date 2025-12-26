@@ -100,11 +100,22 @@ export const EnhancedHeroWithBackgroundLines = ({
             transition={{ duration: 0.3, delay: 0.7 }}
             className="relative z-10 mt-8 flex flex-wrap items-center justify-center gap-4"
           >
-            <Link href={primaryButtonLink}>
-              <button className="w-60 transform rounded-lg bg-white px-6 py-2 font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-200">
+            {primaryButtonText === "Get Started" ? (
+              <a
+                href="https://app.starvlo.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-60 transform rounded-lg bg-white px-6 py-2 font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-200 inline-block text-center"
+              >
                 {primaryButtonText}
-              </button>
-            </Link>
+              </a>
+            ) : (
+              <Link href={primaryButtonLink}>
+                <button className="w-60 transform rounded-lg bg-white px-6 py-2 font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-200">
+                  {primaryButtonText}
+                </button>
+              </Link>
+            )}
             <Link href={secondaryButtonLink}>
               <button className="w-60 transform rounded-lg border border-white/30 bg-transparent px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10">
                 {secondaryButtonText}

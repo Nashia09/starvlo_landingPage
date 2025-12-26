@@ -14,28 +14,24 @@ export default function FAQ() {
 
   const faqs: FAQItem[] = [
     {
-      question: "How does Starvlo identify website visitors?",
-      answer: "Starvlo uses IP intelligence and our proprietary company graph to reveal which businesses are visiting your site—without identifying individuals."
+      question: "How does Starvlo capture leads?",
+      answer: "Create offers for digital products, services, or memberships and share your store or link‑in‑bio. Buyers check out with 1‑Tap Checkout or submit forms. When you connect Instagram, Auto DM and comment automations turn engagement into sales—no IP tracking."
     },
     {
-      question: "Is Starvlo GDPR‑friendly?",
-      answer: "Yes. We focus on company‑level insights and design our workflows to respect privacy standards."
+      question: "Do I need coding to use Starvlo?",
+      answer: "No. You can build your store in minutes—everything is handled in one place."
     },
     {
-      question: "How accurate is the identification?",
-      answer: "Typical B2B sites see 60–70% of traffic identified at the company level, with high accuracy on enriched records."
+      question: "Does Starvlo integrate with Instagram?",
+      answer: "Yes. Connect your Instagram to enable Auto DM, comment replies, and funnels that move followers to your store."
     },
     {
-      question: "Does Starvlo integrate with my CRM?",
-      answer: "Starvlo integrates with Salesforce, HubSpot, Pipedrive, and more. Two‑way sync keeps leads and activities up to date."
+      question: "How do payments and delivery work?",
+      answer: "Starvlo provides secure checkout and instant delivery. We integrate with trusted processors so you can sell confidently."
     },
     {
       question: "Do you offer a free trial?",
-      answer: "Yes, a 14‑day free trial is available on all plans."
-    },
-    {
-      question: "Can Starvlo identify visitors working remotely?",
-      answer: "Yes. Our identification works reliably regardless of where employees are working from."
+      answer: "No. We don’t offer free trials for billable plans."
     }
   ];
 

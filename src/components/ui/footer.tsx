@@ -53,7 +53,7 @@ export default function Footer() {
           {/* Company info */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <Image src="/assets/logo.png" alt="Logo" width={80} height={80} className="rounded-md" />
+              <Image src="/assets/logo.svg" alt="Logo" width={80} height={80} className="rounded-md" />
             </div>
             
             <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md">

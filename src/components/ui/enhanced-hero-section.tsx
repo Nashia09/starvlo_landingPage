@@ -107,11 +107,22 @@ export const EnhancedHeroSection = ({
             transition={{ duration: 0.3, delay: 0.7 }}
             className="relative z-10 mt-8 flex flex-wrap items-center justify-center gap-4"
           >
-            <Link href={primaryButtonLink}>
-              <button className="w-60 rounded-lg bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] px-6 py-2 font-medium text-white">
+            {primaryButtonText === "Get Started" ? (
+              <a
+                href="https://app.starvlo.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-60 rounded-lg bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] px-6 py-2 font-medium text-white text-center"
+              >
                 {primaryButtonText}
-              </button>
-            </Link>
+              </a>
+            ) : (
+              <Link href={primaryButtonLink}>
+                <button className="w-60 rounded-lg bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] px-6 py-2 font-medium text-white">
+                  {primaryButtonText}
+                </button>
+              </Link>
+            )}
             <Link href={secondaryButtonLink}>
               <button className="w-60 rounded-lg border border-[var(--color-primary)] bg-transparent px-6 py-2 font-medium text-[var(--color-primary)] hover:bg-[var(--color-primary-light)] hover:text-white">
                 {secondaryButtonText}

@@ -20,11 +20,9 @@ export default function LeadCaptureHeroParallax() {
               Watch Demo
             </button>
           </Link>
-          <Link href="/contact">
-            <a href="https://starvlo-app.vercel.app/" className="transform rounded-lg border border-[var(--color-primary)] bg-transparent px-6 py-3 font-medium text-[var(--color-primary)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary)] hover:text-white">
-              Get Started
-            </a>
-          </Link>
+          <a href="https://app.starvlo.com/" target="_blank" rel="noopener noreferrer" className="transform rounded-lg border border-[var(--color-primary)] bg-transparent px-6 py-3 font-medium text-[var(--color-primary)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary)] hover:text-white">
+            Get Started
+          </a>
         </div>
       </div>
     );

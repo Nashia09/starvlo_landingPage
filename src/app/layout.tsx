@@ -7,8 +7,8 @@ import CookieConsent from "@/components/ui/cookie-consent";
 import { ThemeProvider } from "@/lib/theme-context";
 
 export const metadata: Metadata = {
-  title: "Starvlo - Identify Your Website Visitors",
-  description: "Capture Leads. Automate Follow-Up. Close More Sales.",
+  title: "Starvlo — Your Creator Store",
+  description: "Build and sell products, services, and memberships with 1‑Tap Checkout. No coding required. Integrates with Instagram and your favorite apps.",
   ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && {
     verification: {
       google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
