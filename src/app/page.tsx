@@ -12,6 +12,8 @@ import VideoCTASection from "@/components/ui/video-cta-section";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 import { MacbookScroll } from "@/components/ui/macbook-scroll";
 import AnimatedPinDemo from "@/components/ui/3d-pin-demo";
+import StickyScrollRevealDemo from "@/components/sticky-scroll-reveal-demo";
+import { Gauge, Timer, Share2, CheckCircle2 } from "lucide-react";
 
 
 // // Peerlist logo badge
@@ -75,17 +77,16 @@ export default function HomePage() {
       <div className="">
         <HeroSection />
       </div>
-      
+
       <MacbookScroll src="/assets/onboarding.mp4" showGradient={false} />
-        
-      {/* <StickyScroll />  */}
-      <div className="space-y-24 py-12">
+      
+      <div className="">
         <section id="features">
           <FeaturesOverview />
         </section>
         {/* <AIGeneratorDemo /> */}
         <AnimatedPinDemo />
-        <FeaturesSection />
+        {/* <FeaturesSection /> */}
         
         <TestimonialsCarousel />
         <section id="pricing">

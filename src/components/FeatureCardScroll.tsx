@@ -27,11 +27,7 @@ const features = [
     description: "Automate DMs, email sequences, and link‑in‑bio funnels to grow.",
     image: "/features/email-campaign.png"
   },
-  {
-    title: "Team Collaboration",
-    description: "Collaborate with your team and share offers, assets, and insights.",
-    image: "/features/team-work.png"
-  },
+ 
   {
     title: "Social Integrations",
     description: "Connect Instagram and favorite apps to streamline audience growth.",

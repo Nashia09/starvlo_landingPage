@@ -16,18 +16,18 @@ const footerLinks = [
       { name: "Terms", href: "/terms" },
     ],
   },
-  {
-    title: "Resources",
-    links: [
-      { name: "Blog", href: "/blog" },
-      { name: "Help Center", href: "/help" },
-    ],
-  },
+  // {
+  //   title: "Resources",
+  //   links: [
+  //     // { name: "Blog", href: "/blog" },
+  //     // { name: "Help Center", href: "/help" },
+  //   ],
+  // },
   {
     title: "Company",
     links: [
       { name: "About", href: "/about" },
-      { name: "Careers", href: "#" },
+      // { name: "Careers", href: "#" },
       { name: "Contact", href: "/contact" },
     ],
   },
@@ -53,7 +53,7 @@ export default function Footer() {
           {/* Company info */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <Image src="/assets/logo.svg" alt="Logo" width={80} height={80} className="rounded-md" />
+              <Image src="/assets/logo.svg" alt="Starvlo logo" width={160} height={160} className="rounded-md" />
             </div>
             
             <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md">
@@ -153,7 +153,7 @@ export default function Footer() {
         <div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 dark:text-gray-400 text-sm">
-              &copy; {currentYear} Starvlo LLC. All rights reserved.
+              &copy; {currentYear} Starvlo — AI-powered lead generation for creators and businesses. All rights reserved.
             </p>
             <div className="mt-4 md:mt-0 flex flex-wrap gap-4 text-sm">
               <Link href="/privacy" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">

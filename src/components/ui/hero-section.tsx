@@ -73,14 +73,14 @@ export default function HeroSection() {
                   className="flex flex-col items-start space-y-4 sm:space-y-8"
                 >
                   <HeroText
-                    text="Close More Deals — Automatically"
+                    text="Capture Leads,Sell and Follow Up With AI"
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter hero-heading text-left mb-2 sm:mb-4"
                   />
 
                   <p
                     className="text-lg sm:text-xl md:text-2xl text-white/90 font-secondary mb-4 sm:mb-6"
                   >
-                    Starvlo captures, qualifies, and follows up with your leads using AI, so you never miss a sale.
+                    Starvlo helps creators and businesses turn attention into revenue with AI automations, lead management, and no-code storefronts—all in one platform.
                   </p>
 
                   <div className="flex w-full sm:w-auto flex-col sm:flex-row gap-3 sm:gap-4 mt-4 sm:mt-8">
