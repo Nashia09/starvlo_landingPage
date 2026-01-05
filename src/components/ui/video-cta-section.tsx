@@ -13,6 +13,7 @@ const VideoCTASection = () => {
         className="absolute inset-0 h-full w-full object-cover"
       >
         <source src="/assets/spiral.mp4" type="video/mp4" />
+        <source src="/assets/spiral.webm" type="video/webm" />
       </video>
       
       {/* Overlay */}
