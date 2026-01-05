@@ -16,21 +16,6 @@ const footerLinks = [
       { name: "Terms", href: "/terms" },
     ],
   },
-  // {
-  //   title: "Resources",
-  //   links: [
-  //     // { name: "Blog", href: "/blog" },
-  //     // { name: "Help Center", href: "/help" },
-  //   ],
-  // },
-  {
-    title: "Company",
-    links: [
-      { name: "About", href: "/about" },
-      // { name: "Careers", href: "#" },
-      { name: "Contact", href: "/contact" },
-    ],
-  },
 ];
 
 const socialLinks = [
@@ -48,19 +33,19 @@ export default function Footer() {
   
   return (
     <footer className="w-full bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
-      <div className="container px-4 md:px-6 mx-auto max-w-7xl py-12 md:py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
+      <div className="container px-4 md:px-6 mx-auto max-w-7xl py-8 md:py-10 lg:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Company info */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
               <Image src="/assets/logo.svg" alt="Starvlo logo" width={160} height={160} className="rounded-md" />
             </div>
             
-            <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md">
+            <p className="text-gray-600 dark:text-gray-400 mb-4 max-w-md">
               Capture leads. Automate follow-up. Close more sales.
             </p>
             
-            <div className="flex space-x-4 mb-8">
+            <div className="flex space-x-4 mb-4">
               {socialLinks.map((link, i) => (
                 <a
                   key={i}
@@ -77,7 +62,7 @@ export default function Footer() {
           </div>
           
           {/* Mobile accordions */}
-          <div className="lg:hidden col-span-1 md:col-span-2 space-y-4">
+          <div className="lg:hidden col-span-1 md:col-span-1 space-y-4">
             {footerLinks.map((group, index) => (
               <div key={index} className="border-b border-gray-200 dark:border-gray-800 pb-4">
                 <button
@@ -150,7 +135,7 @@ export default function Footer() {
           ))}
         </div>
         
-        <div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-800">
+        <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 dark:text-gray-400 text-sm">
               &copy; {currentYear} Starvlo — AI-powered lead generation for creators and businesses. All rights reserved.
