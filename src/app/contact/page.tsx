@@ -80,11 +80,16 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <h4 className="font-semibold text-gray-900">Office</h4>
-                        <p className="text-gray-600">
-                          123 Tech Boulevard<br />
-                          Suite 456<br />
-                          San Francisco, CA 94103
-                        </p>
+                        <a 
+                          href="https://www.google.com/maps/search/?api=1&query=1942+Broadway+Street+STE+314C+Boulder+CO+80302+US"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-600 hover:text-[var(--color-primary)] transition-colors"
+                        >
+                          1942 Broadway Street, STE 314C<br />
+                          Boulder, CO 80302<br />
+                          US
+                        </a>
                       </div>
                     </div>
                   </div>

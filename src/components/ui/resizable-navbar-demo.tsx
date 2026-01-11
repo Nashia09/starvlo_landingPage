@@ -24,9 +24,9 @@ const LeadCaptureLogo = () => {
       <Image
         src="/assets/logo.svg"
         alt="Starvlo logo"
-        width={40}
-        height={40}
-        sizes="40px"
+        width={52}
+        height={52}
+        sizes="52px"
         priority
         className="rounded-md origin-left scale-[2] sm:scale-[2.25] md:scale-[2.5] lg:scale-[2.75]"
       />

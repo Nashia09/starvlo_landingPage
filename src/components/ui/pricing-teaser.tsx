@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { Loader2 } from "lucide-react";
  
 type PricePlan = {
   name: string;
@@ -30,6 +31,31 @@ export default function PricingTeaser() {
   const [plans, setPlans] = useState<PricePlan[]>([]);
   const [allPlans, setAllPlans] = useState<PricePlan[]>([]);
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("yearly");
+  const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
+
+  const handlePlanSelect = (plan: PricePlan) => {
+    setLoadingPlan(plan.name);
+    
+    // Construct URL with parameters
+    const params = new URLSearchParams();
+    params.set('redirectedFrom', 'pricing');
+    params.set('plan', plan.name);
+    params.set('interval', plan.interval);
+    
+    if (plan.amount) {
+      params.set('amount', plan.amount.toString());
+    }
+
+    const redirectUrl = `https://app.starvlo.com/apps/pricing/modern?${params.toString()}`;
+    
+    // Redirect in new tab
+    window.open(redirectUrl, '_blank');
+    
+    // Reset loading state after a short delay
+    setTimeout(() => {
+      setLoadingPlan(null);
+    }, 1000);
+  };
 
   useEffect(() => {
     const fetchPricing = async () => {
@@ -161,19 +187,26 @@ export default function PricingTeaser() {
                   {plan.description}
                 </p>
                 
-                <a
-                  href="https://app.starvlo.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => handlePlanSelect(plan)}
+                  disabled={!!loadingPlan}
                   className={cn(
-                    "w-full py-3 px-6 font-medium rounded-lg inline-block text-center",
+                    "w-full py-3 px-6 font-medium rounded-lg inline-flex items-center justify-center text-center transition-all",
                     plan.popular
                       ? "bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] text-white"
-                      : "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-white"
+                      : "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700",
+                    loadingPlan === plan.name ? "opacity-80 cursor-wait" : ""
                   )}
                 >
-                  Get Started
-                </a>
+                  {loadingPlan === plan.name ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Redirecting...
+                    </>
+                  ) : (
+                    "Get Started"
+                  )}
+                </button>
               </div>
               
               <div className="mt-8">
