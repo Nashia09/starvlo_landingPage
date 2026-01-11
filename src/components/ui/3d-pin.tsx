@@ -51,6 +51,8 @@ export const PinContainer = ({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       href={href || "/"}
+      target="_blank"
+      rel="noopener noreferrer"
     >
       <div
         style={{
