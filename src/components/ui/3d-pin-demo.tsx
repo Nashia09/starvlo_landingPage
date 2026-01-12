@@ -18,19 +18,7 @@ export default function AnimatedPinDemo() {
       useCase:
         "Turns profile visits into email subscribers, nurtures with content drip campaigns using Starvlo.",
     },
-    {
-      name: "Clement",
-      handle: "@clement",
-      followers: "200K+ Followers",
-      role: "Tech & Gaming",
-      theme: "blue",
-      image: "/assets/creators/clement.jpg",
-      store: "https://app.starvlo.com/store/clement",
-      storeLabel: "starvlo.com/store/clement",
-      revenue: 236540,
-      useCase:
-        "Captures developer interest from posts, segments by topic, and sends resource bundles via Starvlo.",
-    },
+    
     {
       name: "Larry",
       handle: "@larry",
@@ -50,7 +38,7 @@ export default function AnimatedPinDemo() {
       followers: "150K+ Followers",
       role: "Digital Creator",
       theme: "blue",
-      image: "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=2069&auto=format&fit=crop",
+      image: "/assets/creators/clement.jpg",
       store: "https://app.starvlo.com/store/adeyemi",
       storeLabel: "starvlo.com/store/adeyemi",
       revenue: 178920,
