@@ -98,7 +98,7 @@ export default function PricingPage() {
           };
         });
         setAllPlans([...mapped, ...discounted]);
-      } catch {}
+      } catch { }
     };
     fetchPricing();
   }, [apiBase]);
@@ -129,17 +129,15 @@ export default function PricingPage() {
           <div className="flex rounded-full bg-[var(--color-primary-light)]/15 p-1 border border-[var(--color-primary)]/20">
             <button
               onClick={() => setBillingCycle("monthly")}
-              className={`px-4 py-2 text-sm font-medium rounded-full transition-all ${
-                billingCycle === "monthly" ? "bg-[var(--color-primary)] text-white" : "text-[#5A6B7A]"
-              }`}
+              className={`px-4 py-2 text-sm font-medium rounded-full transition-all ${billingCycle === "monthly" ? "bg-[var(--color-primary)] text-white" : "text-[#5A6B7A]"
+                }`}
             >
               Monthly
             </button>
             <button
               onClick={() => setBillingCycle("yearly")}
-              className={`px-4 py-2 text-sm font-medium rounded-full transition-all flex items-center ${
-                billingCycle === "yearly" ? "bg-[var(--color-primary)] text-white" : "text-[#5A6B7A]"
-              }`}
+              className={`px-4 py-2 text-sm font-medium rounded-full transition-all flex items-center ${billingCycle === "yearly" ? "bg-[var(--color-primary)] text-white" : "text-[#5A6B7A]"
+                }`}
             >
               Yearly
               <span className="ml-2 bg-[var(--color-primary-dark)] text-white text-xs px-2 py-0.5 rounded-full">Save 20%</span>
@@ -164,31 +162,31 @@ export default function PricingPage() {
             </div>
           ))}
         </div>
-        
+
         <div className="mt-20 text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">FAQs</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            <FAQItem 
+            <FAQItem
               question="How does Starvlo capture leads?"
               answer="You build your store and share your link‑in‑bio. Buyers purchase via 1‑Tap Checkout or submit simple forms. Connect Instagram to enable Auto DM and comment automations that turn engagement into sales—no IP tracking."
             />
-            <FAQItem 
+            <FAQItem
               question="Can I upgrade or downgrade later?"
               answer="Yes. Changes are prorated based on the remaining days in your cycle."
             />
-            <FAQItem 
+            <FAQItem
               question="Do you offer a free trial?"
               answer="No. We don’t offer free trials for billable plans."
             />
-            <FAQItem 
+            <FAQItem
               question="What if I exceed my limits?"
               answer="You continue getting data, but some features may require upgrading."
             />
-            <FAQItem 
+            <FAQItem
               question="Will I lose access immediately if I cancel?"
               answer="No. Access downgrades at the end of the billing period."
             />
-            <FAQItem 
+            <FAQItem
               question="Can I invite my team?"
               answer="Yes. Add teammates based on your plan’s allowances."
             />
@@ -207,7 +205,7 @@ export default function PricingPage() {
   );
 }
 
-function PricingCard({ title, price, description, details, link, popular }: { 
+function PricingCard({ title, price, description, details, link, popular }: {
   title: string;
   price: string;
   description: string;
@@ -228,7 +226,7 @@ function PricingCard({ title, price, description, details, link, popular }: {
         <h3 className="text-xl font-bold text-[#0A0F18] mb-2">{title}</h3>
         <div className="text-3xl font-bold text-[#0A0F18] mb-1">{price}</div>
         <p className="text-gray-600 mb-6">{description}</p>
-        
+
         <ul className="space-y-3 mb-8 flex-grow">
           {details.map((feature, index) => (
             <li key={index} className="flex items-start">
@@ -239,7 +237,7 @@ function PricingCard({ title, price, description, details, link, popular }: {
             </li>
           ))}
         </ul>
-        
+
         <Link href={link} className="mt-auto">
           <button className={`w-full transform rounded-lg px-6 py-3 font-medium transition-all duration-300 hover:-translate-y-0.5 ${popular ? 'bg-[var(--color-primary-dark)] text-white hover:bg-[var(--color-primary)]' : 'bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-light)]'}`}>
             {popular ? 'Buy Now' : 'Choose Plan'}

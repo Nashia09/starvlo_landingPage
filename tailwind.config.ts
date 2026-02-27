@@ -26,7 +26,7 @@ const config: Config = {
     },
   },
   plugins: [
-    function({ addUtilities }: { addUtilities: any }) {
+    function ({ addUtilities }: { addUtilities: any }) {
       const newUtilities = {
         '.scrollbar-hide': {
           /* Firefox */

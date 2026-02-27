@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
- 
+
 type PricePlan = {
   name: string;
   priceLabel: string;
@@ -33,24 +33,28 @@ export default function PricingTeaser() {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("yearly");
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
 
+  // Currency state: "USD" or "NGN"
+  const [currency, setCurrency] = useState<"USD" | "NGN">("USD");
+  const [loadingPricing, setLoadingPricing] = useState(false);
+
   const handlePlanSelect = (plan: PricePlan) => {
     setLoadingPlan(plan.name);
-    
+
     // Construct URL with parameters
     const params = new URLSearchParams();
     params.set('redirectedFrom', 'pricing');
     params.set('plan', plan.name);
     params.set('interval', plan.interval);
-    
+
     if (plan.amount) {
       params.set('amount', plan.amount.toString());
     }
 
     const redirectUrl = `https://app.starvlo.com/apps/pricing/modern?${params.toString()}`;
-    
+
     // Redirect in new tab
     window.open(redirectUrl, '_blank');
-    
+
     // Reset loading state after a short delay
     setTimeout(() => {
       setLoadingPlan(null);
@@ -59,58 +63,96 @@ export default function PricingTeaser() {
 
   useEffect(() => {
     const fetchPricing = async () => {
+      setLoadingPricing(true);
       const base = process.env.NEXT_PUBLIC_API_URL?.replace(/\/+$/, "");
-      if (!base) return;
-      const url = `${base}/api/v1/billing/plans/public`;
+      if (!base) {
+        setLoadingPricing(false);
+        return;
+      }
+
       try {
-        const res = await fetch(url, { cache: "no-store" });
-        if (!res.ok) return;
+        const res = await fetch(`${base}/api/v1/billing/plans/public?currency=${currency}`, { cache: "no-store" });
+        if (!res.ok) {
+          setLoadingPricing(false);
+          return;
+        }
+
         const body = await res.json();
-        const raw = (Array.isArray(body) ? (body as unknown[]) : Array.isArray(body?.data) ? (body.data as unknown[]) : []);
-        const monthly: PricePlan[] = raw.map((p) => {
-          const plan = p as ApiPlan;
-          const currency = String(plan.currency || "USD");
-          const price = Number(plan.price || 0);
-          const symbol = currency.toUpperCase() === "USD" ? "$" : currency.toUpperCase();
-          const priceLabel = price === 0 ? "Free" : `${symbol}${price} / month`;
-          const featuresObj = plan.features || {};
-          const details: string[] = [];
-          if (featuresObj.leadCapturePages) details.push("Lead capture pages");
-          if (featuresObj.emailAutomation) details.push("Email automation");
-          if (featuresObj.smsAutomation) details.push("SMS automation");
-          if (featuresObj.aiFollowUp) details.push("AI follow-up");
-          if (featuresObj.aiContentAssistant) details.push("AI content assistant");
-          if (featuresObj.instagramAutoDM) details.push("Instagram auto DM");
-          if (featuresObj.instagramCommentAutomation) details.push("Instagram comment automation");
-          if (featuresObj.crm) details.push(`CRM: ${String(featuresObj.crm)}`);
-          if (featuresObj.analytics) details.push(`Analytics: ${String(featuresObj.analytics)}`);
-          if (featuresObj.store) details.push(`Store: ${String(featuresObj.store)}`);
-          if (featuresObj.outreachChannels) details.push(`Outreach: ${String(featuresObj.outreachChannels).replace(/_/g, " ")}`);
-          return {
-            name: String(plan.name || plan.slug || ""),
-            priceLabel,
-            description: String(plan.description || ""),
-            details,
-            popular: Boolean(plan.isPopular || false),
-            amount: price,
-            currency,
-            interval: "monthly",
-          };
-        });
-        const yearly: PricePlan[] = monthly.map((pl) => {
-          const discountedAmount = Math.round(pl.amount * 0.8 * 100) / 100;
-          const symbol = pl.currency.toUpperCase() === "USD" ? "$" : pl.currency.toUpperCase();
-          const priceLabel = discountedAmount === 0 ? "Free" : `${symbol}${discountedAmount} / month`;
-          return { ...pl, amount: discountedAmount, priceLabel, interval: "yearly" };
-        });
-        setAllPlans([...monthly, ...yearly]);
-      } catch {}
+        const raw = Array.isArray(body) ? body : Array.isArray(body?.data) ? body.data : [];
+
+        const parsePlans = (rawPlans: unknown[], targetCurrency: string) => {
+          return rawPlans.map((p) => {
+            const plan = p as ApiPlan;
+            const price = Number(plan.price || 0);
+
+            const symbol = targetCurrency === "USD" ? "$" : "₦";
+            const formattedPrice = targetCurrency === "NGN"
+              ? new Intl.NumberFormat('en-NG').format(price)
+              : price;
+
+            const priceLabel = price === 0 ? "Free" : `${symbol}${formattedPrice} / month`;
+
+            const featuresObj = plan.features || {};
+            const details: string[] = [];
+            if (featuresObj.leadCapturePages) details.push("Lead capture pages");
+            if (featuresObj.emailAutomation) details.push("Email automation");
+            if (featuresObj.smsAutomation) details.push("SMS automation");
+            if (featuresObj.aiFollowUp) details.push("AI follow-up");
+            if (featuresObj.aiContentAssistant) details.push("AI content assistant");
+            if (featuresObj.instagramAutoDM) details.push("Instagram auto DM");
+            if (featuresObj.instagramCommentAutomation) details.push("Instagram comment automation");
+            if (featuresObj.crm) details.push(`CRM: ${String(featuresObj.crm)}`);
+            if (featuresObj.analytics) details.push(`Analytics: ${String(featuresObj.analytics)}`);
+            if (featuresObj.store) details.push(`Store: ${String(featuresObj.store)}`);
+            if (featuresObj.outreachChannels) details.push(`Outreach: ${String(featuresObj.outreachChannels).replace(/_/g, " ")}`);
+
+            return {
+              name: String(plan.name || plan.slug || ""),
+              priceLabel,
+              description: String(plan.description || ""),
+              details,
+              popular: Boolean(plan.isPopular || false),
+              amount: price,
+              currency: targetCurrency,
+              interval: "monthly" as const,
+            };
+          });
+        };
+
+        const monthlyPlans = parsePlans(raw, currency);
+
+        const createYearly = (monthly: PricePlan[], targetCurrency: string) => {
+          return monthly.map((pl) => {
+            const discountedAmount = targetCurrency === "NGN"
+              ? Math.round(pl.amount * 0.8) // No decimals for NGN
+              : Math.round(pl.amount * 0.8 * 100) / 100;
+
+            const symbol = targetCurrency === "USD" ? "$" : "₦";
+            const formattedPrice = targetCurrency === "NGN"
+              ? new Intl.NumberFormat('en-NG').format(discountedAmount)
+              : discountedAmount;
+
+            const priceLabel = discountedAmount === 0 ? "Free" : `${symbol}${formattedPrice} / month`;
+            return { ...pl, amount: discountedAmount, priceLabel, interval: "yearly" as const };
+          });
+        };
+
+        const yearlyPlans = createYearly(monthlyPlans, currency);
+
+        setAllPlans([...monthlyPlans, ...yearlyPlans]);
+      } catch (err) {
+        console.error("Failed to fetch pricing", err);
+      } finally {
+        setLoadingPricing(false);
+      }
     };
+
     fetchPricing();
-  }, []);
+  }, [currency]);
 
   useEffect(() => {
-    const filtered = allPlans.filter((p) => p.interval === billingCycle);
+    // Filter by both interval AND selected currency
+    const filtered = allPlans.filter((p) => p.interval === billingCycle && p.currency === currency);
     const parsed = [...filtered];
     const idx = parsed.findIndex((pl) => pl.popular);
     if (idx !== -1) {
@@ -124,8 +166,8 @@ export default function PricingTeaser() {
     } else {
       setPlans(parsed);
     }
-  }, [allPlans, billingCycle]);
-  
+  }, [allPlans, billingCycle, currency]);
+
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-[var(--color-primary)]/10 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
       <div className="container px-4 md:px-6 mx-auto max-w-7xl">
@@ -136,31 +178,50 @@ export default function PricingTeaser() {
           <p className="text-gray-500 dark:text-gray-400 mx-auto max-w-[700px] md:text-lg">
             Transparent plans that pay for themselves as conversions increase.
           </p>
-          
+
         </div>
 
-        <div className="flex items-center justify-center mb-8">
+        <div className="flex flex-col sm:flex-row items-center justify-center mb-8 gap-4 sm:gap-8">
+          {/* Billing Cycle Toggle */}
           <div className="flex rounded-full bg-[var(--color-primary-light)]/15 p-1 border border-[var(--color-primary)]/20">
             <button
               onClick={() => setBillingCycle("monthly")}
-              className={`px-4 py-2 text-sm font-medium rounded-full ${
-                billingCycle === "monthly" ? "bg-[var(--color-primary)] text-white" : "text-[#5A6B7A]"
-              }`}
+              className={`px-4 py-2 text-sm font-medium rounded-full ${billingCycle === "monthly" ? "bg-[var(--color-primary)] text-white" : "text-[#5A6B7A]"
+                }`}
             >
               Monthly
             </button>
             <button
               onClick={() => setBillingCycle("yearly")}
-              className={`px-4 py-2 text-sm font-medium rounded-full flex items-center ${
-                billingCycle === "yearly" ? "bg-[var(--color-primary)] text-white" : "text-[#5A6B7A]"
-              }`}
+              className={`px-4 py-2 text-sm font-medium rounded-full flex items-center ${billingCycle === "yearly" ? "bg-[var(--color-primary)] text-white" : "text-[#5A6B7A]"
+                }`}
             >
               Yearly
               <span className="ml-2 bg-[var(--color-primary-dark)] text-white text-xs px-2 py-0.5 rounded-full">Save 20%</span>
             </button>
           </div>
+
+          {/* Simple Currency Tab Toggle */}
+          <div className="flex rounded-full bg-gray-100 p-1 border border-gray-200">
+            <button
+              onClick={() => setCurrency("USD")}
+              disabled={loadingPricing}
+              className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${currency === "USD" ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-900"
+                }`}
+            >
+              USD
+            </button>
+            <button
+              onClick={() => setCurrency("NGN")}
+              disabled={loadingPricing}
+              className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${currency === "NGN" ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-900"
+                }`}
+            >
+              NGN
+            </button>
+          </div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-8 max-w-6xl mx-auto">
           {plans.map((plan, index) => (
             <div
@@ -179,14 +240,14 @@ export default function PricingTeaser() {
                   </div>
                 </div>
               )}
-              
+
               <div className="text-center">
                 <h3 className="text-2xl font-bold mb-1">{plan.name}</h3>
                 <div className="text-3xl font-bold mb-2">{plan.priceLabel}</div>
                 <p className="text-gray-500 dark:text-gray-400 mb-6">
                   {plan.description}
                 </p>
-                
+
                 <button
                   onClick={() => handlePlanSelect(plan)}
                   disabled={!!loadingPlan}
@@ -208,7 +269,7 @@ export default function PricingTeaser() {
                   )}
                 </button>
               </div>
-              
+
               <div className="mt-8">
                 <div className="text-sm font-medium mb-4">Details:</div>
                 <ul className="space-y-3">
@@ -239,10 +300,10 @@ export default function PricingTeaser() {
             </div>
           ))}
         </div>
-        
+
         <div className="text-center mt-12">
-          <Link 
-            href="/pricing" 
+          <Link
+            href="/pricing"
             className="text-[var(--color-primary)] dark:text-[var(--color-primary)] font-medium hover:underline"
           >
             View all pricing details

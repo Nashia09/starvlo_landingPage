@@ -22,19 +22,19 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html 
-      lang="en" 
+    <html
+      lang="en"
       className={`light ${outfit.variable} ${montserrat.variable} ${poppins.variable}`}
     >
-      <body className="min-h-screen flex flex-col bg-gradient-to-br from-[var(--color-primary)] via-[var(--color-primary-light)] to-white">
-          <ThemeProvider>
-            <LightThemeEnforcer />
-            <NavbarDemo />
-            <div className="pt-20">
-              {children}
-            </div>
-            <CookieConsent />
-          </ThemeProvider>
+      <body className="min-h-screen flex flex-col bg-white text-slate-900">
+        <ThemeProvider>
+          <LightThemeEnforcer />
+          <NavbarDemo />
+          <div className="pt-20">
+            {children}
+          </div>
+          <CookieConsent />
+        </ThemeProvider>
       </body>
     </html>
   );

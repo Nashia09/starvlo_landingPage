@@ -3,17 +3,21 @@
 import React, { useEffect } from "react";
 import HeroSection from "@/components/ui/hero-section";
 import FeaturesOverview from "@/components/ui/features-overview";
-import TestimonialsCarousel from "@/components/ui/testimonials-carousel";
-import PricingTeaser from "@/components/ui/pricing-teaser";
-import FaqAccordion from "@/components/ui/faq-accordion";
+import SpotlightTestimonial from "@/components/ui/spotlight-testimonial";
+import GrowthBusinessPricing from "@/components/ui/growth-business-pricing";
+import FaqTabbedExplorer from "@/components/ui/faq-tabbed-explorer";
 import Footer from "@/components/ui/footer";
 import FeaturesSection from "@/components/features/features-section";
 import VideoCTASection from "@/components/ui/video-cta-section";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 import { MacbookScroll } from "@/components/ui/macbook-scroll";
-import AnimatedPinDemo from "@/components/ui/3d-pin-demo";
+import TransformSection from "@/components/ui/transform-section";
+import StickyFeaturesSection from "@/components/ui/sticky-features-section";
+import CreatorsInMotion from "@/components/ui/creators-in-motion";
 import StickyScrollRevealDemo from "@/components/sticky-scroll-reveal-demo";
+import { HorizontalScrollCarouselExample } from "@/components/ui/horizontal-scroll-carousel";
 import { Gauge, Timer, Share2, CheckCircle2 } from "lucide-react";
+import { TextParallaxContentExample } from "@/components/ui/text-parallax-content";
 
 
 // // Peerlist logo badge
@@ -73,27 +77,39 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main className="min-h-screen overflow-x-hidden">
-      <div className="">
+    <main className="min-h-screen">
+      <div className="overflow-x-hidden">
         <HeroSection />
       </div>
 
-      <MacbookScroll src="/assets/onboarding.mp4" showGradient={false} />
-      
-      <div className="">
+      <div className="overflow-x-hidden">
+        <TransformSection />
+      </div>
+
+      <StickyFeaturesSection />
+
+      {/* <MacbookScroll src="/assets/onboarding.mp4" showGradient={false} /> */}
+
+      <div className="overflow-x-hidden">
         <section id="features">
           <FeaturesOverview />
         </section>
         {/* <AIGeneratorDemo /> */}
-        <AnimatedPinDemo />
+      </div>
+
+      <CreatorsInMotion />
+
+      <div className="overflow-x-hidden">
         {/* <FeaturesSection /> */}
-        
-        <TestimonialsCarousel />
+        {/* <TextParallaxContentExample /> */}
+        {/* <HorizontalScrollCarouselExample /> */}
+
+        <SpotlightTestimonial />
         <section id="pricing">
-          <PricingTeaser />
+          <GrowthBusinessPricing />
         </section>
         <VideoCTASection />
-        <FaqAccordion />
+        <FaqTabbedExplorer />
         <Footer />
       </div>
     </main>

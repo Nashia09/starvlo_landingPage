@@ -65,9 +65,27 @@ export default function ModernContactForm() {
 
     setStatus('submitting');
 
-    // Simulate API call
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      let apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api/v1';
+      apiUrl = apiUrl.replace(/\/$/, ''); // Remove trailing slash
+      if (!apiUrl.endsWith('/api/v1')) {
+        apiUrl = `${apiUrl}/api/v1`;
+      }
+
+      const response = await fetch(`${apiUrl}/support/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to send message');
+      }
+
       setStatus('success');
 
       // Reset form after success
@@ -79,11 +97,11 @@ export default function ModernContactForm() {
           company: "",
           message: "",
         });
-      }, 3000);
-    } catch (error) {
+      }, 5000); // Give user more time to see success message
+    } catch (error: any) {
       console.error("Form submission error:", error);
       setStatus('error');
-      setErrors({ general: "Failed to send message. Please try again." });
+      setErrors({ general: error.message || "Failed to send message. Please try again." });
     }
   };
 
