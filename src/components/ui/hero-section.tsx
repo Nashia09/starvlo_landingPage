@@ -226,7 +226,7 @@ export default function HeroSection() {
                         transition={{ duration: 0.4, delay: 1.65 }}
                         className="text-sm text-white font-medium drop-shadow-md"
                       >
-                        Join 2,000+ businessesclosing more deals.
+                        Join 2,000+ businesses closing more deals.
                       </motion.p>
                     </motion.div>
                   </div>
