@@ -7,32 +7,32 @@ import { TimelineAnimation } from '@/components/ui/timeline-animation'
 const testimonials = [
     {
         id: 1,
-        quote: 'The level of craftsmanship is simply unparalleled. We saw a',
-        highlight: '40% increase',
-        quoteEnd: 'in developer productivity after integrating their UI kit.',
-        name: 'James Clear',
-        role: 'Head of Design at Atomic Systems',
-        url: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=880&auto=format&fit=crop',
+        quote: 'Starvlo transformed our Instagram DMs from a chaotic inbox into an automated sales engine. We saw a',
+        highlight: '45% increase',
+        quoteEnd: 'in recovered leads within the first week of turning on the AI sequences.',
+        name: 'Sarah Chen',
+        role: 'Founder at Lumina Beauty',
+        url: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1061&auto=format&fit=crop',
     },
     {
         id: 2,
         quote:
-            'Working with this system has been transformative. Our team shipped features',
+            'Managing WhatsApp inquiries used to take up half our day. Now, Starvlo handles the initial qualification and books appointments',
         highlight: '3x faster',
-        quoteEnd: 'while maintaining exceptional quality standards.',
-        name: 'Sarah Chen',
-        role: 'Engineering Lead at Vercel',
-        url: 'https://images.unsplash.com/photo-1623366302587-b38b1ddaefd9?q=80&w=1025&auto=format&fit=crop',
+        quoteEnd: 'while our team focuses only on closing the qualified calls.',
+        name: 'Marcus Williams',
+        role: 'Operations Director at Apex Fitness',
+        url: 'https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=687&auto=format&fit=crop',
     },
     {
         id: 3,
         quote:
-            "I've never experienced such a seamless developer experience. We reduced our build time by",
+            "The omnichannel inbox is a lifesaver. Being able to run campaigns and see email, SMS, and ad-traffic leads get nurtured automatically reduced our acquisition costs by",
         highlight: '60%',
-        quoteEnd: 'and our users immediately noticed the difference.',
-        name: 'Marcus Williams',
-        role: 'CTO at Linear',
-        url: 'https://images.unsplash.com/photo-1765438869321-d60141efd813?q=80&w=687&auto=format&fit=crop',
+        quoteEnd: 'almost overnight.',
+        name: 'James Walker',
+        role: 'CEO at Scale Digital Agency',
+        url: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=687&auto=format&fit=crop',
     },
 ]
 

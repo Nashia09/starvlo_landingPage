@@ -46,13 +46,13 @@ const DoodleUnderline = ({ isActive }: { isActive: boolean }) => {
   );
 };
 
-export const  MenuItem = ({
+export const MenuItem = ({
   setActive,
   active,
   item,
   children,
   isActive = false,
-  
+
 }: {
   setActive: (item: string) => void;
   active: string | null;
@@ -63,7 +63,7 @@ export const  MenuItem = ({
 }) => {
   return (
     <div onMouseEnter={() => setActive(item)} className="relative">
-      <motion.p
+      <motion.div
         transition={{ duration: 0.3 }}
         className={cn(
           "cursor-pointer hover:opacity-[0.9] px-3 py-3 pb-4 relative",
@@ -74,7 +74,7 @@ export const  MenuItem = ({
       >
         {item}
         <DoodleUnderline isActive={isActive} />
-      </motion.p>
+      </motion.div>
       {active !== null && (
         <motion.div
           initial={{ opacity: 0, scale: 0.85, y: 10 }}
@@ -157,11 +157,11 @@ export const ProductItem = ({
   );
 };
 
-export const HoveredLink = ({ 
-  children, 
-  ...rest 
-}: React.AnchorHTMLAttributes<HTMLAnchorElement> & { 
-  children: React.ReactNode 
+export const HoveredLink = ({
+  children,
+  ...rest
+}: React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+  children: React.ReactNode
 }) => {
   return (
     <a

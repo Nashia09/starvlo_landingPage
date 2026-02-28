@@ -2,9 +2,64 @@
 import React, { useState, useEffect, useRef, useId } from "react";
 import { motion } from "motion/react";
 import NumberFlow from "@number-flow/react";
-import { Loader2 } from "lucide-react";
+import {
+    Loader2,
+    Mail,
+    MessageSquare,
+    Bot,
+    Sparkles,
+    Instagram,
+    MessageCircle,
+    Users,
+    BarChart,
+    Store,
+    Megaphone,
+    FileText,
+    CheckCircle2
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { TimelineAnimation } from "@/components/ui/timeline-animation";
+
+const WhatsAppIcon = ({ className }: { className?: string }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className={className} fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.488-1.761-1.663-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+    </svg>
+);
+
+const FeatureIcon = ({ feature, isFeatured }: { feature: string, isFeatured: boolean }) => {
+    const defaultClass = cn('w-5 h-5 shrink-0 mt-0.5', isFeatured ? 'text-[var(--color-primary)]' : 'text-neutral-700');
+    const lower = feature.toLowerCase();
+
+    if (lower.includes("outreach")) {
+        const hasWhatsapp = lower.includes("whatsapp");
+        const hasEmail = lower.includes("email");
+
+        if (hasWhatsapp && hasEmail) {
+            return (
+                <div className="flex -space-x-1.5 mt-0.5 shrink-0">
+                    <WhatsAppIcon className="w-5 h-5 text-[#25D366] relative z-10 drop-shadow-sm bg-white rounded-full" />
+                    <Mail className={cn("w-5 h-5 relative z-0 pl-1", defaultClass)} />
+                </div>
+            );
+        }
+        if (hasWhatsapp) return <WhatsAppIcon className="w-5 h-5 shrink-0 mt-0.5 text-[#25D366]" />;
+        if (hasEmail) return <Mail className={defaultClass} />;
+        return <Megaphone className={defaultClass} />;
+    }
+
+    if (lower.includes("lead capture")) return <FileText className={defaultClass} />;
+    if (lower.includes("email")) return <Mail className={defaultClass} />;
+    if (lower.includes("sms")) return <MessageSquare className={defaultClass} />;
+    if (lower.includes("ai content")) return <Sparkles className={defaultClass} />;
+    if (lower.includes("ai follow-up")) return <Bot className={defaultClass} />;
+    if (lower.includes("instagram comment")) return <MessageCircle className={defaultClass} />;
+    if (lower.includes("instagram")) return <Instagram className={defaultClass} />;
+    if (lower.includes("crm")) return <Users className={defaultClass} />;
+    if (lower.includes("analytics")) return <BarChart className={defaultClass} />;
+    if (lower.includes("store")) return <Store className={defaultClass} />;
+
+    return <CheckCircle2 className={defaultClass} />;
+};
 
 type PricePlan = {
     name: string;
@@ -24,6 +79,7 @@ type ApiPlan = {
     description?: string;
     billingInterval?: string;
     price?: number;
+    nigerianPrice?: number;
     currency?: string;
     features?: Record<string, unknown>;
     isPopular?: boolean;
@@ -38,6 +94,24 @@ export default function GrowthBusinessPricing() {
 
     const id = useId();
     const timelineRef = useRef<HTMLDivElement>(null);
+
+    // Detect user country to set default currency
+    useEffect(() => {
+        const detectCountry = async () => {
+            try {
+                const res = await fetch("https://get.geojs.io/v1/ip/country.json");
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.country === "NG") {
+                        setCurrency("NGN");
+                    }
+                }
+            } catch (err) {
+                console.error("Failed to detect country", err);
+            }
+        };
+        detectCountry();
+    }, []);
 
     const handlePlanSelect = (plan: PricePlan) => {
         setLoadingPlan(plan.name);
@@ -85,7 +159,11 @@ export default function GrowthBusinessPricing() {
 
                 const parsedPlans: PricePlan[] = raw.map((p: unknown) => {
                     const plan = p as ApiPlan;
-                    const monthlyPrice = Number(plan.price || 0);
+                    const monthlyPriceUSD = Number(plan.price || 0);
+                    // Fallback to 1500 NGN/$ if nigerianPrice isn't set in the DB
+                    const monthlyPriceNGN = Number(plan.nigerianPrice || (monthlyPriceUSD * 1500));
+
+                    const monthlyPrice = currency === "NGN" ? monthlyPriceNGN : monthlyPriceUSD;
 
                     let yearlyDiscountedPrice = 0;
                     if (currency === "NGN") {
@@ -300,15 +378,7 @@ export default function GrowthBusinessPricing() {
                                         )}
                                         {plan.features.map((f, i) => (
                                             <div key={i} className={cn('flex items-start gap-3 text-sm font-medium leading-tight', plan.featured ? 'text-neutral-300' : 'text-neutral-600')}>
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    viewBox="0 0 24 24"
-                                                    strokeWidth={2}
-                                                    className={cn('w-5 h-5 shrink-0 mt-0.5', plan.featured ? 'fill-[var(--color-primary)] stroke-[var(--color-primary)]' : 'fill-black stroke-black')}
-                                                >
-                                                    <path d="M18.9905 19H19M18.9905 19C18.3678 19.6175 17.2393 19.4637 16.4479 19.4637C15.4765 19.4637 15.0087 19.6537 14.3154 20.347C13.7251 20.9374 12.9337 22 12 22C11.0663 22 10.2749 20.9374 9.68457 20.347C8.99128 19.6537 8.52349 19.4637 7.55206 19.4637C6.76068 19.4637 5.63218 19.6175 5.00949 19C4.38181 18.3776 4.53628 17.2444 4.53628 16.4479C4.53628 15.4414 4.31616 14.9786 3.59938 14.2618C2.53314 13.1956 2.00002 12.6624 2 12C2.00001 11.3375 2.53312 10.8044 3.59935 9.73817C4.2392 9.09832 4.53628 8.46428 4.53628 7.55206C4.53628 6.76065 4.38249 5.63214 5 5.00944C5.62243 4.38178 6.7556 4.53626 7.55208 4.53626C8.46427 4.53626 9.09832 4.2392 9.73815 3.59937C10.8044 2.53312 11.3375 2 12 2C12.6625 2 13.1956 2.53312 14.2618 3.59937C14.9015 4.23907 15.5355 4.53626 16.4479 4.53626C17.2393 4.53626 18.3679 4.38247 18.9906 5C19.6182 5.62243 19.4637 6.75559 19.4637 7.55206C19.4637 8.55858 19.6839 9.02137 20.4006 9.73817C21.4669 10.8044 22 11.3375 22 12C22 12.6624 21.4669 13.1956 20.4006 14.2618C19.6838 14.9786 19.4637 15.4414 19.4637 16.4479C19.4637 17.2444 19.6182 18.3776 18.9905 19Z" />
-                                                    <path d="M9 12.8929C9 12.8929 10.2 13.5447 10.8 14.5C10.8 14.5 12.6 10.75 15 9.5" stroke={plan.featured ? '#000000' : '#ffffff'} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
-                                                </svg>
+                                                <FeatureIcon feature={f} isFeatured={plan.featured} />
                                                 {f}
                                             </div>
                                         ))}

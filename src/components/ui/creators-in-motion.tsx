@@ -45,7 +45,7 @@ const businesses = [
 // Reusable card component
 // The blur issue occurs because Next.js loads a small image for the container 
 // then CSS scaling blows it up. Providing sizes="100vw" and quality=100 for the center image fixes this!
-const CreatorCard = ({ creator, isCenter = false }: { creator: typeof CREATORS[0]; isCenter?: boolean }) => {
+const CreatorCard = ({ creator, isCenter = false }: { creator: typeof businesses[0]; isCenter?: boolean }) => {
     return (
         <div className="group relative w-full h-full rounded-2xl md:rounded-3xl overflow-hidden shadow-xl bg-gray-100 cursor-pointer">
             <Image
@@ -120,7 +120,7 @@ export default function CreatorsInMotion() {
                     className="absolute z-40 text-center px-6 flex flex-col items-center"
                 >
                     <h2 className="text-gray-900 text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight bg-white/80 backdrop-blur-xl px-10 py-6 rounded-3xl shadow-2xl border border-gray-200/50">
-                        businessesin motion.
+                        Brands in motion.
                     </h2>
                     <p className="mt-4 text-gray-600 md:text-lg font-medium bg-white/80 backdrop-blur-md px-6 py-2 rounded-full shadow-sm">
                         Join thousands worldwide.
@@ -136,7 +136,7 @@ export default function CreatorsInMotion() {
                         className="absolute inset-0 grid grid-cols-3 md:grid-cols-5 grid-rows-3 gap-2 sm:gap-4 md:gap-6 w-full h-full z-10"
                     >
                         {/* Only Lucy in outer ring */}
-                        <div className="col-start-1 md:col-start-1 row-start-3 relative"><CreatorCard creator={CREATORS[3]} /></div>
+                        <div className="col-start-1 md:col-start-1 row-start-3 relative"><CreatorCard creator={businesses[3]} /></div>
                     </motion.div>
 
                     {/* LAYER 1 (Inner Ring) */}
@@ -144,8 +144,8 @@ export default function CreatorsInMotion() {
                         style={{ opacity: layer1Opacity, scale: layer1Scale }}
                         className="absolute inset-0 grid grid-cols-3 md:grid-cols-5 grid-rows-3 gap-2 sm:gap-4 md:gap-6 w-full h-full z-20 pointer-events-none"
                     >
-                        <div className="col-start-1 md:col-start-2 row-start-1 relative pointer-events-auto"><CreatorCard creator={CREATORS[1]} /></div>
-                        <div className="col-start-3 md:col-start-4 row-start-3 relative pointer-events-auto"><CreatorCard creator={CREATORS[2]} /></div>
+                        <div className="col-start-1 md:col-start-2 row-start-1 relative pointer-events-auto"><CreatorCard creator={businesses[1]} /></div>
+                        <div className="col-start-3 md:col-start-4 row-start-3 relative pointer-events-auto"><CreatorCard creator={businesses[2]} /></div>
                     </motion.div>
 
                     {/* THE SCALER (Center Image) */}
@@ -155,7 +155,7 @@ export default function CreatorsInMotion() {
                     >
                         <CreatorCard
                             isCenter
-                            creator={CREATORS[0]} // Clara
+                            creator={businesses[0]} // Clara
                         />
                     </motion.div>
 
