@@ -753,7 +753,7 @@ export default function StickyScroll() {
               </span>
             </h3>
             <p className="text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-              Join thousands of creators who&apos;ve automated their lead capture and turned followers into consistent revenue streams.
+              Join thousands of businesseswho&apos;ve automated their lead capture and turned followers into consistent revenue streams.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">

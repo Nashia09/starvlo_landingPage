@@ -18,7 +18,7 @@ export default function AnimatedPinDemo() {
       useCase:
         "Turns profile visits into email subscribers, nurtures with content drip campaigns using Starvlo.",
     },
-    
+
     {
       name: "Larry",
       handle: "@larry",
@@ -68,7 +68,7 @@ export default function AnimatedPinDemo() {
         <div className="absolute inset-0 bg-[#F7FEFF]" />
       </div>
       <div className="sticky top-0 z-20 w-full bg-gradient-to-b from-black/60 to-transparent backdrop-blur px-6 md:px-10 py-6 md:py-8 text-center">
-        <h2 className="text-white text-3xl md:text-5xl font-semibold tracking-tight">Creators in Motion</h2>
+        <h2 className="text-white text-3xl md:text-5xl font-semibold tracking-tight">businessesin Motion</h2>
         <div className="mx-auto mt-2 h-px w-36 bg-white/40" />
         <p className="mt-3 text-white/90 text-sm md:text-base">Real storefronts, real revenue.</p>
       </div>
@@ -127,4 +127,4 @@ export default function AnimatedPinDemo() {
     </section>
   );
 }
-  
+

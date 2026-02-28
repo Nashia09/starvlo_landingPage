@@ -1125,7 +1125,7 @@ const itemVariants = {
         scale: 1,
         rotateX: 0,
         transition: {
-            type: "spring" as const,
+            type: "spring",
             stiffness: 80,
             damping: 18,
             duration: 0.7,

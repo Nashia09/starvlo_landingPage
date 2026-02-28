@@ -8,11 +8,11 @@ const pageData = {
     title: "About Starvlo",
     subtitle: "Starvlo is your creator store—build and sell digital products, services, and memberships without code.",
     content: [
-      "Founded in 2023, Starvlo simplifies selling online for creators and small businesses. We bring storefront, checkout, delivery, and automations into one place.",
+      "Founded in 2023, Starvlo simplifies selling online for businessesand small businesses. We bring storefront, checkout, delivery, and automations into one place.",
       "Set up your store in minutes, create beautiful offers, and share your link‑in‑bio to start selling fast.",
       "Delight buyers with 1‑Tap Checkout and instant delivery. Connect Instagram to enable Auto DM and comment automations that move followers into your store.",
       "Stop juggling tools—Starvlo is an all‑in‑one solution to run your business and grow your audience.",
-      "Join creators and teams using Starvlo to launch offers, grow audiences, and sell—without the complexity."
+      "Join businessesand teams using Starvlo to launch offers, grow audiences, and sell—without the complexity."
     ]
   },
   "privacy": {
@@ -190,7 +190,7 @@ export default async function SlugPage({ params }: { params: Promise<{ slug: str
       </div>
     `
     : slug === "terms"
-    ? `
+      ? `
       <div class=\"max-w-3xl mx-auto text-gray-900\">
         <h2 class=\"text-2xl font-semibold mt-8\">1. Acceptance of Terms</h2>
         <p class=\"mt-4\">Welcome to Starvlo LLC (\"Starvlo\"). By accessing or using our AI-powered lead capture and sales automation platform, including our Instagram auto DM and auto comment features, you agree to be bound by these Terms of Service (\"Terms\"). If you do not agree to these Terms, please do not use our services.</p>
@@ -310,7 +310,7 @@ export default async function SlugPage({ params }: { params: Promise<{ slug: str
         <p class="mt-8 text-sm text-gray-600">© 2025 Starvlo LLC. All rights reserved.</p>
       </div>
     `
-    : undefined;
+      : undefined;
 
   return <SlugPageClient title={title} subtitle={subtitle} content={content} html={html} />;
 }

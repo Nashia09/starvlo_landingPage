@@ -7,7 +7,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 // Predefined profile data
-const CREATORS = [
+const businesses = [
     {
         name: "Clara",
         handle: "@clara",
@@ -120,7 +120,7 @@ export default function CreatorsInMotion() {
                     className="absolute z-40 text-center px-6 flex flex-col items-center"
                 >
                     <h2 className="text-gray-900 text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight bg-white/80 backdrop-blur-xl px-10 py-6 rounded-3xl shadow-2xl border border-gray-200/50">
-                        Creators in motion.
+                        businessesin motion.
                     </h2>
                     <p className="mt-4 text-gray-600 md:text-lg font-medium bg-white/80 backdrop-blur-md px-6 py-2 rounded-full shadow-sm">
                         Join thousands worldwide.

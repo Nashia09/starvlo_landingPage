@@ -26,11 +26,11 @@ const socialLinks = [
 
 export default function Footer() {
   const [expandedGroup, setExpandedGroup] = useState<number | null>(null);
-  
+
   const toggleGroup = (index: number) => {
     setExpandedGroup(expandedGroup === index ? null : index);
   };
-  
+
   return (
     <footer className="w-full bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
       <div className="container px-4 md:px-6 mx-auto max-w-7xl py-8 md:py-10 lg:py-12">
@@ -40,11 +40,11 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <Image src="/assets/logo.svg" alt="Starvlo logo" width={160} height={160} className="rounded-md" />
             </div>
-            
+
             <p className="text-gray-600 dark:text-gray-400 mb-4 max-w-md">
               Capture leads. Automate follow-up. Close more sales.
             </p>
-            
+
             <div className="flex space-x-4 mb-4">
               {socialLinks.map((link, i) => (
                 <a
@@ -57,10 +57,10 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-            
-            
+
+
           </div>
-          
+
           {/* Mobile accordions */}
           <div className="lg:hidden col-span-1 md:col-span-1 space-y-4">
             {footerLinks.map((group, index) => (
@@ -112,7 +112,7 @@ export default function Footer() {
               </div>
             ))}
           </div>
-          
+
           {/* Desktop columns */}
           {footerLinks.map((group, index) => (
             <div key={index} className="hidden lg:block">
@@ -134,11 +134,11 @@ export default function Footer() {
             </div>
           ))}
         </div>
-        
+
         <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 dark:text-gray-400 text-sm">
-              &copy; {currentYear} Starvlo — AI-powered lead generation for creators and businesses. All rights reserved.
+              &copy; {currentYear} Starvlo — AI-powered lead generation for businessesand businesses. All rights reserved.
             </p>
             <div className="mt-4 md:mt-0 flex flex-wrap gap-4 text-sm">
               <Link href="/privacy" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">

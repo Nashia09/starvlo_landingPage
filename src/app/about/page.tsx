@@ -35,7 +35,7 @@ export default function AboutPage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mt-8"
             >
-              Founded in 2023, Starvlo simplifies selling online for creators and small businesses. Our mission is to give you an all‑in‑one store—fast setup, beautiful offers, and frictionless checkout.
+              Founded in 2023, Starvlo simplifies selling online for businessesand small businesses. Our mission is to give you an all‑in‑one store—fast setup, beautiful offers, and frictionless checkout.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -67,12 +67,12 @@ export default function AboutPage() {
               transition={{ duration: 0.5, delay: 0.6 }}
               className="mt-8"
             >
-              Join creators and teams using Starvlo to launch offers, grow audiences, and sell—without the complexity.
+              Join businessesand teams using Starvlo to launch offers, grow audiences, and sell—without the complexity.
             </motion.p>
           </div>
         </div>
       </div>
-      
+
       <div className="bg-gray-50 py-16 dark:bg-gray-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
@@ -81,11 +81,11 @@ export default function AboutPage() {
               Hear what our customers have to say about LeadCapture
             </p>
           </div>
-          
+
           <AnimatedTestimonialsDemo />
         </div>
       </div>
-      
+
       <Footer />
     </div>
   );
