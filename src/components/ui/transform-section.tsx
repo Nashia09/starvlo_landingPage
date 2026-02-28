@@ -1155,7 +1155,7 @@ export default function TransformSection() {
                         transition={{ duration: 0.7, ease: "easeOut" }}
                         className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] font-medium text-[#222222] tracking-tight mb-6"
                     >
-                        Built for creators who
+                        Built for brands who
                         <br />
                         want to scale
                     </motion.h2>

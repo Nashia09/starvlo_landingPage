@@ -82,9 +82,9 @@ export default function HomePage() {
         <HeroSection />
       </div>
 
-      <div className="overflow-x-hidden">
+      {/* <div className="overflow-x-hidden"> */}
         <TransformSection />
-      </div>
+      {/* </div> */}
 
       <StickyFeaturesSection />
 
