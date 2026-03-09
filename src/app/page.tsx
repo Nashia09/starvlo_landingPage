@@ -83,19 +83,16 @@ export default function HomePage() {
       </div>
 
       {/* <div className="overflow-x-hidden"> */}
-        <TransformSection />
+      <TransformSection />
       {/* </div> */}
 
       <StickyFeaturesSection />
 
       {/* <MacbookScroll src="/assets/onboarding.mp4" showGradient={false} /> */}
 
-      <div className="overflow-x-hidden">
-        <section id="features">
-          <FeaturesOverview />
-        </section>
-        {/* <AIGeneratorDemo /> */}
-      </div>
+      <section id="features" className="relative z-10">
+        <FeaturesOverview />
+      </section>
 
       <CreatorsInMotion />
 

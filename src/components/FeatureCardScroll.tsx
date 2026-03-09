@@ -27,7 +27,7 @@ const features = [
     description: "Automate DMs, email sequences, and link‑in‑bio funnels to grow.",
     image: "/features/email-campaign.png"
   },
- 
+
   {
     title: "Social Integrations",
     description: "Connect Instagram and favorite apps to streamline audience growth.",
@@ -59,7 +59,7 @@ const FeatureCardScroll: React.FC = () => {
 
   return (
     <div
-      className="w-full py-8"
+      className="w-full py-16 min-h-[400px]"
       role="region"
       aria-label="Feature showcase"
       style={{ overflow: 'hidden' }}

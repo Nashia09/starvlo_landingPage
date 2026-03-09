@@ -15,6 +15,8 @@ import {
     Store,
     Megaphone,
     FileText,
+    XCircle,
+    MinusCircle,
     CheckCircle2
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -26,9 +28,59 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
     </svg>
 );
 
-const FeatureIcon = ({ feature, isFeatured }: { feature: string, isFeatured: boolean }) => {
-    const defaultClass = cn('w-5 h-5 shrink-0 mt-0.5', isFeatured ? 'text-[var(--color-primary)]' : 'text-neutral-700');
+const MASTER_FEATURES = [
+    { id: 'leadCapturePages', label: 'Lead capture pages' },
+    { id: 'emailAutomation', label: 'Email automation' },
+    { id: 'smsAutomation', label: 'SMS automation' },
+    { id: 'whatsappAutomation', label: 'WhatsApp automation' },
+    { id: 'aiFollowUp', label: 'AI follow-up' },
+    { id: 'aiContentAssistant', label: 'AI content assistant' },
+    { id: 'instagramAutoDM', label: 'Instagram auto DM' },
+    { id: 'instagramCommentAutomation', label: 'Instagram comment automation' },
+    { id: 'aiBookingAssistant', label: 'AI booking assistant', isString: true },
+    { id: 'calendarBooking', label: 'Calendar booking' },
+    { id: 'prioritySupport', label: 'Priority support' },
+    { id: 'allowCustomBranding', label: 'Custom branding' },
+    { id: 'crm', label: 'CRM', isString: true },
+    { id: 'analytics', label: 'Analytics', isString: true },
+    { id: 'store', label: 'Store', isString: true },
+    { id: 'outreachChannels', label: 'Outreach channels', isString: true },
+];
+
+const FeatureIcon = ({ feature, isFeatured, isMissing }: { feature: string, isFeatured: boolean, isMissing?: boolean }) => {
+    if (isMissing) {
+        return <MinusCircle className={cn('w-5 h-5 shrink-0 mt-0.5 text-neutral-400 opacity-60')} />;
+    }
+
     const lower = feature.toLowerCase();
+
+    // Categorical Colors Configuration
+    const colors: Record<string, string> = {
+        outreach: 'text-orange-500',
+        whatsapp: 'text-[#25D366]',
+        email: 'text-blue-500',
+        'lead capture': 'text-cyan-500',
+        sms: 'text-emerald-500',
+        'ai content': 'text-violet-500',
+        'ai follow-up': 'text-purple-500',
+        'instagram comment': 'text-pink-500',
+        instagram: 'text-rose-500',
+        crm: 'text-amber-500',
+        analytics: 'text-indigo-500',
+        store: 'text-yellow-500',
+    };
+
+    let iconColor = isFeatured ? 'text-[var(--color-primary)]' : 'text-neutral-700';
+
+    // Match color by substring
+    for (const key in colors) {
+        if (lower.includes(key)) {
+            iconColor = colors[key];
+            break;
+        }
+    }
+
+    const defaultClass = cn('w-5 h-5 shrink-0 mt-0.5', iconColor);
 
     if (lower.includes("outreach")) {
         const hasWhatsapp = lower.includes("whatsapp");
@@ -71,6 +123,10 @@ type PricePlan = {
     featured: boolean;
     currency: string;
     intervalAmountMap: { monthly: number; yearly: number };
+    rawFeatures?: Record<string, any>;
+    rawLimits?: Record<string, any>;
+    inheritanceHeader?: string;
+    displayFeatures: Array<{ label: string; isMissing: boolean }>;
 };
 
 type ApiPlan = {
@@ -79,11 +135,240 @@ type ApiPlan = {
     description?: string;
     billingInterval?: string;
     price?: number;
+    yearlyPrice?: number;
     nigerianPrice?: number;
     currency?: string;
     features?: Record<string, unknown>;
     isPopular?: boolean;
 };
+
+const STATIC_PRICING_DATA = [
+    {
+        "_id": "68d7a632db19ecde17113598",
+        "name": "Free",
+        "slug": "free",
+        "description": "Start for free. Upgrade when you’re ready to scale.",
+        "type": "free",
+        "billingInterval": "monthly",
+        "price": 0,
+        "currency": "USD",
+        "nigerianPrice": 0,
+        "trialDays": 0,
+        "limits": {
+            "maxLeads": 20,
+            "maxEmails": 10,
+            "maxSMS": 0,
+            "maxAIReplies": 50,
+            "maxSequences": 2,
+            "maxInstagramDMTriggers": 0,
+            "maxInstagramCommentPosts": 0,
+            "maxInstagramAutomationPosts": 0,
+            "maxCommentToDMConversationsPerDay": 0,
+            "maxTeamMembers": 1,
+            "maxVoiceCommands": 3,
+            "maxProducts": 1
+        },
+        "features": {
+            "leadCapturePages": true,
+            "emailAutomation": false,
+            "smsAutomation": false,
+            "aiFollowUp": true,
+            "aiContentAssistant": false,
+            "instagramAutoDM": false,
+            "instagramCommentAutomation": false,
+            "whatsappAutomation": false,
+            "aiBookingAssistant": "none",
+            "calendarBooking": false,
+            "prioritySupport": false,
+            "allowCustomBranding": false,
+            "crm": "basic",
+            "analytics": "basic",
+            "store": "single-product",
+            "outreachChannels": "email_only"
+        },
+        "isPopular": false,
+    },
+    {
+        "_id": "68d7a633db19ecde1711359f",
+        "name": "Starter",
+        "slug": "starter",
+        "description": "The smart choice for growing businesses.",
+        "type": "basic",
+        "billingInterval": "monthly",
+        "price": 19,
+        "currency": "USD",
+        "nigerianPrice": 25000,
+        "trialDays": 0,
+        "limits": {
+            "maxLeads": 600,
+            "maxEmails": 500,
+            "maxSMS": 0,
+            "maxAIReplies": 400,
+            "maxSequences": 5,
+            "maxInstagramDMTriggers": 100,
+            "maxInstagramCommentPosts": 0,
+            "maxInstagramAutomationPosts": 5,
+            "maxCommentToDMConversationsPerDay": 30,
+            "maxTeamMembers": 3,
+            "maxVoiceCommands": 30,
+            "maxProducts": 5
+        },
+        "features": {
+            "leadCapturePages": true,
+            "emailAutomation": true,
+            "smsAutomation": false,
+            "aiFollowUp": true,
+            "aiContentAssistant": true,
+            "instagramAutoDM": true,
+            "instagramCommentAutomation": false,
+            "whatsappAutomation": false,
+            "aiBookingAssistant": "ig_email",
+            "calendarBooking": false,
+            "prioritySupport": false,
+            "allowCustomBranding": false,
+            "crm": "basic",
+            "analytics": "advanced",
+            "store": "multi-product",
+            "outreachChannels": "email_only"
+        },
+        "isPopular": false,
+    },
+    {
+        "_id": "68d7a634db19ecde171135a6",
+        "name": "Growth",
+        "slug": "growth",
+        "description": "Built for businesses that are serious about scaling",
+        "type": "standard",
+        "billingInterval": "monthly",
+        "price": 35,
+        "currency": "USD",
+        "nigerianPrice": 40000,
+        "trialDays": 0,
+        "limits": {
+            "maxLeads": 6000,
+            "maxEmails": 2000,
+            "maxSMS": 500,
+            "maxAIReplies": 1500,
+            "maxSequences": -1,
+            "maxInstagramDMTriggers": 0,
+            "maxInstagramCommentPosts": 0,
+            "maxInstagramAutomationPosts": 20,
+            "maxCommentToDMConversationsPerDay": 100,
+            "maxTeamMembers": 10,
+            "maxVoiceCommands": 0,
+            "maxProducts": 0
+        },
+        "features": {
+            "leadCapturePages": true,
+            "emailAutomation": true,
+            "smsAutomation": true,
+            "aiFollowUp": true,
+            "aiContentAssistant": true,
+            "instagramAutoDM": true,
+            "instagramCommentAutomation": true,
+            "whatsappAutomation": true,
+            "aiBookingAssistant": "all_channels",
+            "calendarBooking": true,
+            "prioritySupport": true,
+            "allowCustomBranding": true,
+            "crm": "basic",
+            "analytics": "enterprise",
+            "store": "unlimited",
+            "outreachChannels": "all_channels"
+        },
+        "isPopular": true,
+    },
+    {
+        "_id": "68d7a635db19ecde171135a7",
+        "name": "Starter (Yearly)",
+        "slug": "starter-yearly",
+        "description": "Stop chasing leads. Replace manual follow-ups. Billed annually with 20% savings.",
+        "type": "basic",
+        "billingInterval": "yearly",
+        "price": 115.2,
+        "currency": "USD",
+        "nigerianPrice": 172800,
+        "trialDays": 0,
+        "limits": {
+            "maxLeads": 600,
+            "maxEmails": 1000,
+            "maxSMS": 0,
+            "maxAIReplies": 1000,
+            "maxSequences": 5,
+            "maxInstagramDMTriggers": 100,
+            "maxInstagramCommentPosts": 100,
+            "maxInstagramAutomationPosts": 5,
+            "maxCommentToDMConversationsPerDay": 30,
+            "maxTeamMembers": 3,
+            "maxVoiceCommands": 50,
+            "maxProducts": 5
+        },
+        "features": {
+            "leadCapturePages": true,
+            "emailAutomation": true,
+            "smsAutomation": false,
+            "aiFollowUp": true,
+            "aiContentAssistant": true,
+            "instagramAutoDM": true,
+            "instagramCommentAutomation": false,
+            "whatsappAutomation": false,
+            "aiBookingAssistant": "ig_email",
+            "calendarBooking": false,
+            "prioritySupport": false,
+            "allowCustomBranding": false,
+            "crm": "advanced",
+            "analytics": "advanced",
+            "store": "multi-product",
+            "outreachChannels": "email_only"
+        },
+        "isPopular": false,
+    },
+    {
+        "_id": "68d7a636db19ecde171135a8",
+        "name": "Growth (Yearly)",
+        "slug": "growth-yearly",
+        "description": "Appointment setter replacement. Scale without thinking. Billed annually with 20% savings.",
+        "type": "standard",
+        "billingInterval": "yearly",
+        "price": 374.4,
+        "currency": "USD",
+        "nigerianPrice": 480000,
+        "trialDays": 0,
+        "limits": {
+            "maxLeads": 6000,
+            "maxEmails": 10000,
+            "maxSMS": 1000,
+            "maxAIReplies": 5000,
+            "maxSequences": -1,
+            "maxInstagramDMTriggers": 200,
+            "maxInstagramCommentPosts": 200,
+            "maxInstagramAutomationPosts": 20,
+            "maxCommentToDMConversationsPerDay": 100,
+            "maxTeamMembers": 10,
+            "maxVoiceCommands": 0,
+            "maxProducts": 0
+        },
+        "features": {
+            "leadCapturePages": true,
+            "emailAutomation": true,
+            "smsAutomation": false,
+            "aiFollowUp": true,
+            "aiContentAssistant": true,
+            "instagramAutoDM": true,
+            "instagramCommentAutomation": true,
+            "whatsappAutomation": true,
+            "aiBookingAssistant": "all_channels",
+            "calendarBooking": true,
+            "prioritySupport": true,
+            "allowCustomBranding": true,
+            "crm": "enterprise",
+            "analytics": "enterprise",
+            "store": "unlimited",
+            "outreachChannels": "all_channels"
+        },
+        "isPopular": true,
+    }
+];
 
 export default function GrowthBusinessPricing() {
     const [billing, setBilling] = useState<"monthly" | "yearly">("yearly");
@@ -139,89 +424,140 @@ export default function GrowthBusinessPricing() {
     };
 
     useEffect(() => {
-        const fetchPricing = async () => {
+        const processPricing = async () => {
             setLoadingPricing(true);
-            const base = process.env.NEXT_PUBLIC_API_URL?.replace(/\/+$/, "");
-            if (!base) {
-                setLoadingPricing(false);
-                return;
-            }
-
             try {
-                const res = await fetch(`${base}/api/v1/billing/plans/public?currency=${currency}`, { cache: "no-store" });
-                if (!res.ok) {
-                    setLoadingPricing(false);
-                    return;
+                let apiData = STATIC_PRICING_DATA;
+                try {
+                    const apiUrl = (process.env.NEXT_PUBLIC_API_URL || "https://starvlo-api.onrender.com").replace(/\/+$/, "");
+                    const response = await fetch(`${apiUrl}/api/v1/billing/plans/public?currency=${currency}`);
+                    if (response.ok) {
+                        const json = await response.json();
+                        const rawData = Array.isArray(json) ? json : (json.success && Array.isArray(json.data) ? json.data : []);
+                        if (rawData.length > 0) {
+                            apiData = rawData;
+                            console.log("Fetched pricing from API");
+                        }
+                    }
+                } catch (apiErr) {
+                    console.error("API fetch failed, falling back to static data", apiErr);
                 }
 
-                const body = await res.json();
-                const raw = Array.isArray(body) ? body : Array.isArray(body?.data) ? body.data : [];
+                // Define the base plans we want to show
+                const basePlanSlugs = ["free", "starter", "growth"];
 
-                const parsedPlans: PricePlan[] = raw.map((p: unknown) => {
-                    const plan = p as ApiPlan;
-                    const monthlyPriceUSD = Number(plan.price || 0);
-                    // Fallback to 1500 NGN/$ if nigerianPrice isn't set in the DB
-                    const monthlyPriceNGN = Number(plan.nigerianPrice || (monthlyPriceUSD * 1500));
+                const groupedPlans: PricePlan[] = basePlanSlugs.map(baseSlug => {
+                    const monthlyVariant = apiData.find(p => p.slug === baseSlug);
+                    const yearlyVariant = apiData.find(p => p.slug === `${baseSlug}-yearly`) || monthlyVariant;
 
-                    const monthlyPrice = currency === "NGN" ? monthlyPriceNGN : monthlyPriceUSD;
+                    // If we only have one variant (like for Free), use it for both
+                    const m = monthlyVariant || STATIC_PRICING_DATA.find(p => p.slug === baseSlug)!;
+                    const y = yearlyVariant || STATIC_PRICING_DATA.find(p => p.slug === `${baseSlug}-yearly`)! || m;
 
-                    let yearlyDiscountedPrice = 0;
-                    if (currency === "NGN") {
-                        yearlyDiscountedPrice = Math.round(monthlyPrice * 0.8);
-                    } else {
-                        yearlyDiscountedPrice = Math.round(monthlyPrice * 0.8 * 100) / 100;
-                    }
+                    const mPriceUSD = Number(m.price || 0);
+                    const mPriceNGN = Number(m.nigerianPrice || (mPriceUSD * 1500));
 
-                    const featuresObj = plan.features || {};
-                    const features: string[] = [];
-                    if (featuresObj.leadCapturePages) features.push("Lead capture pages");
-                    if (featuresObj.emailAutomation) features.push("Email automation");
-                    if (featuresObj.smsAutomation) features.push("SMS automation");
-                    if (featuresObj.aiFollowUp) features.push("AI follow-up");
-                    if (featuresObj.aiContentAssistant) features.push("AI content assistant");
-                    if (featuresObj.instagramAutoDM) features.push("Instagram auto DM");
-                    if (featuresObj.instagramCommentAutomation) features.push("Instagram comment automation");
-                    if (featuresObj.crm) features.push(`CRM: ${String(featuresObj.crm)}`);
-                    if (featuresObj.analytics) features.push(`Analytics: ${String(featuresObj.analytics)}`);
-                    if (featuresObj.store) features.push(`Store: ${String(featuresObj.store)}`);
-                    if (featuresObj.outreachChannels) features.push(`Outreach: ${String(featuresObj.outreachChannels).replace(/_/g, " ")}`);
+                    // If y is separate yearly variant, use its price. 
+                    // If y is same as m, use yearlyPrice field if it exists, otherwise 12 * price.
+                    let yPriceUSD = Number((y as any).yearlyPrice || (y === m ? mPriceUSD * 12 : (y as any).price || 0));
+                    let yPriceNGN = Number((y as any).nigerianPrice || (y === m ? mPriceNGN * 12 : ((y as any).price * 1500) || 0));
 
-                    const isFeatured = Boolean(plan.isPopular || false);
+                    const currentMPrice = currency === "NGN" ? mPriceNGN : mPriceUSD;
+                    const currentYPrice = currency === "NGN" ? yPriceNGN : yPriceUSD;
+
+                    // Calculate display prices (monthly equivalent for yearly)
+                    const mDisplay = currentMPrice;
+                    const yDisplay = ((y as any).billingInterval === "yearly" || (y as any).yearlyPrice) ? currentYPrice / 12 : currentYPrice;
+
+                    const isFeatured = Boolean(m.isPopular || y.isPopular);
+
+                    // Pre-calculate features for both to avoid re-calculating on every render if possible,
+                    // but we'll store the raw data and let the render logic handle the toggle.
+
+                    const getDisplayFeatures = (variant: any) => {
+                        const features: Array<{ label: string; isMissing: boolean }> = [];
+                        const currF = variant.features || {};
+                        const currL = variant.limits || {};
+
+                        const formatLimit = (val: number, label: string) => {
+                            if (val === -1) return `Unlimited ${label}`;
+                            if (val > 0) return `${val} ${label}`;
+                            return null;
+                        };
+
+                        const l = [
+                            formatLimit(currL.maxLeads, "Leads"),
+                            formatLimit(currL.maxEmails, "Emails/mo"),
+                            formatLimit(currL.maxAIReplies, "AI Replies"),
+                            formatLimit(currL.maxSMS, "SMS"),
+                            formatLimit(currL.maxSequences, "Sequences"),
+                            formatLimit(currL.maxInstagramAutomationPosts, "Instagram Automation Posts"),
+                            formatLimit(currL.maxCommentToDMConversationsPerDay, "Comment-to-DM Conversations/day"),
+                            formatLimit(currL.maxTeamMembers, "Team Members"),
+                            formatLimit(currL.maxVoiceCommands, "Voice Commands"),
+                            formatLimit(currL.maxProducts, "Products"),
+                        ];
+
+                        l.forEach(text => {
+                            if (text) features.push({ label: text, isMissing: false });
+                        });
+
+                        const mapValue = (val: string) => {
+                            const mapping: Record<string, string> = {
+                                "ig_email": "Instagram & Email",
+                                "all_channels": "All Channels",
+                                "email_only": "Email Only",
+                                "basic": "Basic",
+                                "advanced": "Advanced",
+                                "enterprise": "Enterprise",
+                                "single-product": "Single Product",
+                                "multi-product": "Multi-Product",
+                                "unlimited": "Unlimited",
+                                "none": "None"
+                            };
+                            return mapping[val] || val.replace(/_/g, " ").replace(/\b\w/g, l => l.toUpperCase());
+                        };
+
+                        MASTER_FEATURES.forEach(master => {
+                            const currVal = currF[master.id];
+                            let label = master.label;
+                            if (master.isString && currVal && currVal !== "none" && currVal !== "disabled") {
+                                label = `${master.label}: ${mapValue(String(currVal))}`;
+                            }
+                            const isAvailable = master.isString ? (currVal && currVal !== "none" && currVal !== "disabled") : !!currVal;
+                            if (isAvailable) features.push({ label, isMissing: false });
+                        });
+                        return features;
+                    };
 
                     return {
-                        name: String(plan.name || plan.slug || ""),
-                        description: String(plan.description || "Ideal for growing your business"),
-                        monthly: monthlyPrice,
-                        yearly: yearlyDiscountedPrice,
-                        features,
+                        name: String(m.name || m.slug || ""),
+                        description: billing === "monthly" ? m.description : y.description,
+                        monthly: mDisplay,
+                        yearly: yDisplay,
+                        features: [],
                         variant: isFeatured ? "secondary" : "outline",
                         featured: isFeatured,
                         currency: currency,
                         intervalAmountMap: {
-                            monthly: monthlyPrice,
-                            yearly: yearlyDiscountedPrice
-                        }
+                            monthly: currentMPrice,
+                            yearly: currentYPrice
+                        },
+                        displayFeatures: billing === "monthly" ? getDisplayFeatures(m) : getDisplayFeatures(y),
+                        inheritanceHeader: m.slug === "starter" ? "Everything in Free plus" : (m.slug === "growth" ? "Everything in Starter plus" : undefined)
                     };
                 });
 
-                // Make sure featured plan is in the middle if there are 3
-                const featuredIndex = parsedPlans.findIndex(p => p.featured);
-                if (featuredIndex !== -1 && parsedPlans.length > 2) {
-                    const featuredPlan = parsedPlans.splice(featuredIndex, 1)[0];
-                    const middle = Math.floor(parsedPlans.length / 2);
-                    parsedPlans.splice(middle, 0, featuredPlan);
-                }
-
-                setPlans(parsedPlans);
+                setPlans(groupedPlans);
             } catch (err) {
-                console.error("Failed to fetch pricing", err);
+                console.error("Failed to process pricing", err);
             } finally {
                 setLoadingPricing(false);
             }
         };
 
-        fetchPricing();
-    }, [currency]);
+        processPricing();
+    }, [currency, billing]);
 
     return (
         <section ref={timelineRef} className="py-24 bg-slate-100 font-dmSans text-black min-h-screen">
@@ -246,28 +582,8 @@ export default function GrowthBusinessPricing() {
                 <TimelineAnimation
                     animationNum={3}
                     timelineRef={timelineRef}
-                    className="flex flex-col sm:flex-row items-center justify-center mb-6 gap-4 sm:gap-6"
+                    className="flex flex-col items-center justify-center mb-6 gap-4"
                 >
-                    {/* Simple Currency Tab Toggle */}
-                    <div className="flex rounded-full bg-white p-1 border border-gray-200 shadow-sm w-fit mx-auto sm:mx-0">
-                        <button
-                            onClick={() => setCurrency("USD")}
-                            disabled={loadingPricing}
-                            className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${currency === "USD" ? "bg-slate-100 text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-900"
-                                }`}
-                        >
-                            USD
-                        </button>
-                        <button
-                            onClick={() => setCurrency("NGN")}
-                            disabled={loadingPricing}
-                            className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${currency === "NGN" ? "bg-slate-100 text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-900"
-                                }`}
-                        >
-                            NGN
-                        </button>
-                    </div>
-
                     <div className="flex items-center justify-center gap-4 bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/40 font-semibold w-fit px-4 py-2.5 mx-auto sm:mx-0 rounded-full">
                         <span className={cn('text-sm transition-colors', billing === 'monthly' ? 'text-black' : 'text-neutral-500')}>
                             Monthly
@@ -296,10 +612,27 @@ export default function GrowthBusinessPricing() {
                             <span className={cn('text-sm transition-colors', billing === 'yearly' ? 'text-black' : 'text-neutral-500')}>
                                 Yearly
                             </span>
-                            <span className={cn('ml-2 px-2 py-0.5 text-xs font-bold rounded-full uppercase', billing === 'yearly' ? 'text-[var(--color-primary-dark)] bg-[var(--color-primary)]/20' : 'text-neutral-500')}>
-                                (Save 20%)
-                            </span>
                         </div>
+                    </div>
+
+                    {/* Simple Currency Tab Toggle */}
+                    <div className="flex rounded-full bg-white p-1 border border-gray-200 shadow-sm w-fit mx-auto sm:mx-0">
+                        <button
+                            onClick={() => setCurrency("USD")}
+                            disabled={loadingPricing}
+                            className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${currency === "USD" ? "bg-slate-100 text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-900"
+                                }`}
+                        >
+                            USD
+                        </button>
+                        <button
+                            onClick={() => setCurrency("NGN")}
+                            disabled={loadingPricing}
+                            className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${currency === "NGN" ? "bg-slate-100 text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-900"
+                                }`}
+                        >
+                            NGN
+                        </button>
                     </div>
                 </TimelineAnimation>
 
@@ -370,18 +703,41 @@ export default function GrowthBusinessPricing() {
                                         ) : 'Select Plan'}
                                     </button>
 
-                                    <div className={cn('space-y-4 p-5 text-left border rounded-xl flex-grow',
+                                    <div className={cn('space-y-4 p-5 text-left border rounded-xl flex-grow flex flex-col',
                                         plan.featured ? 'border-neutral-800 bg-neutral-900/50' : 'border-neutral-100 bg-neutral-50'
                                     )}>
-                                        {plan.features.length === 0 && (
+                                        {plan.inheritanceHeader && (
+                                            <div className="mb-4">
+                                                <div className={cn(
+                                                    "inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm",
+                                                    plan.featured
+                                                        ? "bg-[var(--color-primary)] text-white border border-[var(--color-primary-light)]/30"
+                                                        : "bg-neutral-800 text-white border border-neutral-700"
+                                                )}>
+                                                    <Sparkles className="w-3.5 h-3.5" />
+                                                    {plan.inheritanceHeader}
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        {plan.displayFeatures.length === 0 && !plan.inheritanceHeader && (
                                             <p className="text-sm text-neutral-500 italic">No specific features listed for this tier.</p>
                                         )}
-                                        {plan.features.map((f, i) => (
-                                            <div key={i} className={cn('flex items-start gap-3 text-sm font-medium leading-tight', plan.featured ? 'text-neutral-300' : 'text-neutral-600')}>
-                                                <FeatureIcon feature={f} isFeatured={plan.featured} />
-                                                {f}
-                                            </div>
-                                        ))}
+
+                                        <div className="space-y-4">
+                                            {plan.displayFeatures.map((f, i) => (
+                                                <div key={i} className={cn(
+                                                    'flex items-start gap-3 text-sm font-medium leading-tight transition-opacity',
+                                                    plan.featured ? 'text-neutral-300' : 'text-neutral-600',
+                                                    f.isMissing ? 'opacity-50' : 'opacity-100'
+                                                )}>
+                                                    <FeatureIcon feature={f.label} isFeatured={plan.featured} isMissing={f.isMissing} />
+                                                    <span className={f.isMissing ? 'text-neutral-400 line-through decoration-neutral-300' : ''}>
+                                                        {f.label}
+                                                    </span>
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
                                 </TimelineAnimation>
                             ))}

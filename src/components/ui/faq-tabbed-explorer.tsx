@@ -172,7 +172,7 @@ export const FaqTabbedExplorer = () => {
                                             <p className="text-slate-400">No articles available in this category yet.</p>
                                         </div>
                                     ) : (
-                                        <Accordion multiple={false} defaultValue={articles[0]?._id}>
+                                        <Accordion key={articles[0]?._id} multiple={false} defaultValue={articles[0]?._id}>
                                             {articles.map((item) => (
                                                 <AccordionItem
                                                     key={item._id}

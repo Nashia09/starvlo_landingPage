@@ -12,6 +12,7 @@ type PricePlan = {
   details: string[];
   popular: boolean;
   amount: number;
+  yearlyAmount?: number;
   currency: string;
   interval: "monthly" | "yearly";
 };
@@ -22,8 +23,11 @@ type ApiPlan = {
   description?: string;
   billingInterval?: string;
   price?: number;
+  yearlyPrice?: number;
+  nigerianPrice?: number;
   currency?: string;
   features?: Record<string, unknown>;
+  limits?: Record<string, unknown>;
   isPopular?: boolean;
 };
 
@@ -83,7 +87,14 @@ export default function PricingTeaser() {
         const parsePlans = (rawPlans: unknown[], targetCurrency: string) => {
           return rawPlans.map((p) => {
             const plan = p as ApiPlan;
-            const price = Number(plan.price || 0);
+            const priceUSD = Number(plan.price || 0);
+            const priceNGN = Number(plan.nigerianPrice || priceUSD * 1500);
+            const price = targetCurrency === "NGN" ? priceNGN : priceUSD;
+
+            const yearlyPriceUSD = Number(plan.yearlyPrice || priceUSD * 12);
+            // Default yearly NGN to 12x monthly NGN
+            const yearlyPriceNGN = targetCurrency === "NGN" ? priceNGN * 12 : 0;
+            const yearlyPrice = targetCurrency === "NGN" ? yearlyPriceNGN : yearlyPriceUSD;
 
             const symbol = targetCurrency === "USD" ? "$" : "₦";
             const formattedPrice = targetCurrency === "NGN"
@@ -93,7 +104,13 @@ export default function PricingTeaser() {
             const priceLabel = price === 0 ? "Free" : `${symbol}${formattedPrice} / month`;
 
             const featuresObj = plan.features || {};
+            const limitsObj = plan.limits || {};
             const details: string[] = [];
+
+            // Add limits to details for comprehensive info
+            if (limitsObj.maxLeads) details.push(`Up to ${limitsObj.maxLeads === -1 ? 'Unlimited' : limitsObj.maxLeads} leads`);
+            if (limitsObj.maxEmails) details.push(`Up to ${limitsObj.maxEmails === -1 ? 'Unlimited' : limitsObj.maxEmails} emails`);
+
             if (featuresObj.leadCapturePages) details.push("Lead capture pages");
             if (featuresObj.emailAutomation) details.push("Email automation");
             if (featuresObj.smsAutomation) details.push("SMS automation");
@@ -113,6 +130,7 @@ export default function PricingTeaser() {
               details,
               popular: Boolean(plan.isPopular || false),
               amount: price,
+              yearlyAmount: yearlyPrice,
               currency: targetCurrency,
               interval: "monthly" as const,
             };
@@ -121,19 +139,19 @@ export default function PricingTeaser() {
 
         const monthlyPlans = parsePlans(raw, currency);
 
-        const createYearly = (monthly: PricePlan[], targetCurrency: string) => {
+        const createYearly = (monthly: any[], targetCurrency: string) => {
           return monthly.map((pl) => {
-            const discountedAmount = targetCurrency === "NGN"
-              ? Math.round(pl.amount * 0.8) // No decimals for NGN
-              : Math.round(pl.amount * 0.8 * 100) / 100;
+            const yearlyTotal = pl.yearlyAmount;
+            // The display price per month on the yearly plan 
+            const displayMonthly = yearlyTotal > 0 ? Math.round((yearlyTotal / 12) * 100) / 100 : 0;
 
             const symbol = targetCurrency === "USD" ? "$" : "₦";
             const formattedPrice = targetCurrency === "NGN"
-              ? new Intl.NumberFormat('en-NG').format(discountedAmount)
-              : discountedAmount;
+              ? new Intl.NumberFormat('en-NG').format(displayMonthly)
+              : displayMonthly;
 
-            const priceLabel = discountedAmount === 0 ? "Free" : `${symbol}${formattedPrice} / month`;
-            return { ...pl, amount: discountedAmount, priceLabel, interval: "yearly" as const };
+            const priceLabel = yearlyTotal === 0 ? "Free" : `${symbol}${formattedPrice} / month`;
+            return { ...pl, amount: yearlyTotal, priceLabel, interval: "yearly" as const };
           });
         };
 
@@ -197,7 +215,6 @@ export default function PricingTeaser() {
                 }`}
             >
               Yearly
-              <span className="ml-2 bg-[var(--color-primary-dark)] text-white text-xs px-2 py-0.5 rounded-full">Save 20%</span>
             </button>
           </div>
 

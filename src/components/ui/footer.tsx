@@ -33,19 +33,19 @@ export default function Footer() {
 
   return (
     <footer className="w-full bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
-      <div className="container px-4 md:px-6 mx-auto max-w-7xl py-8 md:py-10 lg:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="container px-4 md:px-6 mx-auto max-w-7xl py-4 md:py-6 lg:py-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Company info */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <Image src="/assets/logo.svg" alt="Starvlo logo" width={160} height={160} className="rounded-md" />
+            <div className="flex items-center gap-3 mb-2">
+              <Image src="/assets/logo.svg" alt="Starvlo logo" width={120} height={40} className="w-28 h-auto rounded-md" />
             </div>
 
-            <p className="text-gray-600 dark:text-gray-400 mb-4 max-w-md">
+            <p className="text-gray-600 dark:text-gray-400 mb-3 text-sm max-w-md">
               Capture leads. Automate follow-up. Close more sales.
             </p>
 
-            <div className="flex space-x-4 mb-4">
+            <div className="flex space-x-4 mb-2">
               {socialLinks.map((link, i) => (
                 <a
                   key={i}
@@ -62,7 +62,7 @@ export default function Footer() {
           </div>
 
           {/* Mobile accordions */}
-          <div className="lg:hidden col-span-1 md:col-span-1 space-y-4">
+          {/* <div className="lg:hidden col-span-1 md:col-span-1 space-y-4">
             {footerLinks.map((group, index) => (
               <div key={index} className="border-b border-gray-200 dark:border-gray-800 pb-4">
                 <button
@@ -111,15 +111,15 @@ export default function Footer() {
                 </motion.div>
               </div>
             ))}
-          </div>
+          </div> */}
 
           {/* Desktop columns */}
-          {footerLinks.map((group, index) => (
-            <div key={index} className="hidden lg:block">
-              <h3 className="text-sm font-medium uppercase tracking-wide mb-4">
+          {/* {footerLinks.map((group, index) => ( */}
+          {/* <div key={index} className="hidden lg:block"> */}
+          {/* <h3 className="text-sm font-medium uppercase tracking-wide mb-4">
                 {group.title}
-              </h3>
-              <ul className="space-y-3">
+              </h3> */}
+          {/* <ul className="space-y-3">
                 {group.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
                     <Link
@@ -130,15 +130,15 @@ export default function Footer() {
                     </Link>
                   </li>
                 ))}
-              </ul>
-            </div>
-          ))}
+              </ul> */}
+          {/* </div>
+          ))} */}
         </div>
 
-        <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800">
+        <div className="mt-2 pt-4 border-t border-gray-200 dark:border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 dark:text-gray-400 text-sm">
-              &copy; {currentYear} Starvlo — AI-powered lead generation for businessesand businesses. All rights reserved.
+              &copy; {currentYear} Starvlo — AI-powered lead generation for brands and businesses. All rights reserved.
             </p>
             <div className="mt-4 md:mt-0 flex flex-wrap gap-4 text-sm">
               <Link href="/privacy" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">

@@ -110,7 +110,7 @@ export default function CreatorsInMotion() {
     const textScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.8]);
 
     return (
-        <section ref={containerRef} className="relative w-full h-[300vh] bg-[#F7FEFF] -mt-[40vh] md:mt-0 pt-[40vh] md:pt-0">
+        <section ref={containerRef} className="relative w-full h-[300vh] bg-[#F7FEFF] mt-0 md:mt-0 pt-0 md:pt-0">
 
             <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden">
 
