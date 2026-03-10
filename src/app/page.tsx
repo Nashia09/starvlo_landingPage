@@ -86,7 +86,7 @@ export default function HomePage() {
       {/* <MacbookScroll src="/assets/onboarding.mp4" showGradient={false} /> */}
 
       <section id="features" className="relative z-10">
-        <FeaturesOverview />
+        
         <Feature1 />
       </section>
 
