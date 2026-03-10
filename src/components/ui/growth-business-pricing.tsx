@@ -455,12 +455,13 @@ export default function GrowthBusinessPricing() {
                     const y = yearlyVariant || STATIC_PRICING_DATA.find(p => p.slug === `${baseSlug}-yearly`)! || m;
 
                     const mPriceUSD = Number(m.price || 0);
-                    const mPriceNGN = Number(m.nigerianPrice || (mPriceUSD * 1500));
+                    const ngnRate = Number(process.env.NEXT_PUBLIC_NGN_USD_RATE || 1550);
+                    const mPriceNGN = Number(m.nigerianPrice ?? (mPriceUSD * ngnRate));
 
                     // If y is separate yearly variant, use its price. 
                     // If y is same as m, use yearlyPrice field if it exists, otherwise 12 * price.
                     let yPriceUSD = Number((y as any).yearlyPrice || (y === m ? mPriceUSD * 12 : (y as any).price || 0));
-                    let yPriceNGN = Number((y as any).nigerianPrice || (y === m ? mPriceNGN * 12 : ((y as any).price * 1500) || 0));
+                    let yPriceNGN = Number((y as any).nigerianPrice ?? (y === m ? mPriceNGN * 12 : ((y as any).price ?? 0) * ngnRate));
 
                     const currentMPrice = currency === "NGN" ? mPriceNGN : mPriceUSD;
                     const currentYPrice = currency === "NGN" ? yPriceNGN : yPriceUSD;

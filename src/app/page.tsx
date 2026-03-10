@@ -7,17 +7,12 @@ import SpotlightTestimonial from "@/components/ui/spotlight-testimonial";
 import GrowthBusinessPricing from "@/components/ui/growth-business-pricing";
 import FaqTabbedExplorer from "@/components/ui/faq-tabbed-explorer";
 import Footer from "@/components/ui/footer";
-import FeaturesSection from "@/components/features/features-section";
 import VideoCTASection from "@/components/ui/video-cta-section";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
-import { MacbookScroll } from "@/components/ui/macbook-scroll";
 import TransformSection from "@/components/ui/transform-section";
 import StickyFeaturesSection from "@/components/ui/sticky-features-section";
 import CreatorsInMotion from "@/components/ui/creators-in-motion";
-import StickyScrollRevealDemo from "@/components/sticky-scroll-reveal-demo";
-import { HorizontalScrollCarouselExample } from "@/components/ui/horizontal-scroll-carousel";
-import { Gauge, Timer, Share2, CheckCircle2 } from "lucide-react";
-import { TextParallaxContentExample } from "@/components/ui/text-parallax-content";
+import Feature1 from "@/components/ui/feature1";
 
 
 // // Peerlist logo badge
@@ -92,6 +87,7 @@ export default function HomePage() {
 
       <section id="features" className="relative z-10">
         <FeaturesOverview />
+        <Feature1 />
       </section>
 
       <CreatorsInMotion />

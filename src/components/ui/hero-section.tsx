@@ -191,7 +191,7 @@ export default function HeroSection() {
                         transition={{ type: "spring", visualDuration: 0.2, bounce: 0.3 }}
                         className="group relative inline-flex items-center justify-center bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] transition-colors duration-200 px-8 py-3 sm:py-4 rounded-full text-white font-medium text-[1.1em] shadow-[0_4px_14px_0_rgba(35,124,142,0.3)] will-change-transform"
                       >
-                        Start Free Trial
+                        Start Free
                       </motion.a>
                     </motion.div>
 
