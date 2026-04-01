@@ -8,7 +8,6 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
-import { Menu, MenuItem } from "@/components/ui/navbar-menu";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -80,44 +79,25 @@ export default function NavbarDemo() {
           {/* Custom LeadCapture logo */}
           <LeadCaptureLogo />
 
-          <div className="hidden flex-1 flex-row items-center justify-center text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex">
-            <Menu setActive={setActive}>
-              <Link href="/">
-                <MenuItem
-                  setActive={setActive}
-                  active={active}
-                  item="Home"
-                  isActive={isNavItemActive('/')}
-                  href="/"
-                >
-
-                </MenuItem>
+          <nav className="hidden flex-1 flex-row items-center justify-center gap-1 lg:flex">
+            {[
+              { label: 'Home', href: '/' },
+              { label: 'Pricing', href: '/pricing' },
+              { label: 'Contact', href: '/contact' },
+            ].map(({ label, href }) => (
+              <Link
+                key={href}
+                href={href}
+                className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                  isNavItemActive(href)
+                    ? 'text-[var(--color-primary)] bg-[var(--color-primary)]/10'
+                    : 'text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100'
+                }`}
+              >
+                {label}
               </Link>
-              <Link href="/pricing">
-                <MenuItem
-                  setActive={setActive}
-                  active={active}
-                  item="Pricing"
-                  isActive={isNavItemActive('/pricing')}
-                  href="/pricing"
-                >
-
-                </MenuItem>
-              </Link>
-              <Link href="/contact">
-                <MenuItem
-                  setActive={setActive}
-                  active={active}
-                  item="Contact"
-                  isActive={isNavItemActive('/contact')}
-                  href="/contact"
-                >
-
-                </MenuItem>
-              </Link>
-              
-            </Menu>
-          </div>
+            ))}
+          </nav>
 
           <div className="flex items-center gap-4 flex-shrink-0">
             <NavbarButton href="https://app.starvlo.com/" target="_blank" rel="noopener noreferrer" variant="gradient">Get Started</NavbarButton>

@@ -126,11 +126,11 @@ export default function ContactPage() {
                   <p className="text-gray-600 mb-6">
                     Already a customer? Visit our help center for quick answers to common questions.
                   </p>
-                  <Link href="/support">
+                  <a href="mailto:support@starvlo.com">
                     <button className="w-full border-2 border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-0.5 shadow-md hover:shadow-lg group">
-                      <span className="font-semibold group-hover:text-white">Help Center</span>
+                      <span className="font-semibold group-hover:text-white">Email Support</span>
                     </button>
-                  </Link>
+                  </a>
                 </motion.div>
               </div>
             </div>

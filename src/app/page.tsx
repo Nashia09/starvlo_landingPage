@@ -2,7 +2,6 @@
 
 import React, { useEffect } from "react";
 import HeroSection from "@/components/ui/hero-section";
-import FeaturesOverview from "@/components/ui/features-overview";
 import SpotlightTestimonial from "@/components/ui/spotlight-testimonial";
 import GrowthBusinessPricing from "@/components/ui/growth-business-pricing";
 import FaqTabbedExplorer from "@/components/ui/faq-tabbed-explorer";
