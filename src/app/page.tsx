@@ -86,7 +86,7 @@ export default function HomePage() {
 
       <section id="features" className="relative z-10">
         
-        <Feature1 />
+        {/* <Feature1 /> */}
       </section>
 
       <CreatorsInMotion />

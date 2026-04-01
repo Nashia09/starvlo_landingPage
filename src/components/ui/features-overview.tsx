@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useInView, type Variants } from "framer-motion";
-import FeatureCardScroll from "../FeatureCardScroll";
+// import FeatureCardScroll from "../FeatureCardScroll";
 
 export default function FeaturesOverview() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -92,7 +92,7 @@ export default function FeaturesOverview() {
         </motion.div>
 
         <motion.div variants={itemVariants} className="py-8">
-          <FeatureCardScroll />
+          {/* <FeatureCardScroll /> */}
         </motion.div>
 
       </motion.div>
