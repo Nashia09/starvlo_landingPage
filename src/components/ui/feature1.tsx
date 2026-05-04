@@ -90,7 +90,7 @@ function LeadFunnelKanban() {
       className="pt-5 space-y-5 relative overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ delay: 2.4, duration: 0.5 }}
+      transition={{ delay: 0.3, duration: 0.2 }}
     >
       <div
         className="absolute inset-0 -z-10 opacity-40"
@@ -193,8 +193,8 @@ const Feature1 = () => {
       opacity: 1,
       filter: "blur(0px)",
       transition: {
-        delay: i * 0.4,
-        duration: 0.5,
+        delay: i * 0.05,
+        duration: 0.2,
       },
     }),
     hidden: {
@@ -209,8 +209,8 @@ const Feature1 = () => {
     visible: (i: number) => ({
       scaleY: 1,
       transition: {
-        delay: 2.8 + i * 0.1,
-        duration: 0.8,
+        delay: 0.4 + i * 0.03,
+        duration: 0.3,
         ease: "easeOut" as const,
       },
     }),
@@ -222,8 +222,8 @@ const Feature1 = () => {
       x: 0,
       opacity: 1,
       transition: {
-        delay: 3.2 + i * 0.6,
-        duration: 0.5,
+        delay: 0.5 + i * 0.12,
+        duration: 0.2,
         ease: "easeOut" as const,
       },
     }),
@@ -341,7 +341,7 @@ const Feature1 = () => {
                   className="rounded-full border-2 border-white h-11 w-11 sm:h-14 sm:w-14 object-cover shrink-0 shadow-md"
                   initial={{ scale: 0.6, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: 1.8 + (i % 8) * 0.06, duration: 0.4 }}
+                  transition={{ delay: 0.2 + (i % 8) * 0.02, duration: 0.2 }}
                 />
               ))}
             </motion.div>
@@ -349,13 +349,13 @@ const Feature1 = () => {
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 2.6, duration: 0.5 }}
+            transition={{ delay: 0.3, duration: 0.2 }}
           >
             <motion.h1
               className="text-4xl font-semibold sm:pt-0 pt-4"
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
-              transition={{ delay: 2.8, duration: 0.3, type: "spring" }}
+              transition={{ delay: 0.35, duration: 0.15, type: "spring" }}
             >
               2,000+
             </motion.h1>
@@ -376,7 +376,7 @@ const Feature1 = () => {
             className="text-4xl font-semibold"
             initial={{ y: -10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 1.6, duration: 0.5 }}
+            transition={{ delay: 0.15, duration: 0.2 }}
           >
             Key Benefits
           </motion.h1>
@@ -384,7 +384,7 @@ const Feature1 = () => {
             className="text-sm"
             initial={{ y: -10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 1.8, duration: 0.5 }}
+            transition={{ delay: 0.2, duration: 0.2 }}
           >
             What you get from day one
           </motion.p>
@@ -398,10 +398,10 @@ const Feature1 = () => {
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{
-                    delay: 2 + i * 0.15,
-                    duration: 0.5,
+                    delay: 0.25 + i * 0.04,
+                    duration: 0.2,
                     type: "spring",
-                    stiffness: 100,
+                    stiffness: 150,
                   }}
                   whileHover={{ x: 4, scale: 1.02 }}
                 >
@@ -468,7 +468,7 @@ const Feature1 = () => {
                   className="absolute -bottom-2 right-0 flex items-center gap-1 rounded-full bg-[var(--color-primary)] px-2 py-1 text-xs text-white shadow-sm hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2"
                   initial={{ scale: 0, rotate: 180 }}
                   animate={{ scale: 1, rotate: 0 }}
-                  transition={{ delay: 4.6, duration: 0.4, type: "spring" }}
+                  transition={{ delay: 0.7, duration: 0.2, type: "spring" }}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -482,7 +482,7 @@ const Feature1 = () => {
               className="flex items-center gap-2 border-t border-gray-200 p-4"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 4.8, duration: 0.5 }}
+              transition={{ delay: 0.75, duration: 0.2 }}
             >
               <motion.input
                 type="text"
@@ -490,13 +490,13 @@ const Feature1 = () => {
                 className="flex-1 rounded-lg border border-gray-300 bg-gray-100 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
                 initial={{ width: "60%" }}
                 animate={{ width: "100%" }}
-                transition={{ delay: 5.0, duration: 0.6 }}
+                transition={{ delay: 0.8, duration: 0.25 }}
               />
               <motion.button
                 className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--color-primary)] text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2"
                 initial={{ scale: 0, rotate: 180 }}
                 animate={{ scale: 1, rotate: 0 }}
-                transition={{ delay: 5.2, duration: 0.4, type: "spring" }}
+                transition={{ delay: 0.85, duration: 0.2, type: "spring" }}
                 whileHover={{ scale: 1.1, rotate: 10 }}
                 whileTap={{ scale: 0.9 }}
               >

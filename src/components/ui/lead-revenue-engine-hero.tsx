@@ -422,7 +422,7 @@ export function LeadRevenueEngineHero({
                         onScenarioChange(currentScenario);
                     }
 
-                    await new Promise((r) => setTimeout(r, 600));
+                    await new Promise((r) => setTimeout(r, 150));
 
                     for (let i = 0; i < messages.length; i++) {
                         const msg = messages[i];
@@ -443,10 +443,10 @@ export function LeadRevenueEngineHero({
                             });
 
                             await new Promise((r) =>
-                                setTimeout(r, i === 0 ? 1200 : 1500)
+                                setTimeout(r, i === 0 ? 300 : 400)
                             );
                         } else {
-                            await new Promise((r) => setTimeout(r, 800));
+                            await new Promise((r) => setTimeout(r, 200));
                         }
 
                         if (!isActive) return;
@@ -467,9 +467,9 @@ export function LeadRevenueEngineHero({
                             ];
                         });
 
-                        let readTime = 2500;
-                        if (i === 0) readTime = 3000;
-                        if (i === messages.length - 1) readTime = 5000;
+                        let readTime = 600;
+                        if (i === 0) readTime = 800;
+                        if (i === messages.length - 1) readTime = 1200;
 
                         await new Promise((r) => setTimeout(r, readTime));
                         if (!isActive) return;

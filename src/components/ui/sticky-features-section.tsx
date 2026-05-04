@@ -34,7 +34,7 @@ const FEATURES = [
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: false, amount: 0.3 }}
-                        transition={{ delay: i * 0.12, type: "spring", stiffness: 80, damping: 16 }}
+                        transition={{ delay: i * 0.06, type: "spring", stiffness: 120, damping: 16 }}
                         className="flex items-center gap-3 bg-white border border-gray-100 rounded-2xl px-4 py-3 shadow-sm"
                     >
                         <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0"
@@ -82,7 +82,7 @@ const FEATURES = [
                         initial={{ opacity: 0, y: 10, scale: 0.97 }}
                         whileInView={{ opacity: 1, y: 0, scale: 1 }}
                         viewport={{ once: false, amount: 0.3 }}
-                        transition={{ delay: m.delay, type: "spring", stiffness: 90, damping: 18 }}
+                        transition={{ delay: m.delay * 0.5, type: "spring", stiffness: 120, damping: 18 }}
                         className={`flex ${m.role === "ai" ? "justify-end" : "justify-start"}`}>
                         <div className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-xs leading-relaxed shadow-sm ${m.role === "ai"
                             ? "bg-amber-100 text-amber-900 font-medium rounded-tr-sm border border-amber-200"
@@ -115,7 +115,7 @@ const FEATURES = [
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: false, amount: 0.3 }}
-                        transition={{ delay: i * 0.14, type: "spring", stiffness: 80, damping: 16 }}
+                        transition={{ delay: i * 0.06, type: "spring", stiffness: 120, damping: 16 }}
                         className="bg-white border border-violet-100 rounded-xl p-3 shadow-sm">
                         <p className="text-gray-400 text-[10px] uppercase tracking-wider mb-1">{item.q}</p>
                         <div className="flex items-center justify-between">
@@ -127,7 +127,7 @@ const FEATURES = [
                                 initial={{ width: 0 }}
                                 whileInView={{ width: `${item.score}%` }}
                                 viewport={{ once: false, amount: 0.3 }}
-                                transition={{ duration: 0.9, delay: i * 0.14 + 0.3, ease: "easeOut" }}
+                                transition={{ duration: 0.5, delay: i * 0.06 + 0.15, ease: "easeOut" }}
                                 className="h-full rounded-full bg-violet-500"
                             />
                         </div>
@@ -159,7 +159,7 @@ const FEATURES = [
                             initial={{ opacity: 0, scale: 0.8 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: false, amount: 0.3 }}
-                            transition={{ delay: i * 0.06, type: "spring", stiffness: 120 }}
+                            transition={{ delay: i * 0.03, type: "spring", stiffness: 150 }}
                             className={`text-center py-1.5 rounded-lg text-xs font-medium border cursor-pointer hover:bg-emerald-50 ${i === 4 ? "bg-emerald-500 text-white border-emerald-600 hover:bg-emerald-500" : "bg-gray-50 text-gray-600 border-gray-100"
                                 }`}>{slot}</motion.div>
                     ))}
@@ -168,7 +168,7 @@ const FEATURES = [
                     initial={{ opacity: 0, y: 8 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
-                    transition={{ delay: 0.5, type: "spring" }}
+                    transition={{ delay: 0.2, type: "spring" }}
                     className="flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-xl px-3 py-2">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg" alt="Cal" className="w-4 h-4" />
                     <span className="text-emerald-700 text-xs font-semibold">Confirmed · Tue 4, 11:30am</span>
@@ -199,7 +199,7 @@ const FEATURES = [
                         initial={{ opacity: 0, x: -16 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: false, amount: 0.3 }}
-                        transition={{ delay: i * 0.1, type: "spring", stiffness: 80, damping: 16 }}
+                        transition={{ delay: i * 0.05, type: "spring", stiffness: 120, damping: 16 }}
                         className="flex items-center justify-between bg-white border border-sky-100 rounded-xl px-4 py-2.5 shadow-sm">
                         <span className="text-gray-500 text-xs font-medium">{row.label}</span>
                         <div className="flex items-center gap-2">
@@ -234,7 +234,7 @@ function SectionHeader() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.5 }}
-                transition={{ duration: 0.7 }}
+                transition={{ duration: 0.25 }}
                 className="relative z-10 text-center px-6"
             >
                 <p className="text-gray-400 text-xs font-bold uppercase tracking-[0.25em] mb-4">
@@ -299,7 +299,7 @@ export default function StickyFeaturesSection() {
                                     initial={{ opacity: 0, y: -8 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: false, amount: 0.4 }}
-                                    transition={{ duration: 0.4 }}
+                                    transition={{ duration: 0.2 }}
                                     className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 w-fit shadow-sm bg-white"
                                     style={{ color: feature.accent }}
                                 >
@@ -312,7 +312,7 @@ export default function StickyFeaturesSection() {
                                     initial={{ opacity: 0, y: 16 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: false, amount: 0.4 }}
-                                    transition={{ duration: 0.5, delay: 0.05 }}
+                                    transition={{ duration: 0.2, delay: 0.02 }}
                                     className="text-gray-900 font-bold leading-[1.08] tracking-tight mb-4"
                                     style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
                                 >
@@ -326,7 +326,7 @@ export default function StickyFeaturesSection() {
                                     initial={{ opacity: 0, y: 12 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: false, amount: 0.4 }}
-                                    transition={{ duration: 0.5, delay: 0.1 }}
+                                    transition={{ duration: 0.2, delay: 0.04 }}
                                     className="text-gray-600 font-medium text-base leading-relaxed max-w-sm mb-8"
                                 >
                                     {feature.subtitle}
@@ -337,7 +337,7 @@ export default function StickyFeaturesSection() {
                                     initial={{ opacity: 0 }}
                                     whileInView={{ opacity: 1 }}
                                     viewport={{ once: false, amount: 0.4 }}
-                                    transition={{ duration: 0.5, delay: 0.15 }}
+                                    transition={{ duration: 0.2, delay: 0.06 }}
                                     className="flex items-end gap-2 pt-6 border-t border-gray-200/60"
                                 >
                                     <span className="font-black leading-none"

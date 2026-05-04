@@ -13,15 +13,15 @@ interface HeroTextProps {
 
 // No blur — only transform + opacity (GPU-composited, zero jank)
 const wordVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 12 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
       type: "tween" as const,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number], // custom ease-out expo
-      duration: 0.55,
-      delay: 0.25 + i * 0.055,
+      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+      duration: 0.2,
+      delay: i * 0.02,
     },
   }),
 };
@@ -62,7 +62,7 @@ const HeroText = ({ text, className }: HeroTextProps) => {
                   strokeLinecap="round"
                   initial={{ pathLength: 0, opacity: 0 }}
                   animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
+                  transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
                 />
               </svg>
             </motion.span>
@@ -110,7 +110,7 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.8 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 1.2, ease: "easeInOut" }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
               className="absolute inset-0 w-full h-full"
             >
               <video
@@ -144,7 +144,7 @@ export default function HeroSection() {
                     <motion.div
                       initial={{ opacity: 0, y: -12 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.5, delay: 0.1 }}
+                      transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.2, delay: 0 }}
                       className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/20 mb-2"
                     >
                       <span className="relative flex h-2 w-2">
@@ -166,7 +166,7 @@ export default function HeroSection() {
                     <motion.p
                       initial={{ opacity: 0, y: 14 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.55, delay: 0.85 }}
+                      transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.2, delay: 0.1 }}
                       className="text-[1rem] sm:text-[1.125rem] md:text-[1.25rem] text-white/90 font-medium max-w-[500px] leading-[1.4]"
                     >
                       Starvlo unifies your leads from Instagram, WhatsApp, and
@@ -179,7 +179,7 @@ export default function HeroSection() {
                     <motion.div
                       initial={{ opacity: 0, y: 16 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.5, delay: 1.05 }}
+                      transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.2, delay: 0.15 }}
                       className="flex w-full sm:w-auto flex-col sm:flex-row gap-4 mt-6 pt-2"
                     >
                       <motion.a
@@ -199,7 +199,7 @@ export default function HeroSection() {
                     <motion.div
                       initial={{ opacity: 0, y: 12 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.5, delay: 1.25 }}
+                      transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.2, delay: 0.2 }}
                       className="flex items-center gap-4 mt-6 pt-2 w-full"
                     >
                       <div className="flex -space-x-3">
@@ -210,9 +210,9 @@ export default function HeroSection() {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{
                               type: "spring",
-                              visualDuration: 0.3,
+                              visualDuration: 0.15,
                               bounce: 0.3,
-                              delay: 1.3 + i * 0.07,
+                              delay: 0.2 + i * 0.03,
                             }}
                             className="w-8 h-8 rounded-full border-[1.5px] border-white/20 flex items-center justify-center overflow-hidden will-change-transform shadow-sm"
                           >
@@ -223,7 +223,7 @@ export default function HeroSection() {
                       <motion.p
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 0.4, delay: 1.65 }}
+                        transition={{ duration: 0.2, delay: 0.35 }}
                         className="text-sm text-white font-medium drop-shadow-md"
                       >
                         Join 2,000+ businesses closing more deals.
@@ -235,7 +235,7 @@ export default function HeroSection() {
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.7, delay: 0.4 }}
+                    transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.25, delay: 0.05 }}
                     className="relative w-full flex items-center justify-center lg:justify-end xl:pl-10 will-change-transform"
                   >
                     <LeadRevenueEngineHero

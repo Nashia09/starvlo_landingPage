@@ -30,12 +30,12 @@ export const TimelineAnimation = <
       y: 0,
       opacity: 1,
       transition: {
-        delay: i * 0.5,
-        duration: 0.5,
+        delay: i * 0.05,
+        duration: 0.2,
       },
     }),
     hidden: {
-      filter: "blur(20px)",
+      filter: "blur(4px)",
       y: 0,
       opacity: 0,
     },

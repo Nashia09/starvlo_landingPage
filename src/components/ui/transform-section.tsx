@@ -118,12 +118,12 @@ const TopCard = () => {
         }
         // Sequence: 0=idle → 1=lead msg → 2=typing → 3=ai reply1 → 4=typing → 5=ai reply2+calendar → 6=booked
         const timers: ReturnType<typeof setTimeout>[] = [];
-        timers.push(setTimeout(() => setStep(1), 600));
-        timers.push(setTimeout(() => setStep(2), 1800));
-        timers.push(setTimeout(() => setStep(3), 3000));
-        timers.push(setTimeout(() => setStep(4), 4500));
-        timers.push(setTimeout(() => setStep(5), 5800));
-        timers.push(setTimeout(() => setStep(6), 7500));
+        timers.push(setTimeout(() => setStep(1), 150));
+        timers.push(setTimeout(() => setStep(2), 450));
+        timers.push(setTimeout(() => setStep(3), 750));
+        timers.push(setTimeout(() => setStep(4), 1100));
+        timers.push(setTimeout(() => setStep(5), 1400));
+        timers.push(setTimeout(() => setStep(6), 1800));
         return () => timers.forEach(clearTimeout);
     }, [isInView]);
 
@@ -136,7 +136,7 @@ const TopCard = () => {
             <motion.div
                 initial={{ scale: 1.1, opacity: 0 }}
                 animate={isInView ? { scale: 1, opacity: 0.15 } : { scale: 1.1, opacity: 0 }}
-                transition={{ duration: 1.5, ease: "easeOut" }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat mix-blend-overlay blur-[2px]"
                 style={{
                     backgroundImage:
@@ -154,7 +154,7 @@ const TopCard = () => {
                             ? { opacity: 1, y: 0, scale: 1 }
                             : { opacity: 0, y: -20, scale: 0.9 }
                     }
-                    transition={{ delay: 0.5, duration: 0.6, type: "spring", stiffness: 120 }}
+                    transition={{ delay: 0.1, duration: 0.25, type: "spring", stiffness: 150 }}
                     className="absolute -top-4 -right-4 bg-white/95 backdrop-blur-xl rounded-xl p-3 shadow-lg border border-white/30 z-20 flex flex-col items-center"
                 >
                     <span className="text-[10px] text-gray-500 font-bold uppercase tracking-wider mb-1">
@@ -163,8 +163,8 @@ const TopCard = () => {
                     <AnimatedCounter
                         from={0}
                         to={12}
-                        duration={3}
-                        delay={2}
+                        duration={0.8}
+                        delay={0.3}
                         trigger={isInView}
                         className="text-2xl font-black text-gray-900 leading-none"
                     />
@@ -300,7 +300,7 @@ const TopCard = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                    transition={{ duration: 0.7, delay: 0.2 }}
+                    transition={{ duration: 0.25, delay: 0.05 }}
                     className="flex flex-col gap-2"
                 >
                     <h3 className="text-white text-3xl md:text-5xl lg:text-5xl font-medium tracking-tight">
@@ -315,7 +315,7 @@ const TopCard = () => {
                 <motion.p
                     initial={{ opacity: 0, y: 15 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
-                    transition={{ duration: 0.7, delay: 0.4 }}
+                    transition={{ duration: 0.25, delay: 0.1 }}
                     className="text-white/80 text-base md:text-lg lg:text-xl font-medium leading-snug md:leading-relaxed max-w-xl pr-4 mt-2"
                 >
                     Starvlo&apos;s AI sales agent jumps into your Instagram and
@@ -340,17 +340,17 @@ const BottomLeftCard = () => {
         {
             name: "Sarah M.",
             avatar: "https://i.pravatar.cc/150?u=sarah",
-            transitionDelay: 1.5,
+            transitionDelay: 0.4,
         },
         {
             name: "James T.",
             avatar: "https://i.pravatar.cc/150?u=james",
-            transitionDelay: 3.0,
+            transitionDelay: 0.7,
         },
         {
             name: "Alex R.",
             avatar: "https://i.pravatar.cc/150?u=alex",
-            transitionDelay: 4.5,
+            transitionDelay: 1.0,
         },
     ];
 
@@ -404,7 +404,7 @@ const BottomLeftCard = () => {
                     animate={
                         isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 0.95 }
                     }
-                    transition={{ duration: 0.6, delay: 0.3, type: "spring" }}
+                    transition={{ duration: 0.25, delay: 0.05, type: "spring" }}
                     className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-2.5 w-[220px] flex flex-col gap-2 shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
                 >
                     {rows.map((row, i) => (
@@ -415,8 +415,8 @@ const BottomLeftCard = () => {
                                 isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
                             }
                             transition={{
-                                delay: 0.5 + i * 0.15,
-                                duration: 0.5,
+                                delay: 0.1 + i * 0.04,
+                                duration: 0.2,
                                 type: "spring",
                             }}
                             className="flex flex-col gap-0 bg-white rounded-lg shadow-sm relative overflow-hidden"
@@ -564,7 +564,7 @@ const BottomLeftCard = () => {
             <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
+                transition={{ duration: 0.25, delay: 0.1 }}
                 className="relative z-10 w-full text-center flex flex-col items-center gap-1 mt-auto pt-4"
             >
                 <p className="text-white/90 text-[13px] md:text-sm font-medium max-w-[280px]">
@@ -817,11 +817,11 @@ const BottomMiddleCard = () => {
                                     : { x: ch.x * 2.5, y: ch.y * 2.5, opacity: 0, scale: 0.5 }
                             }
                             transition={{
-                                duration: 0.8,
-                                delay: 0.2 + i * 0.1,
+                                duration: 0.3,
+                                delay: 0.05 + i * 0.04,
                                 type: "spring",
-                                stiffness: 80,
-                                damping: 12,
+                                stiffness: 130,
+                                damping: 16,
                             }}
                             style={{
                                 left: "50%",
@@ -894,7 +894,7 @@ const BottomMiddleCard = () => {
             <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
+                transition={{ duration: 0.25, delay: 0.1 }}
                 className="relative z-10 w-full text-center flex flex-col items-center gap-1 mt-auto pt-4"
             >
                 <p className="text-gray-600 text-[13px] md:text-sm font-medium max-w-[280px] whitespace-normal">
@@ -930,7 +930,7 @@ const BottomRightCard = () => {
             setShowROI(false);
             return;
         }
-        const t = setTimeout(() => setShowROI(true), 3500);
+        const t = setTimeout(() => setShowROI(true), 900);
         return () => clearTimeout(t);
     }, [isInView]);
 
@@ -995,7 +995,7 @@ const BottomRightCard = () => {
                             }
                             transition={{
                                 duration: 2.5,
-                                delay: 0.8,
+                                delay: 0.2,
                                 ease: "easeOut",
                             }}
                             style={{
@@ -1018,7 +1018,7 @@ const BottomRightCard = () => {
                                         : { opacity: 0, y: 5 }
                                 }
                                 transition={{
-                                    delay: 0.5 + i * 0.4,
+                                    delay: 0.1 + i * 0.1,
                                     duration: 0.4,
                                 }}
                                 className="text-white font-bold text-xs z-10"
@@ -1026,8 +1026,8 @@ const BottomRightCard = () => {
                                 <AnimatedCounter
                                     from={0}
                                     to={bar.value}
-                                    duration={1.5}
-                                    delay={0.5 + i * 0.4}
+                                    duration={0.5}
+                                    delay={0.1 + i * 0.1}
                                     trigger={isInView}
                                     className="text-white font-bold text-xs"
                                 />
@@ -1043,7 +1043,7 @@ const BottomRightCard = () => {
                                 }
                                 transition={{
                                     duration: 0.8,
-                                    delay: 0.3 + i * 0.35,
+                                    delay: 0.05 + i * 0.08,
                                     type: "spring",
                                     stiffness: 60,
                                     damping: 12,
@@ -1063,7 +1063,7 @@ const BottomRightCard = () => {
                                     }
                                     transition={{
                                         duration: 1.2,
-                                        delay: 1.5 + i * 0.3,
+                                        delay: 0.3 + i * 0.08,
                                         ease: "easeOut",
                                     }}
                                     className="absolute inset-0 bg-gradient-to-t from-transparent via-white/20 to-transparent"
@@ -1083,7 +1083,7 @@ const BottomRightCard = () => {
             <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
+                transition={{ duration: 0.25, delay: 0.1 }}
                 className="relative z-10 w-full text-center flex flex-col items-center gap-1 mt-auto"
             >
                 <p className="text-white/90 text-sm md:text-base font-medium max-w-[280px]">
@@ -1107,7 +1107,7 @@ const containerVariants = {
     visible: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.18,
+            staggerChildren: 0.05,
         },
     },
 };
@@ -1128,7 +1128,7 @@ const itemVariants = {
             type: "spring" as const,
             stiffness: 80,
             damping: 18,
-            duration: 0.7,
+            duration: 0.25,
         },
     },
 };
@@ -1152,7 +1152,7 @@ export default function TransformSection() {
                     <motion.h2
                         initial={{ opacity: 0, y: 25 }}
                         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
-                        transition={{ duration: 0.7, ease: "easeOut" }}
+                        transition={{ duration: 0.25, ease: "easeOut" }}
                         className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] font-medium text-[#222222] tracking-tight mb-6"
                     >
                         Built for brands who
@@ -1163,8 +1163,8 @@ export default function TransformSection() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                         transition={{
-                            duration: 0.7,
-                            delay: 0.15,
+                            duration: 0.25,
+                            delay: 0.03,
                             ease: "easeOut",
                         }}
                         className="text-lg md:text-xl text-[#666666] font-medium"
