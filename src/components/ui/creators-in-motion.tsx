@@ -39,6 +39,14 @@ const businesses = [
         store: "https://app.starvlo.com/store/lucy",
         storeLabel: "starvlo.com/store/lucy",
         role: "Content Strategist",
+    },
+    {
+        name: "Aura Gifts",
+        handle: "@auragiftsng",
+        image: "/assets/creators/auragiftsng.jpeg",
+        store: "https://app.starvlo.com/store/auragiftsng",
+        storeLabel: "starvlo.com/store/auragiftsng",
+        role: "Gifting Store",
     }
 ];
 
@@ -133,10 +141,11 @@ export default function CreatorsInMotion() {
                     {/* LAYER 2 (Outer Ring) */}
                     <motion.div
                         style={{ opacity: layer2Opacity, scale: layer2Scale }}
-                        className="absolute inset-0 grid grid-cols-3 md:grid-cols-5 grid-rows-3 gap-2 sm:gap-4 md:gap-6 w-full h-full z-10"
+                        className="absolute inset-0 grid grid-cols-3 md:grid-cols-5 grid-rows-3 gap-2 sm:gap-4 md:gap-6 w-full h-full z-10 pointer-events-none"
                     >
                         {/* Only Lucy in outer ring */}
-                        <div className="col-start-1 md:col-start-1 row-start-3 relative"><CreatorCard creator={businesses[3]} /></div>
+                        <div className="col-start-1 md:col-start-1 row-start-3 relative pointer-events-auto"><CreatorCard creator={businesses[3]} /></div>
+                        <div className="col-start-3 md:col-start-5 row-start-1 relative pointer-events-auto"><CreatorCard creator={businesses[4]} /></div>
                     </motion.div>
 
                     {/* LAYER 1 (Inner Ring) */}
